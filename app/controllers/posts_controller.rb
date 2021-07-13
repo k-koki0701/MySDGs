@@ -5,10 +5,11 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new(post_params)
+    @post = Post.new
   end
 
   def ceate
+    @post = Post.new(post_params)
     if @post.save
       redirect_to posts_path, notice: "投稿しました！"
     else
