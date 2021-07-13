@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = Post.new(post_params)
   end
 
   def ceate
@@ -14,6 +14,12 @@ class PostsController < ApplicationController
     else
       render :new
     end
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:content, :user_id)
   end
 
 end
