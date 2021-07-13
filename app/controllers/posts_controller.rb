@@ -8,5 +8,12 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def ceate
+    if @post.save
+      redirect_to posts_path, notice: "投稿しました！"
+    else
+      render :new
+    end
+  end
 
 end
