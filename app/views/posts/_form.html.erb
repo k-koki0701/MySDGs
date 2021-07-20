@@ -13,6 +13,10 @@
     <%= form.label :content %>
     <%= form.text_field :content %>
   </div>
+    <%= form.fields_for :pictures, @post.pictures.build do | picture | %>
+      <%= picture.file_field :image ,multiple: true%>
+      <%= picture.hidden_field :image_cache %>
+    <% end %>
   <%= form.submit %>
 <% end %>
 
