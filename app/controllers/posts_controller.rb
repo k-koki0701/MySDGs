@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_action :set_post, only: %i[show edit update]
+  before_action :set_post, only: %i[show edit update destroy]
 
 
   def index
@@ -36,6 +36,11 @@ class PostsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @post.destroy
+    redirect_to posts_path, notice:"削除しました！"
   end
 
   private
