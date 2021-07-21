@@ -4,11 +4,12 @@ class PostsController < ApplicationController
 
 
   def index
-    @posts = Post.all
+    @posts = Post.includes(:pictures).all
   end
 
   def new
     @post = Post.new
+    5.times{@post.pictures.build}
   end
 
   def create
@@ -43,7 +44,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:content,pictures_attributes: [:id, :image, :image_cache])
+    params.require(:post).permit(:content, pictures_attributes: {image: []} )
   end
 
   def set_post
