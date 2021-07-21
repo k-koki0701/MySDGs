@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
 
   def index
-    @posts = Post.includes(:pictures).all
+    @posts = Post.all.order("id DESC")
   end
 
   def new
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:content, pictures_attributes: {image: []} )
+    params.require(:post).permit(:content, pictures_attributes: [{image: []},:image_cache])
   end
 
   def set_post
