@@ -1,9 +1,7 @@
 <h1>投稿詳細画面</h1>
 <% unless @post.pictures.nil? %>
-<% @post.pictures.each do |post| %>
-  <% n = 0 %>
-  <%= image_tag post.image[n].url, size: "400x500" %>
-  <% n + 1 %>
+<% @post.pictures.each_with_index do |post| %>
+  <%= image_tag post.image.url, size: "200x300" %>
 <% end %>
 <% end %>
 <p>内容: <%= @post.content %></p>

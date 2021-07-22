@@ -44,7 +44,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:content, pictures_attributes: [{image: []},:image_cache])
+    params.require(:post).permit(:content, pictures_attributes: [:id, :image,:image_cache])
   end
 
   def set_post
