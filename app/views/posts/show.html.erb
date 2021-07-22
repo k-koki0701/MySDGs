@@ -1,4 +1,11 @@
 <h1>投稿詳細画面</h1>
+<% @post.pictures.each_with_index do |picture| %>
+  <% if picture[:image] != nil %>
+    <%= image_tag picture.image.url, size: "200x300" %>
+  <% else %>
+    <%= image_tag 'default.png' %>
+  <% end %>
+<% end %>
 <p>内容: <%= @post.content %></p>
 <td><%= link_to "編集する", edit_post_path(@post.id) %></td>
 <%= link_to '削除する', post_path(@post.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>

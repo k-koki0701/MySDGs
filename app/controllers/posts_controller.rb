@@ -4,11 +4,12 @@ class PostsController < ApplicationController
 
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order("id DESC")
   end
 
   def new
     @post = Post.new
+    5.times{@post.pictures.build}
   end
 
   def create
@@ -22,15 +23,12 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to posts_path, notice: "編集しました！"
     else
@@ -46,7 +44,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:content)
+    params.require(:post).permit(:content, pictures_attributes: [:id, :image,:image_cache,:remove_image])
   end
 
   def set_post

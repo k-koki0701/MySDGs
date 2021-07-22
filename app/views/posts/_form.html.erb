@@ -13,6 +13,22 @@
     <%= form.label :content %>
     <%= form.text_field :content %>
   </div>
+  <% @post.pictures.each_with_index do |picture| %>
+    <% if picture[:image] != nil %>
+      <%= image_tag picture.image.url, size: "200x300" %>
+    <% else %>
+      <%= image_tag 'default.png' %>
+    <% end %>
+  <% end %>
+  <div class="field">
+  <%= form.fields_for :pictures do |a| %>
+    <%= a.label :image %><br>
+    <%= a.file_field :image %>
+    <%= a.hidden_field :image_cache %>
+    <p><%= a.check_box :remove_image %>画像を削除する</p>
+  <% end %>
+</div>
+
   <%= form.submit %>
 <% end %>
 
