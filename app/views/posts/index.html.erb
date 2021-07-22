@@ -5,6 +5,9 @@
   </tr>
 <% @posts.each do |post| %>
   <tr>
+    <td>名前：<%=link_to post.user.name, user_path(post.user.id) %></td>
+  </tr>
+  <tr>
   <% post.pictures.each_with_index do |picture| %>
     <% if picture[:image] != nil %>
       <%= image_tag picture.image.url, size: "200x300" %>
