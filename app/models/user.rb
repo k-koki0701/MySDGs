@@ -6,7 +6,13 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
+  def follow!(other_user)
+    active_relationships.create!(followed_id: other_user.id)
+  end
 
+  def following?(other_user)
+    active_relationships.find_by(followed_id: other_user.id)
+  end
 
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
