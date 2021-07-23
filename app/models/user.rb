@@ -14,6 +14,10 @@ class User < ApplicationRecord
     active_relationships.find_by(followed_id: other_user.id)
   end
 
+  def unfollow!(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.name = "ゲスト"
