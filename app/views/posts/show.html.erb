@@ -7,5 +7,13 @@
   <% end %>
 <% end %>
 <p>内容: <%= @post.content %></p>
+<p>お気に入り数:<%= @post.goods.count %></p>
+<% unless @post.user_id == current_user.id %>
+  <% if @good.present? %>
+    <%= link_to 'いいねを解除する', good_path(id: @good.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to 'いいねする', goods_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
 <td><%= link_to "編集する", edit_post_path(@post.id) %></td>
 <%= link_to '削除する', post_path(@post.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>

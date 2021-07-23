@@ -23,6 +23,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @good = current_user.goods.find_by(post_id: @post.id)
   end
 
   def edit
