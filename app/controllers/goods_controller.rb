@@ -1,4 +1,9 @@
 class GoodsController < ApplicationController
+
+  def index
+    @goods = current_user.goods.all
+  end
+
   def create
     good = current_user.goods.create(post_id: params[:post_id])
     redirect_to posts_path
