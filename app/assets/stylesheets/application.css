@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+
+ swiper-container {
+  width: 200px;
+  height: 350px;
+  background-color: rgba(0,0,0,0.8);
+
+  .swiper-wrapper {
+
+    .swiper-slider {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 350px;
+      width: 200px;
+      border-radius: 50%;
+    }
+
+    .swiper-slider:not(.swiper-slider-active) {
+      transform: scale(0.5);
+      opacity: 0.3;
+    }
+  }
+  img {
+    width: 200px;
+    height: 300px;
+  }
+}
