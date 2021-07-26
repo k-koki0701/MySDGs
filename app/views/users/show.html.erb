@@ -7,4 +7,6 @@
 <%= link_to 'ユーザー一覧', users_path %>
 <% if @user.id == current_user.id %>
   <%= link_to '編集', edit_user_registration_path %>
+<% else %>
+  <%= render 'follow_form', user: @user %>
 <% end %>
