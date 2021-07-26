@@ -1,13 +1,34 @@
 <h1>投稿詳細画面</h1>
-<% @post.pictures.each_with_index do |picture| %>
-  <% if picture[:image] != nil %>
-    <%= image_tag picture.image.url, size: "200x300" %>
-  <% else %>
-    <%= image_tag 'default.png' %>
-  <% end %>
-<% end %>
-<p>内容: <%= @post.content %></p>
-<p>お気に入り数:<%= @post.goods.count %></p>
+<table>
+  <tr>
+    <td><%=link_to @post.user.name, user_path(@post.user.id) %></td>
+  </tr>
+  <tr>
+  <td>
+  <div class="swiper-container">
+    <div class= "swiper-wrapper img-index">
+      <% @post.pictures.each do |picture| %>
+        <% if picture[:image] != nil %>
+          <%= image_tag picture.image.url,  size: "200x300", class: "swiper-slide index-img" %>
+        <% else %>
+          <%= image_tag 'default.png' %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="swiper-button-prev swiper-button-white"></div>
+    <div class="swiper-button-next swiper-button-white"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+  </td>
+  </tr>
+  <tr>
+    <td>いいね数:<%= @post.goods.count %></td>
+  </tr>
+  <tr>
+    <td><%= @post.content %></td>
+  </tr>
+</table>
+
 <% unless @post.user_id == current_user.id %>
   <% if @good.present? %>
     <%= link_to 'いいねを解除する', good_path(id: @good.id), method: :delete, class: 'btn btn-danger' %>
