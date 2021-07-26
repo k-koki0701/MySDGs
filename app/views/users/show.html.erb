@@ -4,20 +4,7 @@
 <p>プロフィール : <%= @user.self_introduction %></p>
 
 <%= link_to 'いいね一覧', goods_path %>
-
-<div id="follow_form_<%= user.id %>">
-  <% unless current_user.following?(user) %>
-    <%= form_with(model: current_user.active_relationships.build(followed_id: user.id)) do |f| %>
-      <%= f.hidden_field :followed_id %>
-      <%= f.submit "フォロー" %>
-    <% end %>
-  <% else %>
-    <%= form_with(model: current_user.active_relationships.find_by(followed_id: user.id), method: :delete ) do |f| %>
-      <%= f.submit "つながりを解除" %>
-    <% end %>
-  <% end %>
-</div>
-
+<%= link_to 'ユーザー一覧', users_path %>
 <% if @user.id == current_user.id %>
   <%= link_to '編集', edit_user_registration_path %>
 <% end %>
