@@ -25,6 +25,10 @@ class User < ApplicationRecord
     end
   end
 
+  def already_liked?(post)
+    self.goods.exists?(post_id: post.id)
+  end
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
 end
