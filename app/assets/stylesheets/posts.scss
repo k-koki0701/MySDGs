@@ -3,6 +3,8 @@
   height: 400px;
   width: 350px;
   font-size: 0;
+	margin-left: 40px;
+  margin-right: auto;
 }
 .swiper-button-prev,
 .swiper-button-next {
@@ -24,11 +26,20 @@
 		content: "";
 }
 .post_frame {
-	padding: 0.5em 1em;
-    margin: 2em 0;
+	  padding: 0.5em 1em;
+	  margin: 3px auto;
     color: #5989cf;
     background: #fff;
 		border: solid 3px #000;
     border-bottom: solid 6px #000;
     border-radius: 10px;
+
+}
+.post_content {
+	border: solid 3px #000;
+}
+.post_user_name {
+	font-family: serif;
+	text-decoration: none;
+	color: #000;
 }
