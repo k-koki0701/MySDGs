@@ -1,4 +1,4 @@
-<table>
+<table class="post_frame">
 <% @posts.each do |post| %>
   <tr>
     <td><%=link_to post.user.name, user_path(post.user.id) %></td>
