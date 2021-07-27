@@ -12,9 +12,7 @@
     <div class= "swiper-wrapper img-index">
       <% post.pictures.each do |picture| %>
         <% if picture[:image] != nil %>
-          <%= image_tag picture.image.url,  size: "200x300", class: "swiper-slide index-img" %>
-        <% else %>
-          <%= image_tag 'default.png' %>
+          <%= image_tag picture.image.url, class: "swiper-slide index-img" %>
         <% end %>
       <% end %>
     </div>
