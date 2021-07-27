@@ -1,7 +1,10 @@
 .swiper-container {
+	border: solid 3px #000;
   height: 400px;
   width: 350px;
   font-size: 0;
+	margin-left: 40px;
+  margin-right: auto;
 }
 .swiper-button-prev,
 .swiper-button-next {
@@ -21,4 +24,20 @@
 }
 .swiper-button-next::after {
 		content: "";
+}
+.post_frame {
+	  padding: 0.5em 1em;
+	  margin: 3px auto;
+    background: #fff;
+		border: solid 3px #000;
+    border-bottom: solid 6px #000;
+    border-radius: 10px;
+}
+.post_content {
+	border: solid 3px #000;
+}
+.post_user_name {
+	font-family: serif;
+	text-decoration: none;
+	color: #000;
 }

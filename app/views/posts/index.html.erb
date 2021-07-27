@@ -1,8 +1,10 @@
-<h1>ブログ一覧</h1>
-<table>
 <% @posts.each do |post| %>
+  <table class="post_frame">
   <tr>
-    <td><%=link_to post.user.name, user_path(post.user.id) %></td>
+    <td><%=link_to post.user.name, user_path(post.user.id), class: "post_user_name" %></td>
+  </tr>
+  <tr>
+    <td>カテゴリー：</td>
   </tr>
   <tr>
   <td>
@@ -10,9 +12,7 @@
     <div class= "swiper-wrapper img-index">
       <% post.pictures.each do |picture| %>
         <% if picture[:image] != nil %>
-          <%= image_tag picture.image.url,  size: "200x300", class: "swiper-slide index-img" %>
-        <% else %>
-          <%= image_tag 'default.png' %>
+          <%= image_tag picture.image.url, class: "swiper-slide index-img" %>
         <% end %>
       <% end %>
     </div>
@@ -23,11 +23,20 @@
   </td>
   </tr>
   <tr>
-    <td><%= post.content %></td>
-  </tr>
+    <% unless post.user_id == current_user.id %>
+      <% if current_user.already_liked?(post) %>
+        <td><%= link_to 'いいねを解除する', good_path(id: post.id, post_id: post.id), method: :delete %></td>
+      <% else %>
+        <td><%= link_to 'いいねする', goods_path(id: post.id, post_id: post.id), method: :post %></td>
+      <% end %>
+    <% end %>
     <td><%= link_to '詳細', post_path(post.id) %></td>
-
+  </tr>
+  <tr>
+    <td class="post_content"><%= post.content %></td>
+  </tr>
+  </table>
 <% end %>
-</table>
+
 
 <%= link_to '新しく投稿する', new_post_path %>
