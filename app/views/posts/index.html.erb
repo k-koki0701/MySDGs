@@ -25,16 +25,19 @@
   </td>
   </tr>
   <tr>
+    <% unless post.user_id == current_user.id %>
+      <% if current_user.already_liked?(post) %>
+        <td><%= link_to 'いいねを解除する', good_path(id: post.id, post_id: post.id), method: :delete %></td>
+      <% else %>
+        <td><%= link_to 'いいねする', goods_path(id: post.id, post_id: post.id), method: :post %></td>
+      <% end %>
+    <% end %>
+    <td><%= link_to '詳細', post_path(post.id) %></td>
+  </tr>
+  <tr>
     <td><%= post.content %></td>
   </tr>
-  <% unless post.user_id == current_user.id %>
-    <% if current_user.already_liked?(post) %>
-      <td><%= link_to 'いいねを解除する', good_path(id: post.id, post_id: post.id), method: :delete %></td>
-    <% else %>
-      <td><%= link_to 'いいねする', goods_path(id: post.id, post_id: post.id), method: :post %></td>
-    <% end %>
-  <% end %>
-  <td><%= link_to '詳細', post_path(post.id) %></td>
+
 <% end %>
 </table>
 
