@@ -1,5 +1,5 @@
-<table class="post_frame">
 <% @posts.each do |post| %>
+  <table class="post_frame">
   <tr>
     <td><%=link_to post.user.name, user_path(post.user.id), class: "post_user_name" %></td>
   </tr>
@@ -37,8 +37,8 @@
   <tr>
     <td class="post_content"><%= post.content %></td>
   </tr>
-
+  </table>
 <% end %>
-</table>
+
 
 <%= link_to '新しく投稿する', new_post_path %>
