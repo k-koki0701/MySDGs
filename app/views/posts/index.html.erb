@@ -1,6 +1,7 @@
 <% @posts.each do |post| %>
   <table class="post_frame">
   <tr>
+    <td><img src=<%= post.user.icon%> class = "icon_image"></td>
     <td><%=link_to post.user.name, user_path(post.user.id), class: "post_user_name" %></td>
   </tr>
   <tr>
