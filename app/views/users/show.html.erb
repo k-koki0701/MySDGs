@@ -1,4 +1,8 @@
-<img src=<%= @user.icon%> class = "profile_icon_image">
+<% if @user.icon? %>
+  <img src=<%= @user.icon%> class = "profile_icon_image">
+<% else %>
+  <img src="/assets/default.png" class="profile_icon_image"%>
+<% end %>
 <p class="profile_user_name"><%= @user.name %></p>
 <p>プロフィール : <%= @user.self_introduction %></p>
 
