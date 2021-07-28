@@ -1,8 +1,12 @@
 <% @posts.each do |post| %>
   <table class="post_frame">
   <tr>
-    <td><img src=<%= post.user.icon%> class = "icon_image"></td>
-    <td><%=link_to post.user.name, user_path(post.user.id), class: "post_user_name" %></td>
+  <% if post.user.icon? %>
+    <td><img src=<%= post.user.icon%> class = "icon_image">
+  <% else %>
+    <td><img src="/assets/default.png" class="icon_image"%>
+  <% end %>
+    <%=link_to post.user.name, user_path(post.user.id), class: "post_user_name" %></td>
   </tr>
   <tr>
     <td>カテゴリー：</td>
