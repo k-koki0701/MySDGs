@@ -1,3 +1,29 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+textarea {
+  margin: auto;
+  width: 400px;
+  height: 150px;
+  color: black;
+  border: solid 1px rgb(150, 150, 150);
+  border-radius: 5px;
+  padding: 10px;
+}
+.profile_icon_image {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  object-fit: cover;
+  border-color: black;
+}
+.icon_image {
+  width: 35px;
+  height: 35px;
+  border-radius: 100px;
+  object-fit: cover;
+  border-color: black;
+}
+.profile_user_name {
+  font-family: serif;
+	font-size: 25px;
+	color: #000;
+	position: relative;
+}

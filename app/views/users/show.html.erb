@@ -1,6 +1,9 @@
-<h1>Users</h1>
-<p>名前 : <%= @user.name %></p>
-<p>メールアドレス : <%= @user.email %></p>
+<% if @user.icon? %>
+  <img src=<%= @user.icon%> class = "profile_icon_image">
+<% else %>
+  <img src="/assets/default.png" class="profile_icon_image"%>
+<% end %>
+<p class="profile_user_name"><%= @user.name %></p>
 <p>プロフィール : <%= @user.self_introduction %></p>
 
 <%= link_to 'いいね一覧', goods_path %>
