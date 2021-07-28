@@ -1,5 +1,5 @@
 <img src=<%= @user.icon%> class = "profile_icon_image">
-<p>名前 : <%= @user.name %></p>
+<p class="profile_user_name"><%= @user.name %></p>
 <p>プロフィール : <%= @user.self_introduction %></p>
 
 <%= link_to 'いいね一覧', goods_path %>

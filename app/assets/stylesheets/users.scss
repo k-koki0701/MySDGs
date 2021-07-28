@@ -8,8 +8,8 @@ textarea {
   padding: 10px;
 }
 .profile_icon_image {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   border-radius: 100px;
   object-fit: cover;
   border-color: black;
@@ -20,4 +20,10 @@ textarea {
   border-radius: 100px;
   object-fit: cover;
   border-color: black;
+}
+.profile_user_name {
+  font-family: serif;
+	font-size: 25px;
+	color: #000;
+	position: relative;
 }
