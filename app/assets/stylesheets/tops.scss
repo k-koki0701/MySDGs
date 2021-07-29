@@ -1,3 +1,154 @@
-// Place all the styles related to the Tops controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.home-page {
+  background-image: url("/assets/green.jpeg");
+  background-size: auto;
+  height: 850px;
+  opacity:.80;
+}
+
+h1 {
+  font-family: 'Comfortaa', cursive;
+  font-size: 45px;
+  padding-top: 150px;
+  text-align: center;
+  font-weight:bolder;
+}
+
+.about-page p {
+  font-family: 'Comfortaa', cursive;
+  font-size: 25px;
+}
+
+.about-page {
+  height: 555px;
+  padding-top:50px;
+  padding-bottom:50px;
+}
+
+.about-page h2 {
+  font-family: 'Comfortaa', cursive;
+  text-align: left;
+  /*margin-left: 22px;*/
+  font-weight: lighter;
+}
+
+.about-page img {
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-page hr {
+  display: block;
+  border: 0;
+  border-top: 1px solid #C8C8C8;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.para {
+  text-align: center;
+  font-weight:lighter;
+  font-family: 'Comfortaa', cursive;
+  font-size: 18px;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #C8C8C8;
+  margin: 1em 0;
+  padding: 0;
+  margin-left: 58px;
+  margin-right: 58px;
+}
+.portfolio .heading
+{
+  margin-top:10px;
+  font-weight:lighter;
+  text-align:center;
+  padding-top:20px;
+  font-family: 'Comfortaa', cursive;
+}
+#portfolio-container
+{
+  padding-top:40px;
+}
+
+.portfolio-section p
+{
+  font-family: 'Comfortaa', cursive;
+}
+.portfolio-section h3
+{
+  font-family: 'Comfortaa', cursive;
+}
+
+.social {
+  width: 250px;
+  margin: 0 auto;
+}
+
+.social ul {
+  margin: 0;
+  padding: 15px;
+}
+
+.social ul li {
+  margin: 20px;
+  list-style: none outside none;
+  display: inline-block;
+}
+
+footer {
+    padding: 50px 0;
+    background: white;
+    font-size:20px;
+    text-align:center;
+    font-family: 'Comfortaa', cursive;
+}
+
+p.copyright {
+    margin: 5px 0 0;
+}
+
+.btn{
+  background: none;
+  border: 5px solid #fff;
+  font-family: "montserrat", sans-serif;
+  font-size: large;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  min-width: 200px;
+  margin: 10px;
+  cursor: pointer;
+  transition: color 0.4s linear;
+  position: relative;
+  color: #fff;
+}
+
+.btn:hover{
+  color: #000
+}
+
+.btn::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: -1;
+  transition: transform 0.5s;
+  transform-origin: 0 0;
+  transition-timing-function: cubic-bezier(0.5,1.6,0.4,0.7);
+
+}
+
+.btn1::before{
+  transform: scaleX(0);
+}
+.btn1:hover::before{
+  transform: scaleX(1);
+}
