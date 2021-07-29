@@ -20,3 +20,7 @@ Rails.application.config.assets.precompile += %w(
     tops.scss
     user.scss
  )
+
+ Rails.application.config.assets.precompile += %w(
+    *.js
+ )
