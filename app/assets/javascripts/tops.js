@@ -8,3 +8,12 @@ $("#PortfolioButton").click(function() {
       scrollTop: $(".portfolio").offset().top},
       'slow');
 })
+const swiper = new Swiper('.swiper-container', {
+  direction: 'vertical',
+  mousewheel: {},
+  effect: 'cube',
+  keyboard: {
+    enabled: true,
+    onlyInViewport: false
+  }
+});

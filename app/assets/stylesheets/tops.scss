@@ -152,3 +152,210 @@ p.copyright {
 .btn1:hover::before{
   transform: scaleX(1);
 }
+
+.swiper-container {
+  width: 100%;
+  height: 80%;
+}
+.swiper-slide {
+  text-align: center;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-general {
+  padding: 75px 0;
+  margin: 0 auto;
+  width: 800px;
+  .gallery-wrap {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 60vh;
+    .item {
+      flex: 1;
+      height: 100%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: none;
+      transition: all 0.8s ease;
+      &:hover {
+        flex: 7;
+      }
+    }
+  }
+}
+
+// Image Accordions Effect 1
+.wrap-effect-1 {
+  .item {
+    &:first-of-type {
+      background-image: url('/assets/nature.webp');
+      border-radius: 20px;
+    }
+    &:nth-of-type(2) {
+      background-image: url('/assets/poverty.jpg');
+      border-radius: 20px;
+    }
+    &:nth-of-type(3) {
+      background-image: url('/assets/gender.jpg');
+      border-radius: 20px;
+    }
+    &:nth-of-type(4) {
+      background-image: url('/assets/health.webp');
+      border-radius: 20px;
+    }
+    &:last-of-type {
+      background-image: url('/assets/lamp.jpg');
+      border-radius: 20px;
+    }
+  }
+}
+
+// Image Accordions Effect 2
+.wrap-effect-2 {
+  .item {
+    &:hover {
+      transform: translate3d(0, 0, 100px);
+      box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+      filter: saturate(2) contrast(120%);
+    }
+    &:first-of-type {
+      background-image: url('/assets/nature.webp');
+    }
+    &:nth-of-type(2) {
+      background-image: url('/assets/poverty.jpg');
+    }
+    &:nth-of-type(3) {
+      background-image: url('/assets/gender.jpg');
+    }
+    &:nth-of-type(4) {
+      background-image: url('/assets/health.webp');
+    }
+    &:last-of-type {
+      background-image: url('/assets/lamp.jpg');
+    }
+  }
+}
+
+// Image Accordions Effect 3
+.wrap-effect-3 {
+  .item {
+    &:hover {
+      animation: rotate 0.7s ease-in-out both;
+      border-radius: 10px;
+      border: 1px solid gray;
+    }
+    &:first-of-type {
+      background-image: url('/assets/nature.webp');
+    }
+    &:nth-of-type(2) {
+      background-image: url('/assets/poverty.jpg');
+    }
+    &:nth-of-type(3) {
+      background-image: url('/assets/gender.jpg');
+    }
+    &:nth-of-type(4) {
+      background-image: url('/assets/health.webp');
+    }
+    &:last-of-type {
+      background-image: url('/assets/lamp.jpg');
+    }
+  }
+}
+
+// Image Accordions Effect 4
+.wrap-effect-4 {
+  .item {
+    &:hover {
+      box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+      filter: saturate(2) contrast(120%);
+    }
+    &:first-of-type {
+      background-image: url('/assets/nature.webp');
+    }
+    &:nth-of-type(2) {
+      background-image: url('/assets/poverty.jpg');
+    }
+    &:nth-of-type(3) {
+      background-image: url('/assets/gender.jpg');
+    }
+    &:nth-of-type(4) {
+      background-image: url('/assets/health.webp');
+    }
+    &:last-of-type {
+      background-image: url('/assets/lamp.jpg');
+    }
+  }
+}
+
+.inspire {
+  border: 1px solid rgba(22, 76, 167, 0.6);
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  text-decoration:none;
+  margin: 10px;
+  padding: 10px;
+  &:after {
+    background: #38ef7d;
+    content: "";
+    height: 155px;
+    left: -75px;
+    opacity: .4;
+    position: absolute;
+    top: -50px;
+    transform: rotate(35deg);
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    width: 50px;
+    z-index: -10;
+  }
+  &:hover {
+    &:after {
+      left: 120%;
+      transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+  25% {
+    transform: rotate(10deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(-10deg) translate3d(0, 0, 0);
+  }
+  75% {
+    transform: rotate(5deg) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0)
+  }
+}
+
+.font-effect-3d {
+  font-family: 'Comfortaa', cursive;
+  font-size:5rem;
+  text-align:center;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:80px;
+  color:rgb(0,0,0);
+  width: 300px;
+  border-bottom: 1px solid #C8C8C8;
+}
+
+.sgds-font {
+  font-family: "Hiragino Sans","ヒラギノ角ゴシック";
+  font-weight: 900;
+  color: #fff;
+  position: relative;
+  top: 380px;
+}
