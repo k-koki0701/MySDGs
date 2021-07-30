@@ -24,6 +24,8 @@ class PostsController < ApplicationController
 
   def show
     @good = current_user.goods.find_by(post_id: @post.id)
+    @comments = @post.comments
+    @comment = Comment.new
   end
 
   def edit
