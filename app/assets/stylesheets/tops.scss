@@ -1,3 +1,363 @@
-// Place all the styles related to the Tops controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.home-page {
+  background-image: url("/assets/green.jpeg");
+  background-size: auto;
+  height: 850px;
+  opacity:.80;
+}
+
+h1 {
+  font-family: 'Comfortaa', cursive;
+  font-size: 45px;
+  padding-top: 150px;
+  text-align: center;
+  font-weight:bolder;
+}
+
+.about-page p {
+  font-family: 'Comfortaa', cursive;
+  font-size: 25px;
+}
+
+.about-page {
+  height: 555px;
+  padding-top:50px;
+  padding-bottom:50px;
+}
+
+.about-page h2 {
+  font-family: 'Comfortaa', cursive;
+  text-align: left;
+  /*margin-left: 22px;*/
+  font-weight: lighter;
+}
+
+.about-page img {
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-page hr {
+  display: block;
+  border: 0;
+  border-top: 1px solid #C8C8C8;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.para {
+  text-align: center;
+  font-weight:lighter;
+  font-family: 'Comfortaa', cursive;
+  font-size: 18px;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #C8C8C8;
+  margin: 1em 0;
+  padding: 0;
+  margin-left: 58px;
+  margin-right: 58px;
+}
+.portfolio .heading
+{
+  margin-top:10px;
+  font-weight:lighter;
+  text-align:center;
+  padding-top:20px;
+  font-family: 'Comfortaa', cursive;
+}
+#portfolio-container
+{
+  padding-top:40px;
+}
+
+.portfolio-section p
+{
+  font-family: 'Comfortaa', cursive;
+}
+.portfolio-section h3
+{
+  font-family: 'Comfortaa', cursive;
+}
+
+.social {
+  width: 250px;
+  margin: 0 auto;
+}
+
+.social ul {
+  margin: 0;
+  padding: 15px;
+}
+
+.social ul li {
+  margin: 20px;
+  list-style: none outside none;
+  display: inline-block;
+}
+
+footer {
+    padding: 50px 0;
+    background: white;
+    font-size:20px;
+    text-align:center;
+    font-family: 'Comfortaa', cursive;
+}
+
+p.copyright {
+    margin: 5px 0 0;
+}
+
+.btn{
+  background: none;
+  border: 5px solid #fff;
+  font-family: "montserrat", sans-serif;
+  font-size: large;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  min-width: 200px;
+  margin: 10px;
+  cursor: pointer;
+  transition: color 0.4s linear;
+  position: relative;
+  color: #fff;
+}
+
+.btn:hover{
+  color: #000
+}
+
+.btn::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: -1;
+  transition: transform 0.5s;
+  transform-origin: 0 0;
+  transition-timing-function: cubic-bezier(0.5,1.6,0.4,0.7);
+
+}
+
+.btn1::before{
+  transform: scaleX(0);
+}
+.btn1:hover::before{
+  transform: scaleX(1);
+}
+
+.swiper-container {
+  width: 100%;
+  height: 60%;
+}
+.swiper-slide {
+  text-align: center;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-general {
+  padding: 55px 0;
+  margin: 0 auto;
+  width: 800px;
+  .gallery-wrap {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 60vh;
+    .item {
+      flex: 1;
+      height: 100%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: none;
+      transition: all 0.8s ease;
+      &:hover {
+        flex: 7;
+      }
+    }
+  }
+}
+
+// Image Accordions Effect 1
+.wrap-effect-1 {
+  .item {
+    &:first-of-type {
+      background-image: url('/assets/nature.webp');
+      border-radius: 20px;
+    }
+    &:nth-of-type(2) {
+      background-image: url('/assets/poverty.jpg');
+      border-radius: 20px;
+    }
+    &:nth-of-type(3) {
+      background-image: url('/assets/gender.jpg');
+      border-radius: 20px;
+    }
+    &:nth-of-type(4) {
+      background-image: url('/assets/health.webp');
+      border-radius: 20px;
+    }
+    &:last-of-type {
+      background-image: url('/assets/lamp.jpg');
+      border-radius: 20px;
+    }
+  }
+}
+
+// Image Accordions Effect 2
+.wrap-effect-2 {
+  .item {
+    &:hover {
+      transform: translate3d(0, 0, 100px);
+      box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+      filter: saturate(2) contrast(120%);
+    }
+    &:first-of-type {
+      background-image: url('/assets/nature.webp');
+    }
+    &:nth-of-type(2) {
+      background-image: url('/assets/poverty.jpg');
+    }
+    &:nth-of-type(3) {
+      background-image: url('/assets/gender.jpg');
+    }
+    &:nth-of-type(4) {
+      background-image: url('/assets/health.webp');
+    }
+    &:last-of-type {
+      background-image: url('/assets/lamp.jpg');
+    }
+  }
+}
+
+// Image Accordions Effect 3
+.wrap-effect-3 {
+  .item {
+    &:hover {
+      animation: rotate 0.7s ease-in-out both;
+      border-radius: 10px;
+      border: 1px solid gray;
+    }
+    &:first-of-type {
+      background-image: url('/assets/nature.webp');
+    }
+    &:nth-of-type(2) {
+      background-image: url('/assets/poverty.jpg');
+    }
+    &:nth-of-type(3) {
+      background-image: url('/assets/gender.jpg');
+    }
+    &:nth-of-type(4) {
+      background-image: url('/assets/health.webp');
+    }
+    &:last-of-type {
+      background-image: url('/assets/lamp.jpg');
+    }
+  }
+}
+
+// Image Accordions Effect 4
+.wrap-effect-4 {
+  .item {
+    &:hover {
+      box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+      filter: saturate(2) contrast(120%);
+    }
+    &:first-of-type {
+      background-image: url('/assets/nature.webp');
+    }
+    &:nth-of-type(2) {
+      background-image: url('/assets/poverty.jpg');
+    }
+    &:nth-of-type(3) {
+      background-image: url('/assets/gender.jpg');
+    }
+    &:nth-of-type(4) {
+      background-image: url('/assets/health.webp');
+    }
+    &:last-of-type {
+      background-image: url('/assets/lamp.jpg');
+    }
+  }
+}
+
+.inspire {
+  border: 1px solid rgba(22, 76, 167, 0.6);
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  text-decoration:none;
+  margin: 10px;
+  padding: 10px;
+  &:after {
+    background: #38ef7d;
+    content: "";
+    height: 155px;
+    left: -75px;
+    opacity: .4;
+    position: absolute;
+    top: -50px;
+    transform: rotate(35deg);
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    width: 50px;
+    z-index: -10;
+  }
+  &:hover {
+    &:after {
+      left: 120%;
+      transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+  25% {
+    transform: rotate(10deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(-10deg) translate3d(0, 0, 0);
+  }
+  75% {
+    transform: rotate(5deg) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0)
+  }
+}
+
+.font-effect-3d {
+  font-family: 'Comfortaa', cursive;
+  font-size:5rem;
+  text-align:center;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  width: 300px;
+  border-bottom: 1px solid #C8C8C8;
+}
+
+.sgds-font {
+  font-family: "Hiragino Sans","ヒラギノ角ゴシック";
+  font-weight: 900;
+  color: #fff;
+  position: relative;
+  top: 380px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #77C7AC;
+}
