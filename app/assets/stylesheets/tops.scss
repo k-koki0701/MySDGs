@@ -155,7 +155,7 @@ p.copyright {
 
 .swiper-container {
   width: 100%;
-  height: 80%;
+  height: 60%;
 }
 .swiper-slide {
   text-align: center;
@@ -166,7 +166,7 @@ p.copyright {
 }
 
 .container-general {
-  padding: 75px 0;
+  padding: 55px 0;
   margin: 0 auto;
   width: 800px;
   .gallery-wrap {
@@ -346,8 +346,6 @@ p.copyright {
   display:block;
   margin-left:auto;
   margin-right:auto;
-  margin-top:80px;
-  color:rgb(0,0,0);
   width: 300px;
   border-bottom: 1px solid #C8C8C8;
 }
@@ -358,4 +356,8 @@ p.copyright {
   color: #fff;
   position: relative;
   top: 380px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #77C7AC;
 }
