@@ -1,16 +1,20 @@
 <% @events.each do |event| %>
   <table class="event_frame">
     <tr>
+      <th>イベント名:</th>
       <td><%= event.title %></td>
     </tr>
     <tr>
+      <th>詳細:</th>
       <td><%= event.content %></td>
     </tr>
     <tr>
+      <th>主催者:</th>
       <td><%= event.owner.name %></td>
     </tr>
     <tr>
-      <td><%= event.schedule %></td>
+      <th>日時:</th>
+      <td><%= l event.schedule , format: :long %></td>
     </tr>
   </table>
 <% end %>
