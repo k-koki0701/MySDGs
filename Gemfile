@@ -18,6 +18,7 @@ gem 'mini_magick'
 gem 'mimemagic', '0.3.7'
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
+gem 'simple_calendar'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
