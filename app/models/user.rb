@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :goods, dependent: :destroy
   has_many :participations, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :events, foreign_key: :owner_id
   has_many :active_relationships, foreign_key: 'follower_id', class_name: 'Relationship', dependent: :destroy
   has_many :passive_relationships, foreign_key: 'followed_id', class_name: 'Relationship', dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
