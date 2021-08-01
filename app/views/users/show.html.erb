@@ -5,7 +5,6 @@
 <% end %>
 <p class="profile_user_name"><%= @user.name %></p>
 <p>プロフィール : <%= @user.self_introduction %></p>
-<%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post %>
 
 <%= link_to 'いいね一覧', goods_path %>
 <%= link_to 'ユーザー一覧', users_path %>
@@ -13,4 +12,5 @@
   <%= link_to '編集', edit_user_registration_path %>
 <% else %>
   <%= render 'follow_form', user: @user %>
+  <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post %>
 <% end %>
