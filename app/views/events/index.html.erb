@@ -1,1 +1,18 @@
+<% @events.each do |event| %>
+  <table class="event_frame">
+    <tr>
+      <td><%= event.title %></td>
+    </tr>
+    <tr>
+      <td><%= event.content %></td>
+    </tr>
+    <tr>
+      <td><%= event.owner.name %></td>
+    </tr>
+    <tr>
+      <td><%= event.schedule %></td>
+    </tr>
+  </table>
+<% end %>
+
 <%= link_to '新しく作成する', new_event_path %>
