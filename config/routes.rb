@@ -6,8 +6,12 @@ Rails.application.routes.draw do
   }
 
   root 'tops#index'
+
   resources :posts do
     resources :comments, only: [:create]
+  end
+  resources :conversations do
+    resources :messages
   end
   resources :users, only: [:index, :show]
   resources :goods, only: [:index, :create, :destroy]
