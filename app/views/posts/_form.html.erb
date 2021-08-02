@@ -13,6 +13,13 @@
     <%= form.label :content %>
     <%= form.text_field :content %>
   </div>
+  <%= form.label :category, 'カテゴリ' %>
+    <%= form.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
+      <%= category.label do %>
+        <%= category.check_box %>
+        <%= category.text %>
+      <% end %>
+    <% end %>
   <% @post.pictures.each_with_index do |picture| %>
     <% if picture[:image] != nil %>
       <%= image_tag picture.image.url, size: "200x300" %>

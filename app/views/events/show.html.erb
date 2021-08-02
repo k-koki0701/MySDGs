@@ -7,6 +7,10 @@
       <td><%= @event.title %></td>
     </tr>
     <tr>
+      <th>カテゴリー:</th>
+      <td><%= @event.category.name %></td>
+    </tr>
+    <tr>
       <th>詳細:</th>
       <td><%= @event.content %></td>
     </tr>
@@ -20,7 +24,7 @@
     </tr>
     <tr>
       <th>参加人数:</th>
-      <td><%= @event.participations.count %></td>
+      <td><%= @event.participations.count %>人</td>
     </tr>
     <% if @event.owner.id == current_user.id %>
       <%= link_to "編集する", edit_event_path(@event.id) %>
