@@ -1,0 +1,22 @@
+  <table class="event_frame">
+    <tr>
+      <th>イベント名:</th>
+      <td><%= @event.title %></td>
+    </tr>
+    <tr>
+      <th>詳細:</th>
+      <td><%= @event.content %></td>
+    </tr>
+    <tr>
+      <th>主催者:</th>
+      <td><%= @event.owner.name %></td>
+    </tr>
+    <tr>
+      <th>日時:</th>
+      <td><%= l @event.schedule , format: :long %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "イベント一覧へ", events_path %></td>
+    </tr>
+
+  </table>
