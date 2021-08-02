@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_02_083628) do
+ActiveRecord::Schema.define(version: 2021_08_02_103953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 2021_08_02_083628) do
     t.integer "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_events_on_category_id"
     t.index ["owner_id"], name: "index_events_on_owner_id"
   end
 
@@ -140,6 +142,7 @@ ActiveRecord::Schema.define(version: 2021_08_02_083628) do
   add_foreign_key "category_posts", "posts"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "events", "categories"
   add_foreign_key "events", "users", column: "owner_id"
   add_foreign_key "goods", "posts"
   add_foreign_key "goods", "users"
