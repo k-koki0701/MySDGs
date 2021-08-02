@@ -1,27 +1,2 @@
-<h1>イベント作成フォーム</h1>
-
-<%= form_with(model: @event, local: true) do |form| %>
-
-
-  <div class="title">
-    <%= form.label :イベント名 %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="content">
-    <%= form.label :詳細 %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="schedule">
-    <%= form.label :イベント日 %>
-    <%= form.date_select :schedule %>
-  </div>
-
-
-  <div class="submit">
-    <%= form.submit "作成", class:"#" %>
-  </div>
-
-  <%= link_to "イベント一覧へ", events_path %>
-<% end %>
+<h2>作成する</h2>
+  <%= render 'form' %>
