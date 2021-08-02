@@ -15,6 +15,10 @@
       <th>日時:</th>
       <td><%= l @event.schedule , format: :long %></td>
     </tr>
+    <% if @event.owner.id == current_user.id %>
+      <%= link_to "編集する", edit_event_path(@event.id) %>
+      <%= link_to '削除する', event_path(@event.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+    <% end %>
     <tr>
       <td><%= link_to "イベント一覧へ", events_path %></td>
     </tr>
