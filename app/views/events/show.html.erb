@@ -21,6 +21,8 @@
     <% if @event.owner.id == current_user.id %>
       <%= link_to "編集する", edit_event_path(@event.id) %>
       <%= link_to '削除する', event_path(@event.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+    <% else %>
+      <%= link_to '参加する', event_participations_path(@event.id), method: :post, data: { confirm: 'このイベントに参加しますか?'} %>
     <% end %>
     <tr>
       <td><%= link_to "イベント一覧へ", events_path %></td>

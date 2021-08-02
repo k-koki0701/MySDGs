@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
-  resources :events
+  resources :events do
+    resources :participations, only: [:create, :destroy]
+  end
   resources :users, only: [:index, :show]
   resources :goods, only: [:index, :create, :destroy]
   resources :relationships, only: [:create, :destroy]
