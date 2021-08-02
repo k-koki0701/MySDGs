@@ -16,6 +16,9 @@
       <th>日時:</th>
       <td><%= l event.schedule , format: :long %></td>
     </tr>
+    <tr>
+      <td><%= link_to '詳細', event_path(event.id) %></td>
+    </tr>
   </table>
 <% end %>
 
