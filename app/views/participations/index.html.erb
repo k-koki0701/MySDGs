@@ -1,0 +1,31 @@
+<h2>参加予定のイベント一覧</h2>
+
+    <% if @participations.size != 0 %>
+      <% @participations.each do |participation| %>
+        <table class="event_frame">
+          <tr>
+            <th>イベント名:</th>
+            <td><%= participation.event.title %></td>
+          </tr>
+          <tr>
+            <th>詳細:</th>
+            <td><%= participation.event.content %></td>
+          </tr>
+          <tr>
+            <th>主催者:</th>
+            <td><%= participation.event.owner.name %></td>
+          </tr>
+          <tr>
+            <th>日時:</th>
+            <td><%= l participation.event.schedule , format: :long %></td>
+          </tr>
+          <tr>
+            <td><%= link_to '詳細', event_path(participation.event.id) %></td>
+          </tr>
+        </table>
+      <% end %>
+    <% else %>
+      <p>参加予定のイベントはありません。</p>
+    <% end %>
+
+    <%= link_to "イベント一覧へ", events_path %>

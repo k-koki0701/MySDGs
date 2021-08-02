@@ -1,4 +1,9 @@
 class ParticipationsController < ApplicationController
+
+  def index
+    @participations = current_user.participations.all
+  end
+
   def create
     @participation = Participation.new(user_id: current_user.id, event_id: params[:event_id])
     if @participation.save
