@@ -5,4 +5,9 @@ class ParticipationsController < ApplicationController
       redirect_to event_path(@participation.event_id), notice: 'イベントに参加しました!!'
     end
   end
+
+  def destroy
+    @participation = Participation.find(params[:id]).destroy
+    redirect_to event_path(@participation.event_id), notice: '参加を取り消しました!!'
+  end
 end
