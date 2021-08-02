@@ -1,0 +1,39 @@
+  <table class="event_frame">
+    <tr>
+      <%= image_tag @event.image.url %>
+    </tr>
+    <tr>
+      <th>イベント名:</th>
+      <td><%= @event.title %></td>
+    </tr>
+    <tr>
+      <th>詳細:</th>
+      <td><%= @event.content %></td>
+    </tr>
+    <tr>
+      <th>主催者:</th>
+      <td><%= @event.owner.name %></td>
+    </tr>
+    <tr>
+      <th>日時:</th>
+      <td><%= l @event.schedule , format: :long %></td>
+    </tr>
+    <tr>
+      <th>参加人数:</th>
+      <td><%= @event.participations.count %></td>
+    </tr>
+    <% if @event.owner.id == current_user.id %>
+      <%= link_to "編集する", edit_event_path(@event.id) %>
+      <%= link_to '削除する', event_path(@event.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+    <% else %>
+      <% if @participation.present? %>
+        <%= link_to '参加をやめる', event_participation_path(@event, @participation), method: :delete,  data: { confirm: 'このイベントの参加を取り消しますか?'} %>
+      <% else %>
+        <%= link_to '参加する', event_participations_path(@event.id), method: :post, data: { confirm: 'このイベントに参加しますか?'} %>
+      <% end %>
+    <% end %>
+    <tr>
+      <td><%= link_to "イベント一覧へ", events_path %></td>
+    </tr>
+
+  </table>

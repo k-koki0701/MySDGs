@@ -39,9 +39,10 @@
   <% else %>
     <%= link_to 'いいねする', goods_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
   <% end %>
+<% else %>
+  <%= link_to "編集する", edit_post_path(@post.id) %>
+  <%= link_to '削除する', post_path(@post.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
 <% end %>
-<td><%= link_to "編集する", edit_post_path(@post.id) %></td>
-<%= link_to '削除する', post_path(@post.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
 
 <h2>コメント一覧</h2>
 <% @comments.each do |c| %>

@@ -19,6 +19,7 @@
   <body>
     <% if user_signed_in? %>
       <%= link_to "投稿", posts_path %>
+      <%= link_to "イベント", events_path %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       <%= link_to "マイページ", user_path(current_user) %>
     <% else %>

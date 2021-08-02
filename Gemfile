@@ -18,6 +18,8 @@ gem 'mini_magick'
 gem 'mimemagic', '0.3.7'
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
+gem 'bootstrap4-datetime-picker-rails'
+gem 'momentjs-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

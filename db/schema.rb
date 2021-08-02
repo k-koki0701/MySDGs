@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_01_085038) do
+ActiveRecord::Schema.define(version: 2021_08_01_162146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,17 @@ ActiveRecord::Schema.define(version: 2021_08_01_085038) do
     t.index ["sender_id"], name: "index_conversations_on_sender_id"
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.text "image"
+    t.datetime "schedule"
+    t.integer "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_events_on_owner_id"
+  end
+
   create_table "goods", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "post_id"
@@ -53,6 +64,15 @@ ActiveRecord::Schema.define(version: 2021_08_01_085038) do
     t.datetime "updated_at", null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_participations_on_event_id"
+    t.index ["user_id"], name: "index_participations_on_user_id"
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -103,10 +123,13 @@ ActiveRecord::Schema.define(version: 2021_08_01_085038) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "events", "users", column: "owner_id"
   add_foreign_key "goods", "posts"
   add_foreign_key "goods", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
+  add_foreign_key "participations", "events"
+  add_foreign_key "participations", "users"
   add_foreign_key "pictures", "posts"
   add_foreign_key "posts", "users"
 end

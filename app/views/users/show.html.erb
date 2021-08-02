@@ -10,6 +10,7 @@
 <%= link_to 'ユーザー一覧', users_path %>
 <% if @user.id == current_user.id %>
   <%= link_to '編集', edit_user_registration_path %>
+  <%= link_to '参加イベント一覧', event_participations_path(current_user) %>
 <% else %>
   <%= render 'follow_form', user: @user %>
   <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post %>
