@@ -26,12 +26,20 @@ class EventsController < ApplicationController
   end
 
   def update
+    @event = Event.find(params[:id])
     if @event.update(event_params)
       redirect_to events_path, notice: "編集しました！"
     else
       render :edit
     end
   end
+
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    redirect_to events_path, notice:"削除しました！"
+  end
+
 
   private
 
