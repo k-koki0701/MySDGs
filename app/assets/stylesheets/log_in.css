@@ -1,0 +1,95 @@
+.main-content{
+	width: 55%;
+  height: 400px;
+	border-radius: 20px;
+	box-shadow: 0 5px 5px rgba(0,0,0,.4);
+	margin: 5em auto;
+	display: flex;
+}
+.company__info{
+	background-color: #008080;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: #fff;
+}
+.fa-android{
+	font-size:3em;
+}
+@media screen and (max-width: 800px) {
+	.main-content{width: 100%;}
+	.company__info{
+		display: none;
+	}
+	.login_form{
+		border-top-left-radius:50px;
+		border-bottom-left-radius:20px;
+	}
+}
+ h1{
+	color:#008080;
+   padding: 30px;
+}
+.login_form{
+	background-color: #fff;
+	border-top-right-radius:20px;
+	border-bottom-right-radius:20px;
+	border-top:1px solid #ccc;
+	border-right:1px solid #ccc;
+}
+form{
+	padding: 0 2em;
+}
+.form__input{
+	width: 400px;
+	border:0px solid transparent;
+	border-radius: 0;
+	border-bottom: 1px solid #aaa;
+	padding: 1em .5em .5em;
+	padding-left: 1.5em;
+	outline:none;
+	margin:1.5em auto;
+	transition: all .5s ease;
+  margin-left: 6rem;
+}
+.form__input:focus{
+	border-bottom-color: #008080;
+	box-shadow: 0 0 5px rgba(0,80,80,.4);
+	border-radius: 4px;
+}
+.botton{
+  width: 55%;
+  height: 25px;
+	border-radius: 20px;
+	color:#008080;
+	font-weight: 200;
+	background-color: #fff;
+	border: 1px solid #008080;
+	margin-top: 2.5em;
+	margin-bottom: 1.5em;
+  margin-left: 12rem;
+}
+.botton:hover, .botton:focus{
+	background-color: #008080;
+	color:#fff;
+  text-decoration: none;
+}
+
+.remember {
+  margin-left: 7rem;
+}
+
+#eye {
+  background: #fff;
+  color: #333;
+  margin: 10px 0 0 15px;
+  margin-left: -20px;
+  padding: 20px 0 10px 5px;
+  border-radius: 0px 5px 5px 0px;
+  cursor: pointer;
+  position: relative;
+  left: 30px;
+  bottom: 10px;
+}
