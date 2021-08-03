@@ -1,3 +1,8 @@
+<%= search_form_for @q do |f| %>
+  <%= f.search_field :title_cont %>
+  <%= f.submit "検索" %>
+<% end %>
+
 <% @events.each do |event| %>
   <table class="event_frame">
     <tr>
