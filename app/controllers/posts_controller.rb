@@ -5,6 +5,8 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order("id DESC")
+    @q = @posts.ransack(params[:q])
+    @posts = @q.result(distinct: true)
   end
 
   def new
