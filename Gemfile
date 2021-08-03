@@ -22,6 +22,7 @@ gem 'bootstrap4-datetime-picker-rails'
 gem 'momentjs-rails'
 gem 'ransack'
 gem 'rails_admin'
+gem 'cancancan'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
