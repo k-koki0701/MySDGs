@@ -19,6 +19,8 @@ Rails.application.config.assets.precompile += %w(
     relationships.scss
     tops.scss
     user.scss
+    log_in.css
+    sign_up.css
  )
 
  Rails.application.config.assets.precompile += %w(
