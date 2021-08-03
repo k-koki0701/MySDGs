@@ -1,5 +1,6 @@
 <%= search_form_for @q do |f| %>
   <%= f.search_field :title_cont %>
+  <%= f.select :category_name_cont, Category.order(:name).map{|m| [m.name]}, {include_blank: true}%>
   <%= f.submit "検索" %>
 <% end %>
 
