@@ -1,17 +1,62 @@
-<% if @user.icon? %>
-  <img src=<%= @user.icon%> class = "profile_icon_image">
-<% else %>
-  <img src="/assets/default.png" class="profile_icon_image"%>
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'users' %>
 <% end %>
-<p class="profile_user_name"><%= @user.name %></p>
-<p>プロフィール : <%= @user.self_introduction %></p>
+
+<div class="container">
+
+		<div class="profile">
+
+			<div class="profile-image">
+
+      <% if @user.icon? %>
+        <img src=<%= @user.icon%> class = "profile_icon_image">
+      <% else %>
+        <img src="/assets/default.png" class="profile_icon_image"%>
+      <% end %>
+
+			</div>
+
+			<div class="profile-user-settings">
+
+				<h1 class="profile-user-name"><%= @user.name %></h1>
+
+          <% if @user.id == current_user.id %>
+            <button class="btn profile-edit-btn">
+              <%= link_to '編集', edit_user_registration_path, class:"btn" %>
+            </button>
+          <% else %>
+            <button class="btn profile-edit-btn">
+              <%= render 'follow_form', user: @user %>
+            </button>
+            <button class="btn profile-edit-btn">
+              <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post %>
+            </button>
+          <% end %>
+
+
+			</div>
+
+			<div class="profile-stats">
+
+				<ul>
+					<li><span class="profile-stat-count"><%= @user.posts.count %></span> posts</li>
+					<li><span class="profile-stat-count"><%= @user.followers.count %></span> followers</li>
+					<li><span class="profile-stat-count"><%= @user.following.count %></span> following</li>
+				</ul>
+
+
+
+			</div>
+
+			<div class="profile-bio">
+
+				<p><%= @user.self_introduction %></p>
+
+			</div>
+
+		</div>
+
+	</div>
 
 <%= link_to 'いいね一覧', goods_path %>
 <%= link_to 'ユーザー一覧', users_path %>
-<% if @user.id == current_user.id %>
-  <%= link_to '編集', edit_user_registration_path %>
-  <%= link_to '参加イベント一覧', event_participations_path(current_user) %>
-<% else %>
-  <%= render 'follow_form', user: @user %>
-  <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post %>
-<% end %>
