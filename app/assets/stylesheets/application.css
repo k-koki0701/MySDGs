@@ -14,3 +14,61 @@
  * require_tree .
  *= require_self
  */
+
+ .main-header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  font-family: Montserrat, sans-serif;
+  color: #77C7AC;
+  background: white;
+  border-bottom: 1px solid;
+}
+.main-header .header-wrapper {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 1em;
+}
+.main-header .header-wrapper .main-logo {
+  float: left;
+  font-weight: 700;
+  font-size: 1.875em;
+}
+.main-header .header-wrapper .main-menu {
+  float: right;
+  text-align: center;
+}
+.main-header .header-wrapper .main-menu li {
+  display: inline-block;
+  padding: 0.75em 1.875em;
+}
+.main-header .header-wrapper .main-menu li a {
+  padding-bottom: 1.3em;
+  text-transform: uppercase;
+  color: #000;
+  font-size: 1.6em;
+  position: relative;
+  top: 1.4em;
+}
+.main-header .header-wrapper .main-menu li a:hover {
+  color: #77C7AC;
+  border-bottom: 0.1875em solid #77C7AC;
+  transition: 0.1s;
+}
+.main-header .header-wrapper .main-menu li a span {
+  font-size: 1em;
+}
+.main-header .header-wrapper .main-menu li:last-child {
+  padding: 0.75em 0;
+}
+.main-header .header-wrapper .main-menu li:nth-child(6) a:hover,
+.main-header .header-wrapper .main-menu li:last-child a:hover {
+  border: none;
+}
+.header_logo {
+  position: relative;
+  height: 20%;
+  width: 20%;
+}

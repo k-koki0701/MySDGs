@@ -17,23 +17,35 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <%= link_to "投稿", posts_path %>
-      <%= link_to "イベント", events_path %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <%= link_to "マイページ", user_path(current_user) %>
-      <% if current_user.try(:admin?) %>
-        <%= link_to '管理者ログイン', rails_admin_path %>
-      <% end %>
-    <% else %>
-      <%= link_to "新規登録", new_user_registration_path %>
-      <%= link_to "ログイン", new_user_session_path %>
-    <% end %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <header class="main-header">
+      <div class="header-wrapper">
+        <div class="main-logo">
+          <img class="header_logo" src="/assets/header_logo.png">
+        </div>
+        <nav>
+          <ul class="main-menu">
+          <% if user_signed_in? %>
+            <li><%= link_to "投稿", posts_path %></li>
+            <li><%= link_to "イベント", events_path %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "マイページ", user_path(current_user) %></li>
+            <li><% if current_user.try(:admin?) %>
+            <li><%= link_to '管理者ログイン', rails_admin_path %></li>
+            <% end %>
+          <% else %>
+            <li><%= link_to "新規登録", new_user_registration_path %></li>
+            <li><%= link_to "ログイン", new_user_session_path %></li>
+          <% end %>
 
-    <%= yield %>
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+      <%= yield %>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   </body>
 </html>
