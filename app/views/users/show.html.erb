@@ -21,9 +21,7 @@
 				<h1 class="profile-user-name"><%= @user.name %></h1>
 
           <% if @user.id == current_user.id %>
-            <button class="btn profile-edit-btn">
-              <%= link_to '編集', edit_user_registration_path, class:"btn" %>
-            </button>
+              <%= link_to '編集', edit_user_registration_path, class:"button" %>
           <% else %>
             <button class="btn profile-edit-btn">
               <%= render 'follow_form', user: @user %>
@@ -59,4 +57,3 @@
 	</div>
 
 <%= link_to 'いいね一覧', goods_path %>
-<%= link_to 'ユーザー一覧', users_path %>
