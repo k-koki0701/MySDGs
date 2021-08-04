@@ -14,15 +14,13 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
 Rails.application.config.assets.precompile += %w(
-    goods.scss
-    posts.scss
-    relationships.scss
+    goods.css
+    posts.css
+    relationships.css
     tops.css
-    user.scss
+    user.css
     log_in.css
     sign_up.css
- )
-
- Rails.application.config.assets.precompile += %w(
+    message.css
     *.js
  )
