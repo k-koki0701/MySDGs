@@ -32,13 +32,13 @@
       <% end %>
     <% end %>
   </div>
-  <div class="input">
+  <div class="bottom-bar">
     <%= form_with(model: [@conversation, @message]) do |f| %>
-      <%= f.text_area :body, class: "form-control" %>
+      <%= f.text_area :body, class: "form-control", placeholder:"Type your message here!", size: "20x1" %>
       <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
-      <%= f.submit "メッセージを送る" %>
+      <button class="fa fa-paper-plane-o fa-3x"><%= f.submit "", class:"submit" %></button>
     <% end %>
-  </div>
+    </div>
 </div>
 
 <%= javascript_include_tag 'messages.js' %>
