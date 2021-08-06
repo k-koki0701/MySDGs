@@ -2,42 +2,43 @@
   <%= stylesheet_link_tag 'messages' %>
 <% end %>
 
-<div class="container" >
-<% if @over_ten %>
-  <%= link_to '以前のメッセージ', '?m=all' %>
-<% end %>
-<div class="ui segment">
-  <% @messages.each do |message| %>
-    <% if message.body.present? %>
-      <div class="item">
-        <div class="content">
-          <div class="header"><strong><%= message.user.name %></strong> <%= message.message_time %></div>
-          <div class="list">
-            <div class="item">
-              <i class="right triangle icon"></i>
-              <% if message.user.icon.url != nil %>
-                <%= image_tag message.user.icon.url %>
-              <% else %>
-                <%= image_tag 'default.jpg' %>
-              <% end %>
-              <%= message.body %>
-              <% if message.user == current_user %>
-                <%= message.read ? '既読' : '未読' %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
+
+<div class="chat">
+  <div class="contact bar">
+    <% if @conversation.target_user(current_user).icon.url != nil %>
+      <%= image_tag @conversation.target_user(current_user).icon.url, class:"target-user-icon" %>
+    <% else %>
+      <%= image_tag 'default.png', class:"target-user-icon" %>
     <% end %>
-  <% end %>
-</div>
-<%= form_with(model: [@conversation, @message]) do |f| %>
-  <div class="field">
-    <%= f.text_area :body, class: "form-control" %>
+    <div class="name">
+      <%= @conversation.target_user(current_user).name %>
+    </div>
   </div>
-    <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
-  <div>
-    <%= f.submit "メッセージを送る" %>
+  <div class="messages" id="chat">
+    <% @messages.each do |message| %>
+      <% if message.body.present? %>
+        <% if message.user == current_user %>
+          <div class="message parker">
+        <% else %>
+          <div class="message stark">
+        <% end %>
+            <%= safe_join(message.body.split("\n"),tag(:br)) %>
+          </div>
+        <% if message.user == current_user %>
+          <div class="read" >
+            <%= message.read ? '既読' : '未読' %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
-<% end %>
+  <div class="input">
+    <%= form_with(model: [@conversation, @message]) do |f| %>
+      <%= f.text_area :body, class: "form-control" %>
+      <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+      <%= f.submit "メッセージを送る" %>
+    <% end %>
+  </div>
 </div>
+
+<%= javascript_include_tag 'messages.js' %>
