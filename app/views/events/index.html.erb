@@ -1,36 +1,42 @@
-<%= search_form_for @q do |f| %>
-  <%= f.search_field :title_cont %>
-  <%= f.select :category_name_cont, Category.order(:name).map{|m| [m.name]}, {include_blank: true}%>
-  <%= f.submit "検索" %>
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'events' %>
 <% end %>
 
-<% @events.each do |event| %>
-  <table class="event_frame">
-    <tr>
-      <th>イベント名:</th>
-      <td><%= event.title %></td>
-    </tr>
-    <tr>
-      <th>カテゴリー:</th>
-      <td><%= event.category.name %></td>
-    </tr>
-    <tr>
-      <th>詳細:</th>
-      <td><%= event.content %></td>
-    </tr>
-    <tr>
-      <th>主催者:</th>
-      <td><%= event.owner.name %></td>
-    </tr>
-    <tr>
-      <th>日時:</th>
-      <td><%= l event.schedule , format: :long %></td>
-    </tr>
-    <tr>
-      <td><%= link_to '詳細', event_path(event.id) %></td>
-    </tr>
-  </table>
-<% end %>
+<div class="event">
+  <%= search_form_for @q do |f| %>
+    <%= f.search_field :title_cont %>
+    <%= f.select :category_name_cont, Category.order(:name).map{|m| [m.name]}, {include_blank: true}%>
+    <%= f.submit "検索" %>
+  <% end %>
 
-<%= link_to '新しく作成する', new_event_path %>
-<%= link_to '参加イベント一覧', event_participations_path(current_user) %>
+  <% @events.each do |event| %>
+    <table class="event_frame">
+      <tr>
+        <th>イベント名:</th>
+        <td><%= event.title %></td>
+      </tr>
+      <tr>
+        <th>カテゴリー:</th>
+        <td><%= event.category.name %></td>
+      </tr>
+      <tr>
+        <th>詳細:</th>
+        <td><%= event.content %></td>
+      </tr>
+      <tr>
+        <th>主催者:</th>
+        <td><%= event.owner.name %></td>
+      </tr>
+      <tr>
+        <th>日時:</th>
+        <td><%= l event.schedule , format: :long %></td>
+      </tr>
+      <tr>
+        <td><%= link_to '詳細', event_path(event.id) %></td>
+      </tr>
+    </table>
+  <% end %>
+
+  <%= link_to '新しく作成する', new_event_path %>
+  <%= link_to '参加イベント一覧', event_participations_path(current_user) %>
+</div>
