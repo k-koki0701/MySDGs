@@ -2,60 +2,65 @@
   <%= stylesheet_link_tag 'posts' %>
 <% end %>
 
-<div class="post-list" >
-  <%= search_form_for @q do |f| %>
-    <%= f.search_field :content_cont %>
-    <%= f.select :category_post_category_name_cont, Category.order(:name).map{|m| [m.name]}, {include_blank: true}%>
-    <%= f.submit "検索" %>
-  <% end %>
-
-  <% @posts.each do |post| %>
-    <table class="post_frame">
-    <tr>
-    <% if post.user.icon? %>
-      <td><img src=<%= post.user.icon%> class = "icon_image">
-    <% else %>
-      <td><img src="/assets/default.png" class="icon_image"%>
-    <% end %>
-      <%=link_to post.user.name, user_path(post.user.id), class: "post_user_name" %></td>
-    </tr>
-    <tr>
-      <td>カテゴリー：</td>
-    </tr>
-    <tr>
-    <td>
-    <div class="swiper-container">
-      <div class= "swiper-wrapper img-index">
-        <% post.pictures.each do |picture| %>
-          <% if picture[:image] != nil %>
-            <%= image_tag picture.image.url, class: "swiper-slide index-img" %>
-          <% end %>
+  <div class="post-search">
+    <div class="wrap">
+      <div class="search">
+        <%= search_form_for @q do |f| %>
+          <%= f.search_field :content_cont, placeholder:"Search", class:"post-search-term" %>
+          <%= f.select :category_post_category_name_cont, Category.order(:name).map{|m| [m.name]}, {include_blank: true}, class:"post-category-term"%>
+          <%= f.submit "検索", class:"post-search-button" %>
         <% end %>
       </div>
-      <div class="swiper-button-prev swiper-button-white"></div>
-      <div class="swiper-button-next swiper-button-white"></div>
-      <div class="swiper-pagination"></div>
     </div>
-    </td>
-    </tr>
-    <tr>
-      <% unless post.user_id == current_user.id %>
-        <% if current_user.already_liked?(post) %>
-          <td><%= link_to 'いいねを解除する', good_path(id: post.id, post_id: post.id), method: :delete %></td>
-        <% else %>
-          <td><%= link_to 'いいねする', goods_path(id: post.id, post_id: post.id), method: :post %></td>
-        <% end %>
+  </div>
+  <div class="post-list" >
+    <% @posts.each do |post| %>
+      <table class="post_frame">
+      <tr>
+      <% if post.user.icon? %>
+        <td><img src=<%= post.user.icon%> class = "icon_image">
+      <% else %>
+        <td><img src="/assets/default.png" class="icon_image"%>
       <% end %>
-      <td><%= link_to '詳細', post_path(post.id) %></td>
-    </tr>
-    <tr>
-      <td class="post_content"><%= post.content %></td>
-    </tr>
-    </table>
-  <% end %>
+        <%=link_to post.user.name, user_path(post.user.id), class: "post_user_name" %></td>
+      </tr>
+      <tr>
+        <td>カテゴリー：</td>
+      </tr>
+      <tr>
+      <td>
+      <div class="swiper-container">
+        <div class= "swiper-wrapper img-index">
+          <% post.pictures.each do |picture| %>
+            <% if picture[:image] != nil %>
+              <%= image_tag picture.image.url, class: "swiper-slide index-img" %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="swiper-button-prev swiper-button-white"></div>
+        <div class="swiper-button-next swiper-button-white"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+      </td>
+      </tr>
+      <tr>
+        <% unless post.user_id == current_user.id %>
+          <% if current_user.already_liked?(post) %>
+            <td><%= link_to 'いいねを解除する', good_path(id: post.id, post_id: post.id), method: :delete %></td>
+          <% else %>
+            <td><%= link_to 'いいねする', goods_path(id: post.id, post_id: post.id), method: :post %></td>
+          <% end %>
+        <% end %>
+        <td><%= link_to '詳細', post_path(post.id) %></td>
+      </tr>
+      <tr>
+        <td class="post_content"><%= post.content %></td>
+      </tr>
+      </table>
+    <% end %>
 
 
-  <%= link_to '新しく投稿する', new_post_path %>
-</div>
+    <%= link_to '新しく投稿する', new_post_path %>
+  </div>
 
 <%= javascript_include_tag 'swiper.js' %>
