@@ -10,4 +10,5 @@ class Post < ApplicationRecord
   accepts_nested_attributes_for :pictures
 
   validates :content, presence: true
+  validates :category_ids, presence: true
 end
