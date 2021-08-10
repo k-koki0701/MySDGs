@@ -13,54 +13,54 @@
       </div>
     </div>
   </div>
-  <div class="post-list" >
+
+  <section class="container">
     <% @posts.each do |post| %>
-      <table class="post_frame">
-      <tr>
-      <% if post.user.icon? %>
-        <td><img src=<%= post.user.icon%> class = "icon_image">
-      <% else %>
-        <td><img src="/assets/default.png" class="icon_image"%>
-      <% end %>
-        <%=link_to post.user.name, user_path(post.user.id), class: "post_user_name" %></td>
-      </tr>
-      <tr>
-        <td>カテゴリー：</td>
-      </tr>
-      <tr>
-      <td>
-      <div class="swiper-container">
-        <div class= "swiper-wrapper img-index">
-          <% post.pictures.each do |picture| %>
-            <% if picture[:image] != nil %>
-              <%= image_tag picture.image.url, class: "swiper-slide index-img" %>
-            <% end %>
-          <% end %>
+      <div class="cards">
+        <div class="card card--light">
+          <div class="card__slide">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <% post.pictures.each do |picture| %>
+                  <% if picture[:image] != nil %>
+                    <% if post.pictures.length < 2 %>
+                      <%= image_tag picture.image.url %>
+                    <% else %>
+                      <%= image_tag picture.image.url,class:"swiper-slide" %>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+          </div>
+          <div class="card__body">
+            <div class="card__description">
+              <% if post.user.icon? %>
+                <img src=<%= post.user.icon%> class = "icon_image">
+              <% else %>
+                <img src="/assets/default.png" class="icon_image"%>
+              <% end %>
+                <%=link_to post.user.name, user_path(post.user.id), class: "post_user_name" %>
+              <% unless post.user_id == current_user.id %>
+                <% if current_user.already_liked?(post) %>
+                  <%= link_to 'いいねを解除する', good_path(id: post.id, post_id: post.id), method: :delete %></td>
+                <% else %>
+                  <%= link_to 'いいねする', goods_path(id: post.id, post_id: post.id), method: :post %>
+                <% end %>
+              <% end %>
+                <p class="post-content"><%= post.content %></p>
+              <p class="post-read-more"><%= link_to '詳細', post_path(post.id) %></p>
+            </div>
+          </div>
         </div>
-        <div class="swiper-button-prev swiper-button-white"></div>
-        <div class="swiper-button-next swiper-button-white"></div>
-        <div class="swiper-pagination"></div>
       </div>
-      </td>
-      </tr>
-      <tr>
-        <% unless post.user_id == current_user.id %>
-          <% if current_user.already_liked?(post) %>
-            <td><%= link_to 'いいねを解除する', good_path(id: post.id, post_id: post.id), method: :delete %></td>
-          <% else %>
-            <td><%= link_to 'いいねする', goods_path(id: post.id, post_id: post.id), method: :post %></td>
-          <% end %>
-        <% end %>
-        <td><%= link_to '詳細', post_path(post.id) %></td>
-      </tr>
-      <tr>
-        <td class="post_content"><%= post.content %></td>
-      </tr>
-      </table>
     <% end %>
+  </section>
 
 
-    <%= link_to '新しく投稿する', new_post_path %>
+    <%= link_to '新しく投稿する', new_post_path, class:"new-post" %>
   </div>
 
-<%= javascript_include_tag 'swiper.js' %>
+<%= javascript_include_tag 'posts.js' %>
