@@ -1,38 +1,48 @@
 <%= form_with(model: @event, local: true) do |form| %>
-<div class="event-form">
-  <div class="title">
-    <%= form.label :イベント名 %>
-    <%= form.text_field :title %>
-  </div>
 
-  <div class="content">
-    <%= form.label :詳細 %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="content">
-    <%= form.collection_select :category_id, Category.all, :id, :name, {prompt: 'カテゴリーを選択してください'}, class: 'category__select'  %>
-  </div>
-
-  <div class='input-group date' id='datetimepicker' data-target-input='nearest'>
-    <div class='input-group-append' data-target='#datetimepicker' data-toggle='datetimepicker'>
-      <%= form.label :イベント日 %>
-      <%= form.text_field :schedule,  class:'form-control datetimepicker-input'%>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= event.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
     </div>
-</div>
+  <% end %>
 
-  <div class="image">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
+  <div class="event-form">
+    <div class="title">
+      <%= form.label :イベント名 %>
+      <%= form.text_field :title %>
+    </div>
+
+    <div class="content">
+      <%= form.label :詳細 %>
+      <%= form.text_area :content %>
+    </div>
+
+    <div class="content">
+      <%= form.collection_select :category_id, Category.all, :id, :name, {prompt: 'カテゴリーを選択してください'}, class: 'category__select'  %>
+    </div>
+
+    <div class='input-group date' id='datetimepicker' data-target-input='nearest'>
+      <div class='input-group-append' data-target='#datetimepicker' data-toggle='datetimepicker'>
+        <%= form.label :イベント日 %>
+        <%= form.text_field :schedule,  class:'form-control datetimepicker-input'%>
+      </div>
+    </div>
+
+    <div class="image">
+      <%= form.label :image %>
+      <%= form.file_field :image %>
+    </div>
+
+    <div class="submit">
+      <%= form.submit %>
+    </div>
+
+    <%= link_to "イベント一覧へ", events_path %>
+
   </div>
-
-
-
-  <div class="submit">
-    <%= form.submit %>
-  </div>
-
-  <%= link_to "イベント一覧へ", events_path %>
-
-</div>
 <% end %>
