@@ -22,5 +22,6 @@ Rails.application.config.assets.precompile += %w(
     log_in.css
     sign_up.css
     message.css
+    applications.css
     *.js
  )

@@ -100,18 +100,6 @@ hr {
   display: inline-block;
 }
 
-footer {
-    padding: 50px 0;
-    background: white;
-    font-size:20px;
-    text-align:center;
-    font-family: 'Comfortaa', cursive;
-}
-
-p.copyright {
-    margin: 5px 0 0;
-}
-
 .btn{
   background: none;
   border: 5px solid #fff;
@@ -358,6 +346,6 @@ p.copyright {
   top: 380px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+ .top-page h2, h3, h4, h5, h6 {
   color: #77C7AC;
 }
