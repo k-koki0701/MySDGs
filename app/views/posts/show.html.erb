@@ -3,66 +3,73 @@
 <% end %>
 
 <h1>投稿詳細画面</h1>
-<table>
-  <tr>
-    <td><%=link_to @post.user.name, user_path(@post.user.id) %></td>
-  </tr>
-  <tr>
-    <% @post.categories.each do |category| %>
-      <td>#<%= category.name %><td>
-    <% end %>
-  </tr>
-  <tr>
-  <td>
-  <div class="swiper-container">
-    <div class= "swiper-wrapper img-index">
-      <% @post.pictures.each do |picture| %>
-        <% if picture[:image] != nil %>
-          <%= image_tag picture.image.url,  size: "200x300", class: "swiper-slide index-img" %>
-        <% else %>
-          <%= image_tag 'default.png' %>
-        <% end %>
+<section class="post-show-container">
+    <div class="cards">
+      <div class="card card--light">
+        <div class="card__slide">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <% @post.pictures.each do |picture| %>
+                <% if picture[:image] != nil %>
+                  <% if @post.pictures.length < 2 %>
+                    <%= image_tag picture.image.url %>
+                  <% else %>
+                    <%= image_tag picture.image.url,class:"swiper-slide" %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+        </div>
+        <div class="card__body">
+          <div class="card__description">
+            <% if @post.user.icon? %>
+              <img src=<%= @post.user.icon%> class = "icon_image">
+            <% else %>
+              <img src="/assets/default.png" class="icon_image"%>
+            <% end %>
+              <%=link_to @post.user.name, user_path(@post.user.id), class: "post_user_name" %>
+              <%= @post.goods.count %>goods
+            <% unless @post.user_id == current_user.id %>
+              <% if @good.present? %>
+                <%= link_to 'いいねを解除する', good_path(id: @good.id), method: :delete %>
+              <% else %>
+                <%= link_to 'いいねする', goods_path(post_id: @post.id), method: :post %>
+              <% end %>
+            <% else %>
+              <%= link_to "編集する", edit_post_path(@post.id) %>
+              <%= link_to '削除する', post_path(@post.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+            <% end %>
+            <p>
+              <% @post.categories.each do |category| %>
+                #<%= category.name %>
+              <% end %>
+            </p>
+            <p class="post-content"><%= @post.content %></p>
+          </div>
+        </div>
+      </div>
+      <h2>コメント一覧</h2>
+      <% @comments.each do |c| %>
+        <div>
+          <%= c.user.name %>
+          <%= c.content %>
+          <hr>
+        </div>
+      <% end %>
+
+      <%= form_with(model: [@post, @comment], method: :post) do |f| %>
+        <%= f.text_area :content %>
+        <%= f.hidden_field :post_id, value: @post.id %>
+        <br>
+        <%= f.submit 'コメントする',class:"comment-submit" %>
       <% end %>
     </div>
-    <div class="swiper-button-prev swiper-button-white"></div>
-    <div class="swiper-button-next swiper-button-white"></div>
-    <div class="swiper-pagination"></div>
-  </div>
-  </td>
-  </tr>
-  <tr>
-    <td>いいね数:<%= @post.goods.count %></td>
-  </tr>
-  <tr>
-    <td><%= @post.content %></td>
-  </tr>
-</table>
+</section>
 
-<% unless @post.user_id == current_user.id %>
-  <% if @good.present? %>
-    <%= link_to 'いいねを解除する', good_path(id: @good.id), method: :delete, class: 'btn btn-danger' %>
-  <% else %>
-    <%= link_to 'いいねする', goods_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
-  <% end %>
-<% else %>
-  <%= link_to "編集する", edit_post_path(@post.id) %>
-  <%= link_to '削除する', post_path(@post.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
-<% end %>
 
-<h2>コメント一覧</h2>
-<% @comments.each do |c| %>
-  <div>
-    <%= c.user.name %>
-    <%= c.content %>
-    <hr>
-  </div>
-<% end %>
 
-<%= form_with(model: [@post, @comment], method: :post) do |f| %>
-  <%= f.text_area :content %>
-  <%= f.hidden_field :post_id, value: @post.id %>
-  <br>
-  <%= f.submit 'コメントする' %>
-<% end %>
 
-<%= javascript_include_tag 'swiper.js' %>
+<%= javascript_include_tag 'posts.js' %>

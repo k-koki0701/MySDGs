@@ -14,7 +14,7 @@
     </div>
   </div>
 
-  <section class="container">
+  <section class="post-index-container">
     <% @posts.each do |post| %>
       <div class="cards">
         <div class="card card--light">
@@ -45,12 +45,12 @@
                 <%=link_to post.user.name, user_path(post.user.id), class: "post_user_name" %>
               <% unless post.user_id == current_user.id %>
                 <% if current_user.already_liked?(post) %>
-                  <%= link_to 'いいねを解除する', good_path(id: post.id, post_id: post.id), method: :delete %></td>
+                  <%= link_to 'いいねを解除する', good_path(id: post.good_ids, post_id: post.id), method: :delete %></td>
                 <% else %>
                   <%= link_to 'いいねする', goods_path(id: post.id, post_id: post.id), method: :post %>
                 <% end %>
               <% end %>
-                <p class="post-content"><%= post.content %></p>
+              <p class="post-content"><%= post.content %></p>
               <p class="post-read-more"><%= link_to '詳細', post_path(post.id) %></p>
             </div>
           </div>
@@ -60,6 +60,7 @@
   </section>
 
 
+  <div class="new-post-link">
     <%= link_to '新しく投稿する', new_post_path, class:"new-post" %>
   </div>
 
