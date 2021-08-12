@@ -1,9 +1,14 @@
+body {
+  padding-top: 150px;
+}
+
 .post-index-container {
   max-width: 700px;
   width: 100%;
   margin: 0 auto;
-	position: relative;
-	top: 35rem;
+  position: relative;
+  top: 20rem;
+  padding-bottom: 400px;
 }
 
 .cards {
@@ -146,15 +151,10 @@
   border-color: black;
 }
 
-.post-form {
-	position: relative;
-	top: 18rem;
-}
 
 .post-search {
   position: relative;
-  top: 25rem;
-  bottom: 30rem;
+  top: 10rem;
 }
 .search {
   width: 100%;
@@ -231,8 +231,6 @@
   max-width: 700px;
   width: 100%;
   margin: 0 auto;
-	position: relative;
-	top: 18rem;
 }
 
 .new-post {
