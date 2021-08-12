@@ -5,8 +5,8 @@ RSpec.describe '投稿機能', type: :system do
     @user = FactoryBot.create(:user)
   end
   describe '投稿新規作成機能' do
-     context '旅ガイドを新規作成した場合' do
-       it '作成した旅ガイドが表示される' do
+     context '投稿を新規作成した場合' do
+       it '作成した投稿が表示される' do
          visit new_user_session_path
          fill_in 'Email', with: 'test1@example.com'
          fill_in 'Password', with: 'password1'
