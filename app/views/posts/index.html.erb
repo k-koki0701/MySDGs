@@ -46,10 +46,10 @@
               <% unless post.user_id == current_user.id %>
                 <% if current_user.already_liked?(post) %>
                 <div class="heart" >
-                  <%= link_to '', good_path(id: post.good_ids, post_id: post.id), method: :delete,class:"fa fa-heart fa-2x" %></div>
+                  <%= link_to '', good_path(id: post.good_ids, post_id: post.id), method: :delete,class:"fa fa-heart fa-2x",id:"post-index-good" %></div>
                 <% else %>
                 <div class="heart" >
-                  <%= link_to "" ,goods_path(id: post.id, post_id: post.id), method: :post,class:"fa fa-heart-o fa-2x" %></div>
+                  <%= link_to "" ,goods_path(id: post.id, post_id: post.id), method: :post,class:"fa fa-heart-o fa-2x",id:"post-index-ungood" %></div>
                 <% end %>
               <% end %>
               <p class="post-content"><%= post.content %></p>
