@@ -54,6 +54,22 @@
   font-size: 5px;
 }
 
+.card__description .fa-heart-o {
+  text-decoration: none;
+  color: #000;
+  top: 0;
+}
+
+.card__description .fa-heart {
+  text-decoration: none;
+  color: red;
+  top: 0;
+}
+
+.heart{
+  text-align: right;
+}
+
 .swiper-container {
   width: 100%;
   height: 100%;

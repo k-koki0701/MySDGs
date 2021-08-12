@@ -45,9 +45,11 @@
                 <%=link_to post.user.name, user_path(post.user.id), class: "post_user_name" %>
               <% unless post.user_id == current_user.id %>
                 <% if current_user.already_liked?(post) %>
-                  <%= link_to 'いいねを解除する', good_path(id: post.good_ids, post_id: post.id), method: :delete %></td>
+                <div class="heart" >
+                  <%= link_to '', good_path(id: post.good_ids, post_id: post.id), method: :delete,class:"fa fa-heart fa-2x" %></div>
                 <% else %>
-                  <%= link_to 'いいねする', goods_path(id: post.id, post_id: post.id), method: :post %>
+                <div class="heart" >
+                  <%= link_to "" ,goods_path(id: post.id, post_id: post.id), method: :post,class:"fa fa-heart-o fa-2x" %></div>
                 <% end %>
               <% end %>
               <p class="post-content"><%= post.content %></p>

@@ -34,8 +34,8 @@
             <%= f.submit t('.sign_in') ,class:"botton submit"%>
           </div>
         <% end %>
-        <%= link_to "新規登録", new_registration_path(resource_name),class:"botton" %>
-        </div>
+        <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post ,class:"botton submit"%>
+      </div>
     </div>
   </div>
 </div>
