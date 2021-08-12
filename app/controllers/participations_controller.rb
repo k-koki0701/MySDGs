@@ -1,5 +1,5 @@
 class ParticipationsController < ApplicationController
-  before_action :authenticate_user!, only: [:create :destroy]
+  before_action :authenticate_user!, only: [:create, :destroy]
 
   def index
     @participations = current_user.participations.all
