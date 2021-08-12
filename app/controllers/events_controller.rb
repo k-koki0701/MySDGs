@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+
   def index
     @events = Event.all
     @q = @events.ransack(params[:q])
