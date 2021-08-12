@@ -4,8 +4,8 @@ describe 'ユーザーモデル機能', type: :model do
   describe 'バリデーションのテスト' do
     context 'ユーザーの名前が空の場合' do
       it 'バリデーションにひっかかる' do
-        event = User.new(title: '', content: '海でゴミ拾いします！', : 'password1')
-        expect(event).not_to be_valid
+        user = User.new(name: '', email: 'test1@example.com', password: 'password1')
+        expect(user).not_to be_valid
       end
     end
     context 'メールアドレスが空の場合' do
