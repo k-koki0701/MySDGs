@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
   mount_uploader :icon, IconUploader
 
+  validates :name, presence: true
+
   def follow!(other_user)
     active_relationships.create!(followed_id: other_user.id)
   end
