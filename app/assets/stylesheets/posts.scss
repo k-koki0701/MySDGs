@@ -1,9 +1,14 @@
+body {
+  padding-top: 150px;
+}
+
 .post-index-container {
   max-width: 700px;
   width: 100%;
   margin: 0 auto;
-	position: relative;
-	top: 35rem;
+  position: relative;
+  top: 20rem;
+  padding-bottom: 400px;
 }
 
 .cards {
@@ -52,6 +57,22 @@
 
 .card__description .post-list-content {
   font-size: 5px;
+}
+
+.card__description .fa-heart-o {
+  text-decoration: none;
+  color: #000;
+  top: 0;
+}
+
+.card__description .fa-heart {
+  text-decoration: none;
+  color: red;
+  top: 0;
+}
+
+.heart{
+  text-align: right;
 }
 
 .swiper-container {
@@ -130,15 +151,10 @@
   border-color: black;
 }
 
-.post-form {
-	position: relative;
-	top: 18rem;
-}
 
 .post-search {
   position: relative;
-  top: 25rem;
-  bottom: 30rem;
+  top: 10rem;
 }
 .search {
   width: 100%;
@@ -215,8 +231,6 @@
   max-width: 700px;
   width: 100%;
   margin: 0 auto;
-	position: relative;
-	top: 18rem;
 }
 
 .new-post {
