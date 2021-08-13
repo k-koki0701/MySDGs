@@ -28,6 +28,9 @@
                     <% else %>
                       <%= image_tag picture.image.url,class:"swiper-slide" %>
                     <% end %>
+                  <% else %>
+                    <img src="/assets/default_post.png", size:"200×200" %>
+                    <% break %>
                   <% end %>
                 <% end %>
               </div>
