@@ -2,47 +2,42 @@
   <%= stylesheet_link_tag 'events' %>
 <% end %>
 
-  <table class="event_frame">
-    <tr>
-      <%= image_tag @event.image.url %>
-    </tr>
-    <% if @event.owner.id == current_user.id %>
-      <td><%= link_to "編集する", edit_event_path(@event.id) %>,</td>
-      <td><%= link_to '削除する', event_path(@event.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
-    <% else %>
-      <% if @participation.present? %>
-        <td><%= link_to '参加をやめる', event_participation_path(@event, @participation), method: :delete,  data: { confirm: 'このイベントの参加を取り消しますか?'} %></td>
+<div class="event-show-layout">
+  <div class="event-show-header">
+    <h1 class="event-show-title"><%= @event.title %></h1>
+    <span class="event-show-date">開催日:<%= l @event.schedule , format: :long %></span>
+  </div>
+  <main class="event-show-content">
+    <div class="divider divider--down"></div>
+    <div class="events-show">
+      <article>
+        <%= image_tag @event.image.url, class:"event__image" %>
+        <h2 class="event__title"><主催者></h2>
+        <p class="event__content"><%= @event.owner.name %></p>
+        <h2 class="event__title"><カテゴリー></h2>
+        <p class="event__content" ><%= @event.category.name %></p>
+        <h2 class="event__title"><内容></h2>
+        <p class="event__content" ><%= @event.content %></p>
+      </article>
+    </div>
+    <div class="divider divider--up">
+      <% if @event.owner.id == current_user.id %>
+        <%= link_to "編集する", edit_event_path(@event.id) ,class:"btn-gradient-3d-orange"%>
+        <%= link_to '削除する', event_path(@event.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } ,class:"btn-gradient-3d-orange"%>
       <% else %>
-        <td><%= link_to '参加する', event_participations_path(@event.id), method: :post, data: { confirm: 'このイベントに参加しますか?'} %></td>
+        <% if @participation.present? %>
+          <%= link_to '参加をやめる', event_participation_path(@event, @participation), method: :delete,  data: { confirm: 'このイベントの参加を取り消しますか?'} ,class:"btn-gradient-3d-orange"%>
+        <% else %>
+          <%= link_to '参加する', event_participations_path(@event.id), method: :post, data: { confirm: 'このイベントに参加しますか?'},class:"btn-gradient-3d-orange" %>
+        <% end %>
       <% end %>
-    <% end %>
-    <tr>
-      <th>イベント名:</th>
-      <td><%= @event.title %></td>
-    </tr>
-    <tr>
-      <th>カテゴリー:</th>
-      <td><%= @event.category.name %></td>
-    </tr>
-    <tr>
-      <th>詳細:</th>
-      <td><%= @event.content %></td>
-    </tr>
-    <tr>
-      <th>主催者:</th>
-      <td><%= @event.owner.name %></td>
-    </tr>
-    <tr>
-      <th>日時:</th>
-      <td><%= l @event.schedule , format: :long %></td>
-    </tr>
-    <tr>
-      <th>参加人数:</th>
-      <td><%= @event.participations.count %>人</td>
-    </tr>
-    <tr>
-    <tr>
-      <td><%= link_to "イベント一覧へ", events_path %></td>
-    </tr>
+    </div>
+  </main>
+  <div class="event-show-footer">
+    <p>現在の参加予定人数:<%= @event.participations.count %>人</p>
+  </div>
+</div>
 
-  </table>
+  <div class="events-link">
+    <%= link_to "イベント一覧へ", events_path, class:"event-index-link" %>
+  </div>
