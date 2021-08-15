@@ -229,6 +229,7 @@ body {
 
 .post-show-container {
   max-width: 700px;
+  min-height: 700px;
   width: 100%;
   margin: 0 auto;
 }
@@ -308,4 +309,51 @@ margin: 0 auto;
   transition: color 0.4s linear;
   position: relative;
   color: #5ad67d;
+}
+
+// 投稿詳細
+.post-show-good {
+  text-align: right;
+}
+
+.post-show-button {
+  text-align: right;
+}
+
+.post-show-button .post-edit-link {
+  display: inline-block;
+  text-decoration: none;
+  color: #668ad8;
+  width: 50px;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 50%;
+  border: solid 2px #668ad8;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  transition: .4s;
+}
+
+.post-show-button .post-destroy-link {
+  display: inline-block;
+  text-decoration: none;
+  color: #668ad8;
+  width: 50px;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 50%;
+  border: solid 2px #668ad8;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  transition: .4s;
+}
+
+.post-show-button .post-edit-link:hover {
+  background: #b3e1ff;
+}
+
+.post-show-button .post-destroy-link:hover {
+  background: #b3e1ff;
 }

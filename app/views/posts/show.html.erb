@@ -2,7 +2,6 @@
   <%= stylesheet_link_tag 'posts' %>
 <% end %>
 
-<h1>投稿詳細画面</h1>
 <section class="post-show-container">
     <div class="cards">
       <div class="card card--light">
@@ -16,6 +15,9 @@
                   <% else %>
                     <%= image_tag picture.image.url,class:"swiper-slide" %>
                   <% end %>
+                <% else %>
+                  <img src="/assets/default_post.png", size:"200×200" %>
+                  <% break %>
                 <% end %>
               <% end %>
             </div>
@@ -31,23 +33,26 @@
               <img src="/assets/default.png" class="icon_image"%>
             <% end %>
               <%=link_to @post.user.name, user_path(@post.user.id), class: "post_user_name" %>
-              <%= @post.goods.count %>goods
-            <% unless @post.user_id == current_user.id %>
-              <% if @good.present? %>
-                <%= link_to 'いいねを解除する', good_path(id: @good.id), method: :delete %>
-              <% else %>
-                <%= link_to 'いいねする', goods_path(post_id: @post.id), method: :post %>
-              <% end %>
-            <% else %>
-              <%= link_to "編集する", edit_post_path(@post.id) %>
-              <%= link_to '削除する', post_path(@post.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
-            <% end %>
-            <p>
               <% @post.categories.each do |category| %>
-                #<%= category.name %>
+                <p>#<%= category.name %></p>
               <% end %>
-            </p>
+            <% unless @post.user_id == current_user.id %>
+              <div class="post-show-good" >
+                <% if @good.present? %>
+                  <%= link_to '', good_path(id: @good.id), method: :delete, class:"fa fa-heart fa-2x",id:"post-index-good" %>
+                <% else %>
+                  <%= link_to '', goods_path(post_id: @post.id), method: :post, class:"fa fa-heart-o fa-2x",id:"post-index-ungood" %>
+                <% end %>
+                ×<%= @post.goods.count %>
+              </div>
+            <% end %>
             <p class="post-content"><%= @post.content %></p>
+            <% if @post.user_id == current_user.id %>
+              <div class="post-show-button">
+                <%= link_to "編集する", edit_post_path(@post.id), class:"post-edit-link" %>
+                <%= link_to '削除する', post_path(@post.id), method: :delete ,data: { confirm: '本当に削除していいですか？' },class:"post-destroy-link" %>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
@@ -61,7 +66,7 @@
       <% end %>
 
       <%= form_with(model: [@post, @comment], method: :post) do |f| %>
-        <%= f.text_area :content %>
+        <%= f.text_area :content , placeholder:"コメント", size:"40×5"%>
         <%= f.hidden_field :post_id, value: @post.id %>
         <br>
         <%= f.submit 'コメントする',class:"comment-submit" %>
