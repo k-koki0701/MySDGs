@@ -28,7 +28,7 @@
 <div class='input-group date form-group' id='datetimepicker' data-target-input='nearest'>
   <div class='input-group-append' data-target='#datetimepicker' data-toggle='datetimepicker'>
     <%= form.label :イベント日 %>
-    <%= form.text_field :schedule,  class:'form-control datetimepicker-input'%>
+    <%= form.text_field :schedule,  class:'form-control datetimepicker-input', placeholder:"イベント日時"%>
     <% if @event.errors.include?(:schedule) %>
       <p style="color: red;"><%= @event.errors.full_messages_for(:schedule).first %>
     <% end %>
