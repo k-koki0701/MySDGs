@@ -12,4 +12,6 @@ class Event < ApplicationRecord
   validates :schedule, presence: true
   validates :category_id, presence: true
 
+  scope :after_tomorrow_schedule, -> {where("events.schedule > ?", DateTime.now).reorder(:schedule).order("id DESC")}
+
 end
