@@ -3,16 +3,6 @@
 <% end %>
 
 <%= form_with(model: @post, local: true) do |form| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @post.errors.count %>件のエラーがあります。</h2>
-      <ul>
-        <% @post.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
   <div class="form-group">
     <%= form.fields_for :pictures do |a| %>
       <%= a.label :image %><br>
@@ -28,10 +18,16 @@
         <%= category.text %>
       <% end %>
     <% end %>
+    <% if @post.errors.include?(:category_ids) %>
+      <p style="color: red;"><%= @post.errors.full_messages_for(:category_ids).first %>
+    <% end %>
   </div>
   <div class="form-group">
     <%= form.label :content %>
     <%= form.text_area :content, class:"form-control", placeholder:"投稿内容", size: "20x5" %>
+    <% if @post.errors.include?(:content) %>
+      <p style="color: red;"><%= @post.errors.full_messages_for(:content).first %>
+    <% end %>
   </div>
   <div class="form-group submit submit-post">
     <%= form.submit class:"btn-light"%>
