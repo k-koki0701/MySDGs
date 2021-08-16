@@ -34,7 +34,7 @@ class IconUploader < CarrierWave::Uploader::Base
   # end
 
   def default_url(*args)
-    'default.png'
+    'default.jpg'
   end
 
   # Add an allowlist of extensions which are allowed to be uploaded.
