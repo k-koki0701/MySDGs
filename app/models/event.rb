@@ -11,5 +11,14 @@ class Event < ApplicationRecord
   validates :image, presence: true
   validates :schedule, presence: true
   validates :category_id, presence: true
+  validate :after_tomorrow
+
+  def after_tomorrow
+    unless schedule == nil
+      errors.add(:schedule, 'は、明日以降の日付を選択してください') if schedule <= Date.today
+    end
+  end
+
+  scope :after_tomorrow_schedule, -> {where("events.schedule > ?", DateTime.now).reorder(:schedule).order("id DESC")}
 
 end

@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
   def index
-    @events = Event.all.order("id DESC")
+    @events = Event.after_tomorrow_schedule
     @q = @events.ransack(params[:q])
     @events = @q.result(distinct: true)
   end
