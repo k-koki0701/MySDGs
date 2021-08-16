@@ -25,6 +25,8 @@
         </div>
         <nav>
           <ul class="main-menu">
+          <li class="notice"><%= notice %></li>
+          <li class="alert"><%= alert %></li>
           <% if user_signed_in? %>
             <li><%= link_to "投稿", posts_path %></li>
             <li><%= link_to "イベント", events_path %></li>
@@ -40,8 +42,6 @@
             <li><%= link_to 'ゲストログイン(管理者)', users_admin_guest_sign_in_path, method: :post %></li>
           <% end %>
 
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
           </ul>
         </nav>
       </div>
