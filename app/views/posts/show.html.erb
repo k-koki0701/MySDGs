@@ -30,7 +30,7 @@
             <% if @post.user.icon? %>
               <img src=<%= @post.user.icon%> class = "icon_image">
             <% else %>
-              <img src="/assets/default.png" class="icon_image"%>
+              <img src="/assets/default.jpg" class="icon_image"%>
             <% end %>
               <%=link_to @post.user.name, user_path(@post.user.id), class: "post_user_name" %>
               <% @post.categories.each do |category| %>
