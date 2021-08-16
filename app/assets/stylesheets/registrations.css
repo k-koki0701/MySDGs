@@ -17,14 +17,14 @@ border: none;
 width: 200px
 }
 
-.event-form {
+.user-edit-form {
 width: 70%;
 max-width: 500px;
 padding: 15px;
 margin: 0 auto;
 }
 
-.events-link {
+.users-show-link {
   position:fixed;
   right:50px;
   bottom:50px;
@@ -34,7 +34,7 @@ margin: 0 auto;
   margin: 5rem;
 }
 
-.event-index-link {
+.current_user-show-link {
   background: none;
   border: 4px solid #5ad67d;
   font-family: "montserrat", sans-serif;

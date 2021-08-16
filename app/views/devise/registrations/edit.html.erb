@@ -2,9 +2,8 @@
   <%= stylesheet_link_tag 'registrations' %>
 <% end %>
 
-
 <div class="user-edit-container">
-  <div class="event-form">
+  <div class="user-edit-form">
     <br>
     <h1 class="mb-3 forest-text text-center"><i class="fa fa-user fa-lg"></i></h1>
     <h1 class="h3 mb-4 font-weight-normal forest-text text-center">ユーザーを編集する</h1>
@@ -51,6 +50,6 @@
   </div>
 </div>
 
-<div class="events-link">
-  <%= link_to t('devise.shared.links.back'), :back, class:"event-index-link"%>
+<div class="users-show-link">
+  <%= link_to t('devise.shared.links.back'), :back, class:"current_user-show-link"%>
 </div>
