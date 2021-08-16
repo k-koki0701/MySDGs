@@ -1,7 +1,5 @@
 $(function () {
   $('#datetimepicker').datetimepicker({
-    icons: {
-      time: 'fa fa-clock',
-    }
+    step:10,
   });
 });
