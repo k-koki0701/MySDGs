@@ -3,59 +3,39 @@
 <% end %>
 
 <div class="container">
-
-		<div class="profile">
-
-			<div class="profile-image">
-
+  <div class="profile">
+    <div class="profile-image">
       <% if @user.icon? %>
         <img src=<%= @user.icon%> class = "profile_icon_image">
       <% else %>
         <img src="/assets/default.jpg" class="profile_icon_image"%>
       <% end %>
-
-			</div>
-
-			<div class="profile-user-settings">
-
-				<h1 class="profile-user-name"><%= @user.name %></h1>
-
-          <% if @user.id == current_user.id %>
-              <%= link_to '編集', edit_user_registration_path, class:"button" %>
-          <% else %>
-              <%= render 'follow_form', user: @user %>
-              <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post %>
-          <% end %>
-
-
-			</div>
-
-			<div class="profile-stats">
-
-				<ul>
-					<li><span class="profile-stat-count"><%= @user.posts.count %></span> posts</li>
-          <li>
-            <span class="profile-stat-count">
-              <%= link_to goods_path do %>
-                <%= @user.goods.count %>
-              <% end %>
-              goods
-            </span>
-          </li>
-					<li><span class="profile-stat-count"><%= @user.followers.count %></span> followers</li>
-					<li><span class="profile-stat-count"><%= @user.following.count %></span> following</li>
-				</ul>
-
-
-
-			</div>
-
-			<div class="profile-bio">
-
-				<p><%= @user.self_introduction %></p>
-
-			</div>
-
-		</div>
-
-	</div>
+    </div>
+    <div class="profile-user-settings">
+      <h1 class="profile-user-name"><%= @user.name %></h1>
+      <% if @user.id == current_user.id %>
+          <%= link_to '編集', edit_user_registration_path, class:"button" %>
+          <%= link_to 'いいね一覧' ,goods_path, class:"button"  %>
+      <% else %>
+        <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post, class:"button" %>
+      <% end %>
+    </div>
+    <div class="profile-stats">
+      <ul>
+        <li><span class="profile-stat-count"><%= @user.posts.count %></span> posts</li>
+        <li>
+          <span class="profile-stat-count">
+            <%= @user.goods.count %>
+            goods
+          </span>
+        </li>
+        <li><span class="profile-stat-count"><%= @user.followers.count %></span> followers</li>
+        <li><span class="profile-stat-count"><%= @user.following.count %></span> following</li>
+      </ul>
+    </div>
+    <div class="profile-bio">
+      <p><%= @user.self_introduction %></p>
+    </div>
+    <%= render 'follow_form', user: @user %>
+  </div>
+</div>
