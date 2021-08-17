@@ -23,7 +23,7 @@ RSpec.describe 'フォロー機能', type: :system do
         click_on 'commit'
         click_on 'テスト太郎1'
         click_on 'フォロー'
-        expect(page).to have_button "つながりを解除"
+        expect(page).to have_button "フォローを解除"
       end
     end
   end
