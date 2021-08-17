@@ -28,6 +28,11 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+    if @event.owner == current_user
+      render "edit"
+    else
+      redirect_to events_path, notice: "作成者のみイベントの編集できます"
+    end
   end
 
   def update
@@ -41,8 +46,12 @@ class EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
-    @event.destroy
-    redirect_to events_path, notice:"削除しました！"
+    if @event.owner == current_user
+      @event.destroy
+      redirect_to events_path, notice:"削除しました！"
+    else
+      redirect_to events_path, notice: "作成者のみイベントを削除できます"
+    end
   end
 
 
