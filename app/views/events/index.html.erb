@@ -10,12 +10,12 @@
 
 <div class="event-search">
   <div class="wrap">
-  <div class="search">
-    <%= search_form_for @q do |f| %>
-      <%= f.search_field :title_cont, placeholder:"Search", class:"search-term" %>
-      <%= f.select :category_name_cont, Category.order(:name).map{|m| [m.name]}, {include_blank: true}, class:"category-term" %>
+    <div class="search">
+      <%= search_form_for @q do |f| %>
+        <%= f.search_field :title_cont, placeholder:"Search", class:"search-term" %>
+        <%= f.select :category_name_cont, Category.order(:name).map{|m| [m.name]}, {include_blank: true}, class:"category-term" %>
         <%= f.submit "検索", class:"search-button" %>
-    <% end %>
+      <% end %>
     </div>
   </div>
 </div>
