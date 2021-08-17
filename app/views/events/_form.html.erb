@@ -13,6 +13,7 @@
   </div>
   <div class="form-group">
     <%= form.label :写真 %>
+    <%= form.hidden_field :image_cache %>
     <%= form.file_field :image, id:"image"%>
     <% if @event.errors.include?(:image) %>
       <p style="color: red;"><%= @event.errors.full_messages_for(:image).first %>

@@ -40,12 +40,6 @@ body {
   padding: 1em;
 }
 
-.card__description .post_user_name {
-  font-size: 1.8rem;
-  top: 5px;
-  text-decoration: none;
-}
-
 .post-content {
   font-size: 1.5rem;
   margin: 20px 10px;
@@ -132,12 +126,11 @@ body {
 }
 .post_user_name {
 	font-family: serif;
-	font-size: 16px;
+	font-size: 1.8rem;
 	text-decoration: none;
 	color: #000;
-	bottom: 13px;
-	left: 5px;
 	position: relative;
+  top: 5px;
 }
 .post-icon-image {
   width: 35px;
