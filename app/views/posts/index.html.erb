@@ -45,9 +45,9 @@
         <div class="card__body">
           <div class="card__description">
             <% if post.user.icon? %>
-              <img src=<%= post.user.icon%> class = "icon_image">
+              <img src=<%= post.user.icon%> class = "post-icon-image">
             <% else %>
-              <img src="/assets/default.jpg" class="icon_image"%>
+              <img src="/assets/default.jpg" class="post-icon-image"%>
             <% end %>
               <%=link_to post.user.name, user_path(post.user.id), class: "post_user_name" %>
             <% unless post.user_id == current_user.id %>
