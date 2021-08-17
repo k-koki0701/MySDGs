@@ -73,7 +73,7 @@ User.create!(
         title: "ゴミ拾い",
         content: "海でゴミ拾いしましょう！！",
         image: File.open("./public/images/post_image#{5+1}.jpg"),
-        schedule: "2021/08/11 12:00",
+        schedule: "2021/12/30 12:00",
         owner_id: n+1,
         category_id: 14
       )
