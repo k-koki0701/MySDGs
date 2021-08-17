@@ -36,6 +36,8 @@
     <div class="profile-bio">
       <p><%= @user.self_introduction %></p>
     </div>
-    <%= render 'follow_form', user: @user %>
+    <% unless @user.id == current_user.id %>
+      <%= render 'follow_form', user: @user %>
+    <% end %>
   </div>
 </div>
