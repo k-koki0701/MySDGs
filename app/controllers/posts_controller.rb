@@ -31,6 +31,11 @@ class PostsController < ApplicationController
   end
 
   def edit
+    if @post.user == current_user
+      render "edit"
+    else
+      redirect_to posts_path, notice: "作成者のみ投稿の編集できます"
+    end
   end
 
   def update
@@ -42,8 +47,12 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.destroy
-    redirect_to posts_path, notice:"削除しました！"
+    if @post.user == current_user
+      @post.destroy
+      redirect_to posts_path, notice:"削除しました！"
+    else
+      redirect_to posts_path, notice: "作成者のみ投稿を削除できます"
+    end
   end
 
   private
