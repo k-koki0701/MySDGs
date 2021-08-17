@@ -275,13 +275,11 @@ margin: 0 auto;
 }
 
 .posts-link {
-  position:fixed;
-  right:50px;
-  bottom:50px;
   transition:1s;
   opacity:0.7;
   display: block;
   margin: 5rem;
+  text-align: center;
 }
 
 .post-index-link {
