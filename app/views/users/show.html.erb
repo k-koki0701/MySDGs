@@ -29,8 +29,20 @@
             goods
           </span>
         </li>
-        <li><span class="profile-stat-count"><%= @user.followers.count %></span> followers</li>
-        <li><span class="profile-stat-count"><%= @user.following.count %></span> following</li>
+        <li>
+          <%= link_to follower_relationship_path(@user) do %>
+            <span class="profile-stat-count">
+              <%= @user.followers.count %>
+            </span> followers
+          <% end %>
+        </li>
+        <li>
+          <%= link_to followed_relationship_path(@user) do %>
+            <span class="profile-stat-count">
+              <%= @user.following.count %>
+            </span> following
+          <% end %>
+        </li>
       </ul>
     </div>
     <div class="profile-bio">

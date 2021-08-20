@@ -23,5 +23,6 @@ Rails.application.config.assets.precompile += %w(
     sign_up.css
     message.css
     applications.css
+    ralationships.css
     *.js
  )

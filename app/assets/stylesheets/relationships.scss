@@ -1,3 +1,88 @@
-// Place all the styles related to the Relationships controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.followed-list {
+  padding: 20rem 0;
+}
+
+.conteiner {
+  background: #ccc;
+  border-radius: 4rem;
+  overflow: hidden;
+  font-family: Montserrat, sans-serif;
+  box-shadow: 1px 3px 8px 0px rgba(0, 0, 0, 0.3);
+  width: 55%;
+  margin: 0 auto;
+}
+
+.list {
+  padding: 5rem;
+  background: #F0FFFF;
+}
+.list .text {
+  font-style: italic;
+  margin-bottom: 2rem;
+  display: block;
+  color: aliceblue;
+  font-size: 2rem;
+  font-weight: 900;
+  -webkit-text-stroke: 0.8px #6495ED;
+}
+
+.list .user {
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  background: white;
+  color: black;
+  margin-bottom: 0.5rem;
+  display: grid;
+  grid-template-columns: 50px 1fr 50px 1fr;
+  align-items: center;
+  cursor: move;
+  box-shadow: 0 1px 1px #009688;
+}
+.list .user.chosen {
+  transform: scale(0.99);
+  box-shadow: 0 0 20px rgba(149, 153, 159, 0.16);
+}
+.list .user.ghost {
+  transform: scale(0.99);
+  box-shadow: 0 0 20px rgba(149, 153, 159, 0.16);
+}
+.list .user.drag {
+  opacity: 0;
+}
+.list .user > * {
+  margin: 0 1rem;
+}
+.list .user .avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0;
+}
+.list .user span {
+  font-weight: bold;
+}
+.list .user:last-child {
+  margin-bottom: 0;
+}
+
+.no-follow {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 2rem;
+  display: block;
+  color: aliceblue;
+  font-size: 2rem;
+  font-weight: 900;
+  -webkit-text-stroke: 0.8px #6495ED;
+}
+
+.relationship-user-page {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 2rem;
+  display: block;
+  color: aliceblue;
+  font-size: 2rem;
+  font-weight: 900;
+  -webkit-text-stroke: 0.8px #6495ED;
+}
