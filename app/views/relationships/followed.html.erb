@@ -1,0 +1,26 @@
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'relationships' %>
+<% end %>
+
+<div class="followed-list">
+  <% if @users.size != 0 %>
+    <div class="conteiner">
+      <div class="list" >
+        <span class="text">フォローいちらん</span>
+        <% @users.each do |user| %>
+          <div class="user">
+            <% if user.icon? %>
+              <img src=<%= user.icon%> class = "avatar">
+            <% else %>
+              <img src="/assets/default.jpg" class="avatar"%>
+            <% end %>
+            <span class="name"><%=link_to user.name,user_path(user.id) %></span>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <p class="no-follow">フォローしたユーザーはまだいません。</p>
+  <% end %>
+</div>
+<%=link_to "ユーザーページへ", user_path(@user), class:"relationship-user-page" %>
