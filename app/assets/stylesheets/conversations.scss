@@ -1,3 +1,70 @@
-// Place all the styles related to the Conversations controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#chatbox{
+	width:800px;
+	background:#fff;
+	border-radius:6px;
+	overflow:hidden;
+	height:484px;
+	position:absolute;
+	left:30%;
+	margin-left:-155px;
+  margin-top: 20rem;
+}
+.message-list{
+  font-size: 25px;
+}
+#friendslist{
+	position:absolute;
+	width:800px;
+	height:484px;
+}
+#topmenu{
+	height:60px;
+	width:800px;
+	border-bottom:1px solid #d8dfe3;
+}
+#topmenu span{
+	float:left;
+	width: 96px;
+  height: 100px;
+}
+
+.friend{
+	height:100px;
+	border-bottom:1px solid #e7ebee;
+	position:relative;
+}
+.friend:hover{
+	background:#f1f4f6;
+	cursor:pointer;
+}
+.friend .conversation-user-icon {
+	width:50px;
+  height: 50px;
+	border-radius:50%;
+	float:left;
+  margin-left: 15px;
+
+}
+
+.friend p{
+	float:left;
+	width:800px;
+  padding-bottom: 40px;
+}
+.friend p strong{
+  font-weight:800;
+  font-size:20px;
+	color:#597a96;
+  margin-left: 20px;
+}
+.friend p span{
+	font-size:18px;
+	font-weight:400;
+	color:#aab8c2;
+}
+.friend p .message-last-body{
+	margin-left: 3rem;
+}
+.friend p .message-created-at{
+  float: right;
+}
