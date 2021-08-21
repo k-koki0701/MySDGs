@@ -1,14 +1,34 @@
-<table class="table table-hover">
-  <thead>
-    <h2>メッセージ一覧</h2>
-  </thead>
-  <tbody>
-    <% @conversations.each do |conversation| %>
-      <td>
-        <% if conversation.target_user(current_user).present? %>
-          <%= link_to conversation.target_user(current_user).name, conversation_messages_path(conversation)%>
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'conversations' %>
+<% end %>
+
+<div id="chatbox">
+  <div id="friendslist">
+    <div id="topmenu">
+      <span class="fa fa-comments-o fa-5x"></span>
+      <strong class="message-list">メッセージ一覧</strong>
+    </div>
+    <div id="friends">
+      <% if @conversations.size != 0 %>
+        <% @conversations.each do |conversation| %>
+          <% if conversation.target_user(current_user).present? %>
+            <div class="friend">
+              <%= link_to conversation_messages_path(conversation) do %>
+                <p>
+                  <% if conversation.target_user(current_user).icon? %>
+                    <img src=<%= conversation.target_user(current_user).icon %> class="conversation-user-icon" >
+                  <% else %>
+                    <img src="/assets/default.jpg" class="conversation-user-icon" >
+                  <% end %>
+                  <strong><%= conversation.target_user(current_user).name %></strong>
+                  <span class="message-last-body"><%= conversation.messages.last.body %></span>
+                  <span class="message-created-at"><%= conversation.messages.last.created_at.strftime("%H:%M") %></span>
+                </p>
+              <% end %>
+            </div>
+          <% end %>
         <% end %>
-      </td>
-    <% end %>
-  </tbody>
-</table>
+      <% end %>
+    </div>
+  </div>
+</div>
