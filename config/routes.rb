@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments, only: [:create]
+    resources :goods, only: [:index, :create, :destroy]
   end
   resources :conversations do
     resources :messages
@@ -18,7 +19,6 @@ Rails.application.routes.draw do
     resources :participations, only: [:index, :create, :destroy]
   end
   resources :users, only: [:index, :show]
-  resources :goods, only: [:index, :create, :destroy]
   resources :relationships, only: [:create, :destroy] do
     member do
       get :followed, :follower
