@@ -4,11 +4,23 @@
 
 <%= form_with(model: @post, local: true) do |form| %>
   <div class="form-group">
-    <%= form.fields_for :pictures do |a| %>
-      <%= a.label :image %><br>
-      <%= a.file_field :image %>
-      <%= a.hidden_field :image_cache %>
-    <% end %>
+    <div class="post__drop__box__container">
+      <div class="prev-content"></div>
+      <div class="label-content">
+        <label class="label-box" for="post_pictures_attributes_0_image" id="label-box--0">
+          <pre class="label-box__text-visible fa fa-camera">クリックしてアップロード</pre>
+        </label>
+        <div class="hidden-content">
+          <%= form.fields_for :pictures do |a| %>
+            <%= a.file_field :image, class: "hidden-field" %>
+            <input class="hidden-field" id="post_pictures_attributes_1_image" name="post[pictures_attributes][1][image]" type="file"></input>
+            <input class="hidden-field" id="post_pictures_attributes_2_image" name="post[pictures_attributes][2][image]" type="file"></input>
+            <input class="hidden-field" id="post_pictures_attributes_3_image" name="post[pictures_attributes][3][image]" type="file"></input>
+            <input class="hidden-field" id="post_pictures_attributes_4_image" name="post[pictures_attributes][4][image]" type="file"></input>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="form-group">
     <%= form.label :カテゴリ %>
