@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
-    passwords: 'users/passwords',
-    omniauth_callbacks: "users/omniauth_callbacks"
+    passwords: 'users/passwords'
   }
 
   root 'tops#index'
