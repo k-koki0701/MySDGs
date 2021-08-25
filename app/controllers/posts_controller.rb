@@ -39,7 +39,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    if @post.update(post_params)
+    if @post.update(post_update_params)
       redirect_to posts_path, notice: "編集しました！"
     else
       render :edit
@@ -59,6 +59,10 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:content, pictures_attributes: [:id, :image,:image_cache], category_ids: [])
+  end
+
+  def post_update_params
+    params.require(:post).permit(:content, pictures_attributes: [:id, :image,:image_cache,:_destroy], category_ids: [])
   end
 
   def set_post
