@@ -12,7 +12,7 @@
             <% if user.icon? %>
               <img src=<%= user.icon%> class = "avatar">
             <% else %>
-              <img src="/assets/default.jpg" class="avatar"%>
+              <img src="<%= asset_path "default.jpg" %>" class="avatar"%>
             <% end %>
             <span class="name"><%=link_to user.name,user_path(user.id) %></span>
           </div>
