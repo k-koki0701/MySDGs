@@ -5,6 +5,14 @@
 <section class="post-show-container">
     <div class="cards">
       <div class="card card--light">
+        <div class="posts-user-icon">
+          <% if @post.user.icon? %>
+            <img src=<%= @post.user.icon%> class = "post-icon-image">
+          <% else %>
+            <img src="/assets/default.jpg" class="post-icon-image"%>
+          <% end %>
+          <span><%=link_to @post.user.name, user_path(@post.user.id), class: "post_user_name" %></span>
+        </div>
         <div class="card__slide">
           <div class="swiper-container">
             <div class="swiper-wrapper">
@@ -27,15 +35,9 @@
         </div>
         <div class="card__body">
           <div class="card__description">
-            <% if @post.user.icon? %>
-              <img src=<%= @post.user.icon%> class = "icon_image">
-            <% else %>
-              <img src="/assets/default.jpg" class="icon_image"%>
+            <% @post.categories.each do |category| %>
+              <span>#<%= category.name %></span>
             <% end %>
-              <%=link_to @post.user.name, user_path(@post.user.id), class: "post_user_name" %>
-              <% @post.categories.each do |category| %>
-                <p>#<%= category.name %></p>
-              <% end %>
             <% unless @post.user_id == current_user.id %>
               <div class="post-show-good" >
                 <div id="goods_buttons_<%= @post.id %>">

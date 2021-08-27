@@ -33,7 +33,7 @@
 }
 .main-header .header-wrapper {
   display: block;
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
   padding-top: 1em;
 }
@@ -44,14 +44,13 @@
 }
 .main-header .header-wrapper .main-menu {
   float: right;
-  text-align: center;
 }
 .main-header .header-wrapper .main-menu li {
   display: inline-block;
   padding: 0.75em 1.875em;
 }
 .main-header .header-wrapper .main-menu li a {
-  padding-bottom: 1.3em;
+  padding-bottom: 1.0em;
   text-transform: uppercase;
   color: #000;
   font-size: 1.6em;
