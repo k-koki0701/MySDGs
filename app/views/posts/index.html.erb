@@ -26,7 +26,7 @@
           <% if post.user.icon? %>
             <img src=<%= post.user.icon%> class = "post-icon-image">
           <% else %>
-            <img src="/assets/default.jpg" class="post-icon-image"%>
+            <img src="<%= asset_path "default.jpg" %>" class="post-icon-image"%>
           <% end %>
           <span><%=link_to post.user.name, user_path(post.user.id), class: "post_user_name" %></span>
         </div>

@@ -1,5 +1,5 @@
 .home-page {
-  background-image: url("/assets/green.jpeg");
+  background-image: image-url("green.jpeg");
   background-size: auto;
   height: 850px;
   opacity:.80;
@@ -180,23 +180,23 @@ hr {
 .wrap-effect-1 {
   .item {
     &:first-of-type {
-      background-image: url('/assets/nature.webp');
+      background-image: image-url("nature.webp");
       border-radius: 20px;
     }
     &:nth-of-type(2) {
-      background-image: url('/assets/poverty.jpg');
+      background-image: image-url("poverty.jpg");
       border-radius: 20px;
     }
     &:nth-of-type(3) {
-      background-image: url('/assets/gender.jpg');
+      background-image: image-url("gender.jpg");
       border-radius: 20px;
     }
     &:nth-of-type(4) {
-      background-image: url('/assets/health.webp');
+      background-image: image-url("health.webp");
       border-radius: 20px;
     }
     &:last-of-type {
-      background-image: url('/assets/lamp.jpg');
+      background-image: image-url("lamp.jpg");
       border-radius: 20px;
     }
   }
@@ -211,19 +211,19 @@ hr {
       filter: saturate(2) contrast(120%);
     }
     &:first-of-type {
-      background-image: url('/assets/nature.webp');
+      background-image: image-url("nature.webp");
     }
     &:nth-of-type(2) {
-      background-image: url('/assets/poverty.jpg');
+      background-image: image-url("poverty.jpg");
     }
     &:nth-of-type(3) {
-      background-image: url('/assets/gender.jpg');
+      background-image: image-url("gender.jpg");
     }
     &:nth-of-type(4) {
-      background-image: url('/assets/health.webp');
+      background-image: image-url("health.webp");
     }
     &:last-of-type {
-      background-image: url('/assets/lamp.jpg');
+      background-image: image-url("lamp.jpg");
     }
   }
 }
@@ -237,19 +237,19 @@ hr {
       border: 1px solid gray;
     }
     &:first-of-type {
-      background-image: url('/assets/nature.webp');
+      background-image: image-url("nature.webp");
     }
     &:nth-of-type(2) {
-      background-image: url('/assets/poverty.jpg');
+      background-image: image-url("poverty.jpg");
     }
     &:nth-of-type(3) {
-      background-image: url('/assets/gender.jpg');
+      background-image: image-url("gender.jpg");
     }
     &:nth-of-type(4) {
-      background-image: url('/assets/health.webp');
+      background-image: image-url("health.webp");
     }
     &:last-of-type {
-      background-image: url('/assets/lamp.jpg');
+      background-image: image-url("lamp.jpg");
     }
   }
 }
@@ -262,19 +262,19 @@ hr {
       filter: saturate(2) contrast(120%);
     }
     &:first-of-type {
-      background-image: url('/assets/nature.webp');
+      background-image: image-url("nature.webp");
     }
     &:nth-of-type(2) {
-      background-image: url('/assets/poverty.jpg');
+      background-image: image-url("poverty.jpg");
     }
     &:nth-of-type(3) {
-      background-image: url('/assets/gender.jpg');
+      background-image: image-url("gender.jpg");
     }
     &:nth-of-type(4) {
-      background-image: url('/assets/health.webp');
+      background-image: image-url("health.webp");
     }
     &:last-of-type {
-      background-image: url('/assets/lamp.jpg');
+      background-image: image-url("lamp.jpg");
     }
   }
 }

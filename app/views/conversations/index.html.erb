@@ -18,7 +18,7 @@
                   <% if conversation.target_user(current_user).icon? %>
                     <img src=<%= conversation.target_user(current_user).icon %> class="conversation-user-icon" >
                   <% else %>
-                    <img src="/assets/default.jpg" class="conversation-user-icon" >
+                    <img src"<%= asset_path "default.jpg" %>" class="conversation-user-icon" >
                   <% end %>
                   <strong><%= conversation.target_user(current_user).name %></strong>
                   <span class="message-last-body"><%= conversation.messages.last.body %></span>

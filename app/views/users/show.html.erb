@@ -8,7 +8,7 @@
       <% if @user.icon? %>
         <img src=<%= @user.icon%> class = "profile_icon_image">
       <% else %>
-        <img src="/assets/default.jpg" class="profile_icon_image"%>
+        <img src="<%= asset_path "default.jpg" %>" class="profile_icon_image"%>
       <% end %>
     </div>
     <div class="profile-user-settings">
