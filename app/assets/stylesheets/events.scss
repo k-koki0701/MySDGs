@@ -188,10 +188,10 @@ body {
   margin-right: 10px;
   content: "";
 }
-.blog-card .details .author,.date{
+.blog-card .details .author,.events-date{
   font-size: 15px;
 }
-.blog-card .details .date:before {
+.blog-card .details .events-date:before {
   font-family: FontAwesome;
   margin-right: 10px;
   content: "";
@@ -255,7 +255,8 @@ body {
 .blog-card p {
   position: relative;
   margin: 1rem 0 0;
-  font-size: large;
+  font-size: 17px;
+  word-break: break-all;
 }
 .blog-card p:first-of-type {
   margin-top: 1.25rem;
@@ -475,6 +476,7 @@ margin: 0 auto;
   padding: 0;
   font-weight: 400;
   font-size: 1rem;
+  word-break: break-all;
 }
 .event__image {
   width: 550px;
