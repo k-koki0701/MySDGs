@@ -188,6 +188,9 @@ body {
   margin-right: 10px;
   content: "";
 }
+.blog-card .details .author,.date{
+  font-size: 15px;
+}
 .blog-card .details .date:before {
   font-family: FontAwesome;
   margin-right: 10px;
