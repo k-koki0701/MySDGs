@@ -17,7 +17,7 @@
         <h2 class="event__title"><カテゴリー></h2>
         <p class="event__content" ><%= @event.category.name %></p>
         <h2 class="event__title"><内容></h2>
-        <p class="event__content" ><%= @event.content %></p>
+        <p class="event__content" ><%= safe_join(@event.content.split("\n"),tag(:br)) %></p>
       </article>
     </div>
     <div class="divider divider--up">

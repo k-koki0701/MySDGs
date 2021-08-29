@@ -2,23 +2,36 @@
   <%= stylesheet_link_tag 'events' %>
 <% end %>
 
-
-<div class="event-link">
-  <%= link_to '新しく作成する', new_event_path, class:"event-btn event-btn2" %>
-  <%= link_to '参加イベント一覧', event_participations_path(current_user), class:"event-btn event-btn2" %>
-</div>
-
-<div class="event-search">
-  <div class="wrap">
-    <div class="search">
-      <%= search_form_for @q do |f| %>
-        <%= f.search_field :title_cont, placeholder:"Search", class:"search-term" %>
-        <%= f.select :category_name_cont, Category.order(:name).map{|m| [m.name]}, {include_blank: true}, class:"category-term" %>
-        <%= f.submit "検索", class:"search-button" %>
-      <% end %>
+<div class="event-page jumbotron">
+  <div class="fluid-container">
+    <h1>イベントページ</h1>
+    <p class="para">where are you going ?</p>
+    <hr>
+    <div class="social center-block">
+      <ul>
+        <div class="event-link">
+          <li><%= link_to '新しく作成する', new_event_path, class:"event-btn event-btn2" %></li>
+        </div>
+        <div class="event-link">
+          <li><%= link_to '参加イベント一覧', event_participations_path(current_user), class:"event-btn event-btn2" %></li>
+        </div>
+      </ul>
     </div>
   </div>
+  <div class="event-search">
+    <div class="wrap">
+      <div class="search">
+        <%= search_form_for @q do |f| %>
+          <%= f.search_field :title_cont, placeholder:"Search", class:"search-term" %>
+          <%= f.select :category_name_cont, Category.order(:name).map{|m| [m.name]}, {include_blank: true}, class:"category-term" %>
+          <%= f.submit "検索", class:"search-button" %>
+        <% end %>
+      </div>
+    </div>
+　</div>
 </div>
+
+<p class="event-index-text">新規イベント</p>
 
 <% @events.each do |event| %>
   <div class="blog-card">
@@ -26,14 +39,14 @@
       <%= image_tag event.image.url ,class:"photo"%>
       <ul class="details">
         <li class="author">主催者:<%=link_to event.owner.name, user_path(event.owner.id) %></td></li>
-        <li class="date">作成日:<%= l event.created_at , format: :short %></li>
+        <li class="events-date">作成日:<%= l event.created_at , format: :short %></li>
       </ul>
     </div>
     <div class="description">
       <h1 class="event-title"><%= event.title %></h1>
       開催日:<%= l event.schedule , format: :long %>
       <h2>カテゴリー:<%= event.category.name %></h2>
-      <p><%= event.content %></p>
+      <p><%= event.content.truncate(200) %></p>
       <p class="read-more">
         <%= link_to '詳細', event_path(event.id) %>
       </p>
