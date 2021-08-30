@@ -1,88 +1,70 @@
-.followed-list {
-  padding: 20rem 0;
+#chatbox{
+	width:800px;
+	background:#fff;
+	border-radius:6px;
+	overflow:hidden;
+	height:484px;
+	position:absolute;
+	left:30%;
+	margin-left:-155px;
+  margin-top: 10rem;
+}
+.message-list{
+  font-size: 25px;
+}
+#friendslist{
+	position:absolute;
+	width:800px;
+	height:484px;
+}
+#topmenu{
+	height:60px;
+	width:800px;
+	border-bottom:1px solid #d8dfe3;
+}
+#topmenu span{
+	float:left;
+	width: 96px;
+  height: 100px;
 }
 
-.conteiner {
-  background: #ccc;
-  border-radius: 4rem;
-  overflow: hidden;
-  font-family: Montserrat, sans-serif;
-  box-shadow: 1px 3px 8px 0px rgba(0, 0, 0, 0.3);
-  width: 55%;
-  margin: 0 auto;
+.friend{
+	height:100px;
+	border-bottom:1px solid #e7ebee;
+	position:relative;
 }
-
-.list {
-  padding: 5rem;
-  background: #F0FFFF;
+.friend:hover{
+	background:#f1f4f6;
+	cursor:pointer;
 }
-.list .text {
-  font-style: italic;
-  margin-bottom: 2rem;
-  display: block;
-  color: aliceblue;
-  font-size: 2rem;
-  font-weight: 900;
-  -webkit-text-stroke: 0.8px #6495ED;
-}
-
-.list .user {
-  padding: 0.5rem;
-  border-radius: 0.3rem;
-  background: white;
-  color: black;
-  margin-bottom: 0.5rem;
-  display: grid;
-  grid-template-columns: 50px 1fr 50px 1fr;
-  align-items: center;
-  cursor: move;
-  box-shadow: 0 1px 1px #009688;
-}
-.list .user.chosen {
-  transform: scale(0.99);
-  box-shadow: 0 0 20px rgba(149, 153, 159, 0.16);
-}
-.list .user.ghost {
-  transform: scale(0.99);
-  box-shadow: 0 0 20px rgba(149, 153, 159, 0.16);
-}
-.list .user.drag {
-  opacity: 0;
-}
-.list .user > * {
-  margin: 0 1rem;
-}
-.list .user .avatar {
-  width: 50px;
+.friend .conversation-user-icon {
+	width:50px;
   height: 50px;
-  border-radius: 50%;
-  margin: 0;
-}
-.list .user span {
-  font-weight: bold;
-}
-.list .user:last-child {
-  margin-bottom: 0;
+	border-radius:50%;
+	float:left;
+  margin-left: 15px;
+
 }
 
-.no-follow {
-  text-align: center;
-  font-style: italic;
-  margin-bottom: 2rem;
-  display: block;
-  color: aliceblue;
-  font-size: 2rem;
-  font-weight: 900;
-  -webkit-text-stroke: 0.8px #6495ED;
+.friend p{
+	float:left;
+	width:800px;
+  padding-bottom: 40px;
 }
-
-.relationship-user-page {
-  text-align: center;
-  font-style: italic;
-  margin-bottom: 2rem;
-  display: block;
-  color: aliceblue;
-  font-size: 2rem;
-  font-weight: 900;
-  -webkit-text-stroke: 0.8px #6495ED;
+.friend p strong{
+  font-weight:800;
+  font-size:20px;
+	color:#597a96;
+  margin-left: 20px;
+}
+.friend p span{
+	font-size:18px;
+	font-weight:400;
+	color:#aab8c2;
+}
+.friend p .message-last-body{
+	margin-left: 3rem;
+}
+.friend p .message-created-at{
+  float: right;
 }

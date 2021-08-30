@@ -2,25 +2,31 @@
   <%= stylesheet_link_tag 'relationships' %>
 <% end %>
 
-<div class="followed-list">
-  <% if @users.size != 0 %>
-    <div class="conteiner">
-      <div class="list" >
-        <span class="text">フォローいちらん</span>
+<div id="chatbox">
+  <div id="friendslist">
+    <div id="topmenu">
+      <span class="fa fa-user-plus fa-5x"></span>
+      <strong class="message-list">フォロー一覧</strong>
+    </div>
+    <div id="friends">
+      <% if @users.size != 0 %>
         <% @users.each do |user| %>
-          <div class="user">
-            <% if user.icon? %>
-              <img src=<%= user.icon%> class = "avatar">
-            <% else %>
-              <img src="<%= asset_path "default.jpg" %>" class="avatar"%>
+          <div class="friend">
+            <%=link_to user_path(user.id) do%>
+              <p>
+                <% if user.icon? %>
+                  <img src=<%= user.icon%> class = "conversation-user-icon">
+                <% else %>
+                  <img src="<%= asset_path "default.jpg" %>" class="conversation-user-icon"%>
+                <% end %>
+                <strong><%= user.name %></strong>
+              </p>
             <% end %>
-            <span class="name"><%=link_to user.name,user_path(user.id) %></span>
           </div>
         <% end %>
-      </div>
+      <% else %>
+        <p class="no-follow">フォローしたユーザーはまだいません。</p>
+      <% end %>
     </div>
-  <% else %>
-    <p class="no-follow">フォローしたユーザーはまだいません。</p>
-  <% end %>
+  </div>
 </div>
-<%=link_to "ユーザーページへ", user_path(@user), class:"relationship-user-page" %>
