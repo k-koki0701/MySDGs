@@ -20,6 +20,10 @@
   position: relative;
 }
 
+body {
+  padding-top: 100px;
+}
+
  .main-header {
   position: absolute;
   top: 0;
