@@ -1,19 +1,35 @@
-<h2>お気に入りしたページ一覧</h2>
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'goods' %>
+<% end %>
 
-    <% if @goods.size != 0 %>
-      <% @goods.each do |good| %>
-        <% good.post.pictures.each_with_index do |picture| %>
-          <% if picture[:image] != nil %>
-            <%= image_tag picture.image.url, size: "200x300" %>
-          <% else %>
-            <%= image_tag 'default.png' %>
+
+<p class="goods-index">お気に入りした投稿一覧</p>
+<div class="row">
+  <% if @goods.size != 0 %>
+    <% @goods.each do |good| %>
+      <%= link_to post_path(good.post.id) do%>
+        <div class="good-gallery-item d-flex justify-content-center ">
+          <% good.post.pictures.each do |picture| %>
+            <%= image_tag picture.image.url, class:"good-gallery-image"%>
+            <div class="good-gallery-item-info">
+              <ul>
+                <li class="good-gallery-item-likes">
+                  <span class="visually-hidden"></span>
+                  <i class="fa fa-heart" aria-hidden="true"></i><%= good.post.goods.count %>
+                </li>
+                <li class="good-gallery-item-comments">
+                  <span class="visually-hidden"></span>
+                  <i class="fa fa-comment" aria-hidden="true"></i>
+                  <%= good.post.comments.count %>
+                </li>
+              </ul>
+            </div>
+            <% break %>
           <% end %>
-        <% end %>
-        <%= good.post.content %>
-      <%= link_to '詳細', post_path(good.post.id) %>
+        </div>
       <% end %>
-    <% else %>
-      <p>いいねした投稿はありません。</p>
     <% end %>
-
-    <%= link_to "投稿一覧へ", posts_path %>
+  <% else %>
+    <p>お気に入りした投稿はありません</p>
+  <% end %>
+</div>
