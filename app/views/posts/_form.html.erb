@@ -23,12 +23,13 @@
     </div>
   </div>
   <div class="form-group">
-    <%= form.label :カテゴリ %>
+    <%= form.label :"カテゴリ:" %></br>
     <%= form.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
-      <%= category.label do %>
-        <%= category.check_box %>
-        <%= category.text %>
+      <div class="btn-group btn-group-vertical" data-toggle="buttons">
+        <%= category.label(class:"btn") do %>
+          <%= category.check_box %><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i> <span><%= category.text %></span>
       <% end %>
+      </div>
     <% end %>
     <% if @post.errors.include?(:category_ids) %>
       <p style="color: red;"><%= @post.errors.full_messages_for(:category_ids).first %>
