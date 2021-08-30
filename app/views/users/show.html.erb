@@ -30,14 +30,14 @@
           </span>
         </li>
         <li>
-          <%= link_to follower_relationship_path(@user) do %>
+          <%= link_to follower_relationship_path(@user),class:"follow-count" do %>
             <span class="profile-stat-count">
               <%= @user.followers.count %>
             </span> followers
           <% end %>
         </li>
         <li>
-          <%= link_to followed_relationship_path(@user) do %>
+          <%= link_to followed_relationship_path(@user),class:"follow-count" do %>
             <span class="profile-stat-count">
               <%= @user.following.count %>
             </span> following
