@@ -2,21 +2,16 @@
   <%= stylesheet_link_tag 'posts' %>
 <% end %>
 
-<div class="posts-new-link">
-  <%= link_to '新しく投稿する', new_post_path, class:"post-btn post-btn2" %>
-</div>
-
-<div class="post-search">
-  <div class="wrap">
-    <div class="search">
-      <%= search_form_for @q do |f| %>
-        <%= f.search_field :content_cont, placeholder:"Search", class:"post-search-term" %>
-        <%= f.select :category_post_category_name_cont, Category.order(:name).map{|m| [m.name]}, {include_blank: true}, class:"post-category-term"%>
-        <%= f.submit "検索", class:"post-search-button" %>
-      <% end %>
-    </div>
+<%= link_to new_post_path do%>
+  <div class="header-one">
+    <svg id="logo" viewBox="25 25 150 150">
+      <polyline points="90,92 65,90 125,65 110,105 90,92"></polyline>
+      <polyline points="125,65 90,92 90,105 98,98"></polyline>
+      <polyline class="shadow" points="70,130 118,110 97,142"></polyline>
+      <text x="45" y="173">投稿する</text>
+    </svg>
   </div>
-</div>
+<% end %>
 
 <section class="post-index-container">
   <% @posts.each do |post| %>
@@ -45,12 +40,10 @@
         </div>
         <div class="card__body">
           <div class="card__description">
-            <% unless post.user_id == current_user.id %>
-              <div id="goods_buttons_<%= post.id %>">
-                <%= render 'goods/good', post: post %>
-              </div>
-            <% end %>
-            <p class="post-content"><%= safe_join(post.content.split("\n"),tag(:br)) %></p>
+            <div id="goods_buttons_<%= post.id %>">
+              <%= render 'goods/good', post: post %>
+            </div>
+            <p class="post-content"><%= safe_join(post.content.truncate(200).split("\n"),tag(:br)) %></p>
             <p class="post-read-more"><%= link_to '詳細', post_path(post.id) %></p>
           </div>
         </div>
@@ -58,10 +51,5 @@
     </div>
   <% end %>
 </section>
-
-
-  <div class="new-post-link">
-    <%= link_to '新しく投稿する', new_post_path, class:"new-post" %>
-  </div>
 
 <%= javascript_include_tag 'posts.js' %>
