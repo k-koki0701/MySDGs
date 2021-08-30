@@ -1,7 +1,3 @@
-body {
-  padding-top: 150px;
-}
-
 img {
   display: block;
 }
@@ -223,4 +219,8 @@ img {
   content: "";
   width: 75%;
   margin: 0 1rem;
+}
+
+.follow-count:hover {
+  color: #A1E2D9;
 }
