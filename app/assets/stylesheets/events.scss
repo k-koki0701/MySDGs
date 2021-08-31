@@ -556,3 +556,34 @@ margin: 0 auto;
   width: 60%;
   margin: 0 1rem;
 }
+
+.main-events-index {
+  text-align: center;
+}
+
+.posts-event-index {
+  margin-top: 10rem;
+  position: relative;
+  display: inline-block;
+  padding: 0 55px;
+  font-size: 30px;
+}
+
+.posts-event-index:before,
+.posts-event-index:after {
+  content: '';
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    width: 50px;
+    height: 5px;
+    background-color: #666;
+}
+
+.posts-event-index:before {
+    left: 0;
+}
+
+.posts-event-index:after {
+    right: 0;
+}
