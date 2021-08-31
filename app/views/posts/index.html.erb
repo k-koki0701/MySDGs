@@ -80,6 +80,17 @@
     </svg>
   </div>
 <% end %>
+<div class="posts-search">
+  <div class="posts-wrap">
+    <div class="post-search-2">
+      <%= search_form_for @q do |f| %>
+        <%= f.search_field :content_cont, placeholder:"投稿を検索する", class:"post-search-term-2" %>
+        <%= f.select :category_post_category_name_cont, Category.order(:name).map{|m| [m.name]}, {include_blank: true}, class:"post-category-term-2"%>
+        <%= f.submit "検索", class:"post-search-button-2" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 <div class="main-posts-index">
   <h1 class="posts-index">投稿一覧</h1>
 </div>
