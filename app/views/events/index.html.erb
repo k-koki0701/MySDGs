@@ -18,13 +18,13 @@
       </ul>
     </div>
   </div>
-  <div class="event-search">
-    <div class="wrap">
-      <div class="search">
+  <div class="events-search">
+    <div class="event-wrap">
+      <div class="event-search">
         <%= search_form_for @q do |f| %>
-          <%= f.search_field :title_cont, placeholder:"イベントを調べる", class:"search-term" %>
-          <%= f.select :category_name_cont, Category.order(:name).map{|m| [m.name]}, {include_blank: true}, class:"category-term" %>
-          <%= f.submit "検索", class:"search-button" %>
+          <%= f.search_field :title_cont, placeholder:"イベントを調べる", class:"event-search-term" %>
+          <%= f.select :category_name_cont, Category.order(:name).map{|m| [m.name]}, {include_blank: true}, class:"event-category-term" %>
+          <%= f.submit "検索", class:"event-search-button" %>
         <% end %>
       </div>
     </div>
@@ -34,7 +34,7 @@
 <p class="event-index-text">新規イベント</p>
 
 <% @events.each do |event| %>
-  <div class="blog-card">
+  <div class="event-card">
     <div class="meta">
       <%= image_tag event.image.url ,class:"photo"%>
       <ul class="details">
