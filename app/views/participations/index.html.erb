@@ -3,11 +3,12 @@
 <% end %>
 
 <div class="participation-list">
-  <h2>参加予定のイベント一覧</h2>
-
+  <div class="main-events-index">
+    <h1 class="posts-event-index">参加予定のイベント一覧</h1>
+  </div>
   <% if @participations.size != 0 %>
     <% @participations.each do |participation| %>
-      <div class="blog-card">
+      <div class="event-card">
     <div class="meta">
       <%= image_tag participation.event.image.url ,class:"photo"%>
       <ul class="details">
@@ -29,7 +30,5 @@
   <% else %>
     <p>参加予定のイベントはありません。</p>
   <% end %>
-
-  <%= link_to "イベント一覧へ", events_path %>
 
 </div>
