@@ -3,14 +3,14 @@
 <% end %>
 
 <div class="container-fluid">
-  <div class="row main-content bg-success text-center">
-    <div class="col-md-4 text-center company__info">
+  <div class="row main-content-login bg-success text-center">
+    <div class="col-md-4 text-center company__info-login">
       <span class="company__logo"><img id="b" class="img-responsive img-circle img-rounded img-center pull-left" src="<%= asset_path "mysdgs_logo.png" %>"></span>
     </div>
     <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
       <div class="container-fluid">
         <div class="row">
-          <h1>ログイン</h1>
+          <h1 class="log-in-h1">ログイン</h1>
         </div>
         <div class="row">
           <%= form_for(resource, as: resource_name, class:"form-group", url: session_path(resource_name)) do |f| %>
@@ -31,10 +31,10 @@
               <% end %>
             </div>
             <div class="row">
-              <%= f.submit t('.sign_in') ,class:"botton submit"%>
+              <%= f.submit t('.sign_in') ,class:"botton-login submit"%>
             </div>
           <% end %>
-          <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post ,class:"botton submit"%>
+          <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post ,class:"botton-login submit"%>
         </div>
       </div>
     </div>

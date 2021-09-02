@@ -1,15 +1,11 @@
-body {
-  padding-top: 150px;
-  text-align: center;
-}
-
-.main-content{
+.main-content-signup{
 	width: 55%;
-  height: 50%;
+  height: 420px;
 	border-radius: 20px;
 	box-shadow: 0 5px 5px rgba(0,0,0,.4);
 	margin: 5em auto;
 	display: flex;
+	margin-top: 130px;
 }
 .company__info{
 	background-color: #008080;
@@ -28,16 +24,16 @@ body {
 	.company__info{
 		display: none;
 	}
-	.login_form{
+	.signup-form{
 		border-top-left-radius:50px;
 		border-bottom-left-radius:20px;
 	}
 }
- h1{
+.sign-up-h1{
 	color:#008080;
    padding: 30px;
 }
-.login_form{
+.signup-form{
 	background-color: #fff;
 	border-top-right-radius:20px;
 	border-bottom-right-radius:20px;
