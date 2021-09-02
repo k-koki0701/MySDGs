@@ -24,7 +24,7 @@ body {
   padding-top: 100px;
 }
 
- .main-header {
+.main-header {
   position: absolute;
   top: 0;
   width: 100%;
@@ -45,6 +45,10 @@ body {
   float: left;
   font-weight: 700;
   font-size: 1.875em;
+}
+.main-header .header-wrapper .header_logo:hover {
+  transform: scale(1.2,1.2);
+  opacity: 0.8;
 }
 .main-header .header-wrapper .main-menu {
   float: right;
@@ -97,8 +101,9 @@ footer {
   font-family: Montserrat, sans-serif;
   color: #77C7AC;
   background: white;
-  border-bottom: 1px solid;
-  margin-top: 60rem;
+  border-top: 1px solid;
+  height: 70px;
+  margin-bottom: -30px;
 }
 
 p.copyright {

@@ -14,6 +14,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= yield :css %>
+    <script src="https://unpkg.com/scrollreveal"></script>
   </head>
 
   <body>
@@ -21,7 +22,9 @@
     <header class="main-header">
       <div class="header-wrapper">
         <div class="main-logo">
-          <img class="header_logo" src="<%= asset_path "header_logo.png" %>">
+          <%= link_to root_path do %>
+            <img class="header_logo" src="<%= asset_path "header_logo.png" %>">
+          <% end %>
         </div>
         <nav>
           <ul class="main-menu">
@@ -50,7 +53,6 @@
 
       <%= yield %>
 
-      <div id="footer" class="contact">
         <footer>
           <div class="footer-container">
             <div class="footer-row">
@@ -60,7 +62,6 @@
             </div>
           </div>
         </footer>
-      </div>
     </div>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   </body>

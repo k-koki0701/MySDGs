@@ -5,7 +5,7 @@
 <div class="top-page" >
   <div class="home-page jumbotron">
     <div class="fluid-container">
-      <h1>私たちにできること</h1>
+      <h1 class="h1">私たちにできること</h1>
       <p class="para">Sustainable Development Goals.</p>
       <hr>
       <div class="social center-block">
@@ -75,57 +75,29 @@
       </div>
     </div>
   </div>
-
-  <div class="font-effect-3d"><h1>Goals</h1></div>
-  <div class="swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="container-general">
-              <div class="gallery-wrap wrap-effect-1">
-                <div class="item"><h3 class="sgds-font">環境を守る</h3></div>
-                <div class="item"><h3 class="sgds-font">貧困をなくす</h3></div>
-                <div class="item"><h3 class="sgds-font">ジェンダー平等の実現</h3></div>
-                <div class="item"><h3 class="sgds-font">全ての人に健康と福祉を</h3></div>
-                <div class="item"><h3 class="sgds-font">エネルギーをみんなに</h3></div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="container-general">
-              <div class="gallery-wrap wrap-effect-2">
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="container-general">
-              <div class="gallery-wrap wrap-effect-3">
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="container-general wrap-effect-4">
-              <div class="gallery-wrap">
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  </div>
 </div>
+<script>
+    ScrollReveal().reveal('#b',{
+      delay: 200,
+      duration: 1000,
+      origin: 'left',
+      distance: '100px',
+      reset: true
+    });
+
+    ScrollReveal().reveal('.pull-right', {
+      delay: 200,
+      duration: 1000,
+      origin: 'left',
+      distance: '100px',
+      reset: true
+  });
+  ScrollReveal().reveal('.portfolio-section', {
+    delay: 200,
+    duration: 600,
+    distance: '50px',
+    reset: true
+});
+</script>
 
   <%= javascript_include_tag 'tops.js' %>
