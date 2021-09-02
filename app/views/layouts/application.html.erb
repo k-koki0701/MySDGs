@@ -22,7 +22,9 @@
     <header class="main-header">
       <div class="header-wrapper">
         <div class="main-logo">
-          <img class="header_logo" src="<%= asset_path "header_logo.png" %>">
+          <%= link_to root_path do %>
+            <img class="header_logo" src="<%= asset_path "header_logo.png" %>">
+          <% end %>
         </div>
         <nav>
           <ul class="main-menu">
