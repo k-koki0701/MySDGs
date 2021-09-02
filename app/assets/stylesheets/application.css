@@ -24,7 +24,7 @@ body {
   padding-top: 100px;
 }
 
- .main-header {
+.main-header {
   position: absolute;
   top: 0;
   width: 100%;
@@ -97,8 +97,9 @@ footer {
   font-family: Montserrat, sans-serif;
   color: #77C7AC;
   background: white;
-  border-bottom: 1px solid;
-  margin-top: 60rem;
+  border-top: 1px solid;
+  height: 70px;
+  margin-bottom: -30px;
 }
 
 p.copyright {
