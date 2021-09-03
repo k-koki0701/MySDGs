@@ -2,6 +2,69 @@
   <%= stylesheet_link_tag 'posts' %>
 <% end %>
 
+<div class="sidebar">
+  <%=link_to user_path(current_user.id) do %>
+    <div class="login-user-link-sidebar">
+      <% if current_user.icon? %>
+        <img src=<%= current_user.icon %> class = "login-user--icon-sidebar">
+      <% else %>
+        <img src="<%= asset_path "default.jpg" %>" class="login-user--icon-sidebar"%>
+      <% end %>
+      <span><%= current_user.name.truncate(25) %></span>
+    </div>
+  <% end %>
+  <div class="option-link-sidebar">
+    <%=link_to user_path(current_user.id) do %>
+      <div class="option-link-item">
+        <i class="fa fa-diamond fa-2x"></i>
+        <p>マイページ</p>
+      </div>
+    <% end %>
+    <%=link_to followed_relationship_path(current_user.id) do %>
+      <div class="option-link-item">
+        <i class="fa fa-user-plus fa-2x"></i>
+        <p>フォロー</p>
+      </div>
+    <% end %>
+    <%=link_to follower_relationship_path(current_user.id) do %>
+      <div class="option-link-item">
+        <i class="fa fa-user-plus fa-2x"></i>
+        <p>フォロワー</p>
+      </div>
+    <% end %>
+    <%=link_to conversations_path do %>
+      <div class="option-link-item">
+        <i class="fa fa-comments-o fa-2x"></i>
+        <p>メッセージ</p>
+      </div>
+    <% end %>
+  </div>
+  <div class="posts-search">
+    <div class="posts-wrap">
+      <div class="post-search-2">
+        <div class="option-item">
+          <i class="fa fa-search fa-3x" aria-hidden="true"></i>
+          <p>投稿を検索する</p>
+        </div>
+        <%= search_form_for @q do |f| %>
+          <div class="input-group">
+            <%= f.search_field :content_cont, placeholder:"キーワード検索", id:"txt-search", class:"form-control input-group-prepend" %>
+            <span class="input-group-btn input-group-append">
+              <%= f.submit "検索",id:"btn-search" ,class:"btn btn-primary" %><i class="fa fa-search"></i>
+            </span>
+          </div>
+          <div class="select-search">
+            <%= f.select :category_post_category_name_cont, Category.order(:name).map{|m| [m.name]}, {include_blank: true}, class:"submit-post-search"%>
+          </div>
+          <div>
+            <%= link_to "元に戻す", posts_path, class:"btn btn-primary undo" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <%= link_to new_post_path do%>
   <div class="header-one">
     <svg id="logo" viewBox="25 25 150 150">
@@ -12,17 +75,7 @@
     </svg>
   </div>
 <% end %>
-<div class="posts-search">
-  <div class="posts-wrap">
-    <div class="post-search-2">
-      <%= search_form_for @q do |f| %>
-        <%= f.search_field :content_cont, placeholder:"投稿を検索する", class:"post-search-term-2" %>
-        <%= f.select :category_post_category_name_cont, Category.order(:name).map{|m| [m.name]}, {include_blank: true}, class:"post-category-term-2"%>
-        <%= f.submit "検索", class:"post-search-button-2" %>
-      <% end %>
-    </div>
-  </div>
-</div>
+
 <div class="main-posts-index">
   <h1 class="posts-index">投稿一覧</h1>
 </div>

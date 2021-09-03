@@ -297,69 +297,6 @@
   transition: all 0.3s ease-in-out;
 }
 
-.posts-search {
-  position: relative;
-  width: 400px;
-  margin: 150px auto 0 auto;
-}
-.post-search-2 {
-  width: 100px;
-  position: relative;
-  display: flex;
-}
-
-.post-search-submit-2 {
-  border: none;
-}
-.post-search-term-2 {
-  font-size: 2.4rem;
-  width: 300px;
-  border: 2px solid #5ad67d;
-  padding: 5px;
-  height: 40px;
-  border-radius: 15px 0 0 15px;
-  outline: none;
-  color: #9DBFAF;
-	left: 20rem;
-}
-
-.post-category-term-2 {
-  position: relative;
-  bottom: 4rem;
-  left: 298px;
-  font-size: 1.5rem;
-  width: 60px;
-  border: 2px solid #5ad67d;
-  height: 40px;
-  border-radius: 5px 0 0 5px;
-  outline: none;
-  color: #9DBFAF;
-}
-
-.post-search-term-2:focus{
-  color: #5ad67d;
-}
-
-.post-search-button-2 {
-  position: relative;
-  bottom: 4.2rem;
-  left: 294px;
-  width: 50px;
-  height: 40px;
-  border: 1px solid #5ad67d;
-  background: #5ad67d;
-  color: #fff;
-  border-radius: 0 15px 15px 0;
-  cursor: pointer;
-  font-size: 13px;
-}
-
-.post-search-button-2:hover {
-  transform: scale(1.1);
-  transition: all 0.3s ease-in-out;
-}
-
-
 .wrap{
   width: 30%;
   position: absolute;
@@ -762,4 +699,100 @@ box-shadow: none;
 }
 .container {
   padding: 5rem 0 10rem 0;
+}
+
+// 投稿一覧サイドバー
+.sidebar {
+  left: 0;
+  top: 100px;
+  position: fixed;
+  width: 350px;
+  height: 1000%;
+  border: 1px solid #696969;
+}
+
+.sidebar a{
+  text-decoration: none;
+}
+
+.login-user-sidebar {
+  height: 60px;
+  border: 1px solid #696969;
+  background-color: #c6ffc6;
+}
+
+.login-user-sidebar p {
+  color: #818896;
+  left: 0;
+  padding: 16px;
+  font-size: 20px;
+  font-family: Courier;
+}
+
+.login-user--icon-sidebar {
+  display: block;
+  width: 70px;
+  height: 70px;
+  border-radius: 100px;
+  object-fit: cover;
+  border-color: black;
+  position: relative;
+  bottom: -100px;
+  left: 10px;
+}
+.login-user-link-sidebar {
+  height: 250px;
+  background-image: image-url("user-background.jpg");
+  background-size:cover;
+}
+
+.login-user-link-sidebar span {
+  font-size: 13px;
+  position: relative;
+  left: 10px;
+  bottom: -140px;
+  color: #444444;
+}
+
+.option-link-sidebar {
+  height: 230px;
+  border-bottom: 1px solid #818896;
+}
+
+.option-link-sidebar a{
+  text-decoration: none;
+  width: 100%;
+
+}
+.option-link-item,.option-item {
+  color: #000;
+  margin: 20px;
+}
+.option-link-item:hover {
+  background: #F5F5F5;
+  margin: 20px;
+}
+.option-item p {
+  font-size: 18px;
+}
+.input-group {
+  width: 70%;
+  margin: 0 auto;
+}
+#btn-search {
+  background-color: #93c9ff;
+  border: none;
+}
+.submit-post-search {
+  position: relative;
+  top: 30px;
+}
+.select-search {
+  position: relative;
+  right: -60px;
+}
+.undo {
+  position: relative;
+  right: -130px;
+  top: 60px;
 }
