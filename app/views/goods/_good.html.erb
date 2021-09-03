@@ -2,10 +2,14 @@
   <div class="heart" >
     <%= link_to '', post_good_path(post.id, post.good_ids), method: :delete,class:"fa fa-heart fa-2x",id:"post-index-good", remote: true %>
     <font class="post-goods-count" size="4"><%= post.goods.count %></font>
+    <%= link_to '', post_path(post.id) ,class:"fa fa-comment-o fa-2x" %>
+    <font class="post-goods-count" size="4"><%= post.comments.count %></font>
   </div>
 <% else %>
   <div class="heart" >
     <%= link_to "" , post_goods_path(post.id), method: :post,class:"heart-1 fa fa-heart-o fa-2x",id:"post-index-ungood", remote: true %>
     <font class="post-goods-count" size="4" ><%= post.goods.count %></font>
+    <%= link_to '', post_path(post.id) ,class:"fa fa-comment-o fa-2x" %>
+    <font class="post-goods-count" size="4"><%= post.comments.count %></font>
   </div>
 <% end %>
