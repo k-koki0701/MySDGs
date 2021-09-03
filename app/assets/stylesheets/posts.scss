@@ -89,14 +89,25 @@
   top: 0;
 }
 
+.card__description .fa-comment-o {
+  text-decoration: none;
+  color: #000;
+  top: 0;
+  margin-left: 10px;
+}
+
 .card__description span{
   margin: 5px;
 }
 
-.fa-heart:hover {
+.fa-heart:hover{
   background-position: -2800px 0;
   -webkit-transition: background 1s steps(28);
   transition: background 1s steps(28);
+}
+
+.fa-comment-o:hover{
+  animation: anime1 2s reverse infinite;
 }
 
 .heart{
@@ -781,6 +792,7 @@ box-shadow: none;
   -webkit-transition: all 250ms ease-in-out;
   -moz-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out;
+  border: 1px solid #666;
 }
 .accordion-group li h3 {
   position: relative;
