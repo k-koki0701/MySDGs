@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -10,16 +9,16 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments, only: [:create]
-    resources :goods, only: [:index, :create, :destroy]
+    resources :goods, only: %i[index create destroy]
   end
   resources :conversations do
     resources :messages
   end
   resources :events do
-    resources :participations, only: [:index, :create, :destroy]
+    resources :participations, only: %i[index create destroy]
   end
-  resources :users, only: [:index, :show]
-  resources :relationships, only: [:create, :destroy] do
+  resources :users, only: %i[index show]
+  resources :relationships, only: %i[create destroy] do
     member do
       get :followed, :follower
     end

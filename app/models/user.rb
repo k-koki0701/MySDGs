@@ -27,7 +27,7 @@ class User < ApplicationRecord
 
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
-      user.name = "ゲスト"
+      user.name = 'ゲスト'
       user.password = SecureRandom.urlsafe_base64
     end
   end
@@ -41,10 +41,9 @@ class User < ApplicationRecord
   end
 
   def already_liked?(post)
-    self.goods.exists?(post_id: post.id)
+    goods.exists?(post_id: post.id)
   end
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
-
 end

@@ -5,22 +5,22 @@ RSpec.describe 'イベント機能', type: :system do
     @user = FactoryBot.create(:user)
   end
   describe 'イベント新規作成機能' do
-     context 'イベントを新規作成した場合' do
-       it '作成したイベントが表示される' do
-         visit new_user_session_path
-         fill_in 'Email', with: 'test1@example.com'
-         fill_in 'Password', with: 'password1'
-         click_on 'commit'
-         visit new_event_path
-         fill_in "event_title", with: "ゴミ拾い"
-         fill_in "event_content", with: "新宿駅周辺を掃除しましょう！！"
-         select '陸の豊かさを守ろう', from: 'event[category_id]'
-         fill_in "event_schedule", with: "2021/08/22 12:00"
-         attach_file 'event[image]', "#{Rails.root}/spec/fixtures/test_image1.jpg"
-         click_on '登録する'
-         expect(page).to have_content 'ゴミ拾い'
-       end
-     end
+    context 'イベントを新規作成した場合' do
+      it '作成したイベントが表示される' do
+        visit new_user_session_path
+        fill_in 'Email', with: 'test1@example.com'
+        fill_in 'Password', with: 'password1'
+        click_on 'commit'
+        visit new_event_path
+        fill_in 'event_title', with: 'ゴミ拾い'
+        fill_in 'event_content', with: '新宿駅周辺を掃除しましょう！！'
+        select '陸の豊かさを守ろう', from: 'event[category_id]'
+        fill_in 'event_schedule', with: '2021/08/22 12:00'
+        attach_file 'event[image]', "#{Rails.root}/spec/fixtures/test_image1.jpg"
+        click_on '登録する'
+        expect(page).to have_content 'ゴミ拾い'
+      end
+    end
   end
   describe 'イベント編集機能' do
     context '自分のイベント詳細画面に遷移し、編集ボタンを押した場合' do
@@ -30,16 +30,16 @@ RSpec.describe 'イベント機能', type: :system do
         fill_in 'Password', with: 'password1'
         click_on 'commit'
         visit new_event_path
-        fill_in "event_title", with: "ゴミ拾い"
-        fill_in "event_content", with: "新宿駅周辺を掃除しましょう！！"
+        fill_in 'event_title', with: 'ゴミ拾い'
+        fill_in 'event_content', with: '新宿駅周辺を掃除しましょう！！'
         select '陸の豊かさを守ろう', from: 'event[category_id]'
-        fill_in "event_schedule", with: "2021/08/22 12:00"
+        fill_in 'event_schedule', with: '2021/08/22 12:00'
         attach_file 'event[image]', "#{Rails.root}/spec/fixtures/test_image1.jpg"
         click_on '登録する'
         expect(page).to have_content 'ゴミ拾い'
         click_on '詳細'
         click_on '編集する'
-        fill_in "event_title", with: "ゴミ拾い！！"
+        fill_in 'event_title', with: 'ゴミ拾い！！'
         click_on '更新する'
         expect(page).to have_content 'ゴミ拾い！！'
       end
@@ -53,10 +53,10 @@ RSpec.describe 'イベント機能', type: :system do
         fill_in 'Password', with: 'password1'
         click_on 'commit'
         visit new_event_path
-        fill_in "event_title", with: "ゴミ拾い"
-        fill_in "event_content", with: "新宿駅周辺を掃除しましょう！！"
+        fill_in 'event_title', with: 'ゴミ拾い'
+        fill_in 'event_content', with: '新宿駅周辺を掃除しましょう！！'
         select '陸の豊かさを守ろう', from: 'event[category_id]'
-        fill_in "event_schedule", with: "2021/08/22 12:00"
+        fill_in 'event_schedule', with: '2021/08/22 12:00'
         attach_file 'event[image]', "#{Rails.root}/spec/fixtures/test_image1.jpg"
         click_on '登録する'
         click_on '詳細'
@@ -72,10 +72,10 @@ RSpec.describe 'イベント機能', type: :system do
         fill_in 'Password', with: 'password1'
         click_on 'commit'
         visit new_event_path
-        fill_in "event_title", with: "ゴミ拾い"
-        fill_in "event_content", with: "新宿駅周辺を掃除しましょう！！"
+        fill_in 'event_title', with: 'ゴミ拾い'
+        fill_in 'event_content', with: '新宿駅周辺を掃除しましょう！！'
         select '陸の豊かさを守ろう', from: 'event[category_id]'
-        fill_in "event_schedule", with: "2021/08/22 12:00"
+        fill_in 'event_schedule', with: '2021/08/22 12:00'
         attach_file 'event[image]', "#{Rails.root}/spec/fixtures/test_image1.jpg"
         click_on '登録する'
         click_on '詳細'
@@ -93,10 +93,10 @@ RSpec.describe 'イベント機能', type: :system do
         fill_in 'Password', with: 'password1'
         click_on 'commit'
         visit new_event_path
-        fill_in "event_title", with: "ゴミ拾い"
-        fill_in "event_content", with: "新宿駅周辺を掃除しましょう！！"
+        fill_in 'event_title', with: 'ゴミ拾い'
+        fill_in 'event_content', with: '新宿駅周辺を掃除しましょう！！'
         select '陸の豊かさを守ろう', from: 'event[category_id]'
-        fill_in "event_schedule", with: "2021/08/22 12:00"
+        fill_in 'event_schedule', with: '2021/08/22 12:00'
         attach_file 'event[image]', "#{Rails.root}/spec/fixtures/test_image1.jpg"
         click_on '登録する'
         fill_in 'Search', with: 'ゴミ拾い'
@@ -111,10 +111,10 @@ RSpec.describe 'イベント機能', type: :system do
         fill_in 'Password', with: 'password1'
         click_on 'commit'
         visit new_event_path
-        fill_in "event_title", with: "ゴミ拾い"
-        fill_in "event_content", with: "新宿駅周辺を掃除しましょう！！"
+        fill_in 'event_title', with: 'ゴミ拾い'
+        fill_in 'event_content', with: '新宿駅周辺を掃除しましょう！！'
         select '陸の豊かさを守ろう', from: 'event[category_id]'
-        fill_in "event_schedule", with: "2021/08/22 12:00"
+        fill_in 'event_schedule', with: '2021/08/22 12:00'
         attach_file 'event[image]', "#{Rails.root}/spec/fixtures/test_image1.jpg"
         click_on '登録する'
         sleep(1)
