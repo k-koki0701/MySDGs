@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: %i[new edit update destroy]
 
   def index
     @events = Event.after_tomorrow_schedule
@@ -15,7 +15,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.owner = current_user
     if @event.save
-      redirect_to events_path, notice: "作成しました！"
+      redirect_to events_path, notice: '作成しました！'
     else
       render :new
     end
@@ -29,16 +29,16 @@ class EventsController < ApplicationController
   def edit
     @event = Event.find(params[:id])
     if @event.owner == current_user
-      render "edit"
+      render 'edit'
     else
-      redirect_to events_path, notice: "作成者のみイベントの編集できます"
+      redirect_to events_path, notice: '作成者のみイベントの編集できます'
     end
   end
 
   def update
     @event = Event.find(params[:id])
     if @event.update(event_params)
-      redirect_to events_path, notice: "編集しました！"
+      redirect_to events_path, notice: '編集しました！'
     else
       render :edit
     end
@@ -48,18 +48,15 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     if @event.owner == current_user
       @event.destroy
-      redirect_to events_path, notice:"削除しました！"
+      redirect_to events_path, notice: '削除しました！'
     else
-      redirect_to events_path, notice: "作成者のみイベントを削除できます"
+      redirect_to events_path, notice: '作成者のみイベントを削除できます'
     end
   end
-
 
   private
 
   def event_params
     params.require(:event).permit(:title, :content, :schedule, :owner_id, :image, :image_cache, :category_id)
   end
-
-
 end

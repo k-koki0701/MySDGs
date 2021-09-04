@@ -4,5 +4,4 @@ class Category < ApplicationRecord
   has_many :posts, through: :category_post
 
   validates :name, presence: true
-
 end

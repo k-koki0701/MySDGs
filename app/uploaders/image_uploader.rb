@@ -24,7 +24,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # process resize_to_limit: [200,668]
 
-  def default_url(*args)
+  def default_url(*_args)
     'default_post.png'
   end
 

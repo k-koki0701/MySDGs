@@ -6,14 +6,14 @@ describe '投稿モデル機能', type: :model do
       it 'バリデーションにひっかかる' do
         user = FactoryBot.create(:user)
         category = FactoryBot.create(:category)
-        post = Post.new(content: '', category_ids: category.id , user_id: user.id )
+        post = Post.new(content: '', category_ids: category.id, user_id: user.id)
         expect(post).not_to be_valid
       end
     end
     context '投稿のカテゴリーが空の場合' do
       it 'バリデーションにひっかかる' do
         user = FactoryBot.create(:user)
-        post = Post.new(content: 'ゴミ拾い', category_ids: "", user_id: user.id )
+        post = Post.new(content: 'ゴミ拾い', category_ids: '', user_id: user.id)
         expect(post).not_to be_valid
       end
     end

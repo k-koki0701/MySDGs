@@ -34,7 +34,7 @@ RSpec.describe 'ユーザー機能', type: :system do
       end
     end
     context 'ログアウト操作を行った場合' do
-      it "ログアウトができる" do
+      it 'ログアウトができる' do
         visit new_user_session_path
         fill_in 'Email', with: 'test1@example.com'
         fill_in 'Password', with: 'password1'
@@ -53,8 +53,8 @@ RSpec.describe 'ユーザー機能', type: :system do
         expect(page).to have_content 'テスト太郎1'
       end
     end
-    context "管理者でログインしている場合" do
-      it "管理者画面へアクセスできる" do
+    context '管理者でログインしている場合' do
+      it '管理者画面へアクセスできる' do
         FactoryBot.create(:admin_user)
         visit new_user_session_path
         fill_in 'Email', with: 'admin_user@example.com'

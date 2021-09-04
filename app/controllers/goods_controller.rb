@@ -1,5 +1,5 @@
 class GoodsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :destroy]
+  before_action :authenticate_user!, only: %i[create destroy]
 
   def index
     @goods = current_user.goods.all
@@ -16,5 +16,4 @@ class GoodsController < ApplicationController
     good = Good.find_by(post_id: params[:post_id], user_id: current_user.id)
     good.destroy
   end
-
 end

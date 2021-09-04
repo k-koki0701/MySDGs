@@ -11,5 +11,4 @@ class Post < ApplicationRecord
 
   validates :content, presence: true
   validates :category_ids, presence: true
-
 end

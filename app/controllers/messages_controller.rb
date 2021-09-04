@@ -9,9 +9,7 @@ class MessagesController < ApplicationController
       @over_ten = false
       @messages = @conversation.messages
     end
-    if @messages.last
-      @messages.where.not(user_id: current_user.id).update_all(read: true)
-    end
+    @messages.where.not(user_id: current_user.id).update_all(read: true) if @messages.last
     @messages = @messages.order(:created_at)
     @message = @conversation.messages.build
   end
@@ -26,8 +24,8 @@ class MessagesController < ApplicationController
   end
 
   private
+
   def message_params
     params.require(:message).permit(:body, :user_id)
   end
-
 end
