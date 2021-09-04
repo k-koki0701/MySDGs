@@ -86,41 +86,43 @@ hr {
 }
 
 .social {
-  width: 250px;
+  width: 320px;
   margin: 0 auto;
 }
 
 .social ul {
   margin: 0;
   padding: 15px;
+  list-style: none;
 }
 
-.social ul li {
-  margin: 20px;
+.social .new-user-registration {
+  margin: 40px 0;
   list-style: none outside none;
   display: inline-block;
+  width: 300px;
 }
 
-.btn{
+.btn-new-user{
   background: none;
   border: 5px solid #fff;
   font-family: "montserrat", sans-serif;
   font-size: large;
   text-transform: uppercase;
-  padding: 12px 20px;
+  padding: 15px 50px;
   min-width: 200px;
-  margin: 10px;
+  margin: 20px;
   cursor: pointer;
   transition: color 0.4s linear;
   position: relative;
   color: #fff;
 }
 
-.btn:hover{
+.btn-new-user:hover{
   color: #000
 }
 
-.btn::before{
+.btn-new-user::before{
   content: "";
   position: absolute;
   left: 0;
