@@ -2,14 +2,14 @@ require 'rails_helper'
 RSpec.describe 'いいね機能', type: :system do
   describe 'いいね機能のテスト' do
     context '投稿一覧画面で自分が作成した投稿の場合' do
-      it '「お気に入り登録する」のリンクが表示されない' do
+      it 'ハートボタンが表示される' do
         @user = FactoryBot.create(:user)
         post = FactoryBot.create(:post, user_id: @user.id)
         visit new_user_session_path
         fill_in 'Email', with: 'test1@example.com'
         fill_in 'Password', with: 'password1'
         click_on 'commit'
-        expect(page).not_to have_selector '#post-index-ungood'
+        expect(page).to have_selector '#post-index-ungood'
       end
     end
     context '投稿一覧画面で他のユーザーが作成した投稿の場合' do
