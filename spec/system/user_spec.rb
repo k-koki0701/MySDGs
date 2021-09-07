@@ -49,7 +49,7 @@ RSpec.describe 'ユーザー機能', type: :system do
         fill_in 'Email', with: 'test1@example.com'
         fill_in 'Password', with: 'password1'
         click_on 'commit'
-        click_on 'マイページ'
+        visit user_path(@user.id)
         expect(page).to have_content 'テスト太郎1'
       end
     end
@@ -60,7 +60,7 @@ RSpec.describe 'ユーザー機能', type: :system do
         fill_in 'Email', with: 'admin_user@example.com'
         fill_in 'Password', with: 'passwordadmin'
         click_on 'commit'
-        click_on '管理者ログイン'
+        click_on '管理メニュー'
         expect(page).to have_content 'サイト管理'
       end
     end
