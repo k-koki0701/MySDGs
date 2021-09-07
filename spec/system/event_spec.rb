@@ -15,7 +15,7 @@ RSpec.describe 'イベント機能', type: :system do
         fill_in 'event_title', with: 'ゴミ拾い'
         fill_in 'event_content', with: '新宿駅周辺を掃除しましょう！！'
         select '陸の豊かさを守ろう', from: 'event[category_id]'
-        fill_in 'event_schedule', with: '2021/08/22 12:00'
+        fill_in 'event_schedule', with: DateTime.now.since(1.day)
         attach_file 'event[image]', "#{Rails.root}/spec/fixtures/test_image1.jpg"
         click_on '登録する'
         expect(page).to have_content 'ゴミ拾い'
@@ -33,7 +33,7 @@ RSpec.describe 'イベント機能', type: :system do
         fill_in 'event_title', with: 'ゴミ拾い'
         fill_in 'event_content', with: '新宿駅周辺を掃除しましょう！！'
         select '陸の豊かさを守ろう', from: 'event[category_id]'
-        fill_in 'event_schedule', with: '2021/08/22 12:00'
+        fill_in 'event_schedule', with: DateTime.now.since(1.day)
         attach_file 'event[image]', "#{Rails.root}/spec/fixtures/test_image1.jpg"
         click_on '登録する'
         expect(page).to have_content 'ゴミ拾い'
@@ -56,9 +56,10 @@ RSpec.describe 'イベント機能', type: :system do
         fill_in 'event_title', with: 'ゴミ拾い'
         fill_in 'event_content', with: '新宿駅周辺を掃除しましょう！！'
         select '陸の豊かさを守ろう', from: 'event[category_id]'
-        fill_in 'event_schedule', with: '2021/08/22 12:00'
+        fill_in 'event_schedule', with: DateTime.now.since(1.day)
         attach_file 'event[image]', "#{Rails.root}/spec/fixtures/test_image1.jpg"
         click_on '登録する'
+        sleep(1)
         click_on '詳細'
         expect(page).to have_content '編集する'
       end
@@ -75,7 +76,7 @@ RSpec.describe 'イベント機能', type: :system do
         fill_in 'event_title', with: 'ゴミ拾い'
         fill_in 'event_content', with: '新宿駅周辺を掃除しましょう！！'
         select '陸の豊かさを守ろう', from: 'event[category_id]'
-        fill_in 'event_schedule', with: '2021/08/22 12:00'
+        fill_in 'event_schedule', with: DateTime.now.since(1.day)
         attach_file 'event[image]', "#{Rails.root}/spec/fixtures/test_image1.jpg"
         click_on '登録する'
         click_on '詳細'
@@ -96,10 +97,10 @@ RSpec.describe 'イベント機能', type: :system do
         fill_in 'event_title', with: 'ゴミ拾い'
         fill_in 'event_content', with: '新宿駅周辺を掃除しましょう！！'
         select '陸の豊かさを守ろう', from: 'event[category_id]'
-        fill_in 'event_schedule', with: '2021/08/22 12:00'
+        fill_in 'event_schedule', with: DateTime.now.since(1.day)
         attach_file 'event[image]', "#{Rails.root}/spec/fixtures/test_image1.jpg"
         click_on '登録する'
-        fill_in 'Search', with: 'ゴミ拾い'
+        fill_in 'イベントを調べる', with: 'ゴミ拾い'
         click_on '検索'
         expect(page).to have_content 'ゴミ拾い'
       end
@@ -111,10 +112,11 @@ RSpec.describe 'イベント機能', type: :system do
         fill_in 'Password', with: 'password1'
         click_on 'commit'
         visit new_event_path
+        sleep(1)
         fill_in 'event_title', with: 'ゴミ拾い'
         fill_in 'event_content', with: '新宿駅周辺を掃除しましょう！！'
         select '陸の豊かさを守ろう', from: 'event[category_id]'
-        fill_in 'event_schedule', with: '2021/08/22 12:00'
+        fill_in 'event_schedule', with: DateTime.now.since(1.day)
         attach_file 'event[image]', "#{Rails.root}/spec/fixtures/test_image1.jpg"
         click_on '登録する'
         sleep(1)

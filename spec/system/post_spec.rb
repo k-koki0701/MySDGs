@@ -13,8 +13,7 @@ RSpec.describe '投稿機能', type: :system do
         click_on 'commit'
         visit new_post_path
         fill_in 'post_content', with: 'ゴミ拾いしました！！'
-        check 'post[category_ids][]'
-        attach_file 'post[pictures_attributes][0][image]', "#{Rails.root}/spec/fixtures/test_image1.jpg"
+        find(:css, ".fa-square-o").set(false)
         click_on '登録する'
         expect(page).to have_content 'ゴミ拾いしました！！'
       end
@@ -29,12 +28,12 @@ RSpec.describe '投稿機能', type: :system do
         click_on 'commit'
         visit new_post_path
         fill_in 'post_content', with: '山でゴミ拾いしました！！'
-        check 'post[category_ids][]'
-        attach_file 'post[pictures_attributes][0][image]', "#{Rails.root}/spec/fixtures/test_image1.jpg"
+        find(:css, ".fa-square-o").set(false)
         click_on '登録する'
+        sleep(1)
         click_on '詳細'
         click_on '編集する'
-        fill_in '本文', with: '川でゴミ拾いしました！！'
+        find(".form-control").set("川でゴミ拾いしました！！")
         click_on '更新する'
         expect(page).to have_content '川でゴミ拾いしました！！'
       end
@@ -49,11 +48,10 @@ RSpec.describe '投稿機能', type: :system do
         click_on 'commit'
         visit new_post_path
         fill_in 'post_content', with: 'ゴミ拾いしました！！'
-        check 'post[category_ids][]'
-        attach_file 'post[pictures_attributes][0][image]', "#{Rails.root}/spec/fixtures/test_image1.jpg"
+        find(:css, ".fa-square-o").set(false)
         click_on '登録する'
         click_on '詳細'
-        expect(page).to have_content 'コメント'
+        expect(page).to have_content 'ゴミ拾いしました！！'
       end
     end
   end
@@ -66,8 +64,7 @@ RSpec.describe '投稿機能', type: :system do
         click_on 'commit'
         visit new_post_path
         fill_in 'post_content', with: '山でゴミ拾いしました！！'
-        check 'post[category_ids][]'
-        attach_file 'post[pictures_attributes][0][image]', "#{Rails.root}/spec/fixtures/test_image1.jpg"
+        find(:css, ".fa-square-o").set(false)
         click_on '登録する'
         click_on '詳細'
         click_on '削除する'
@@ -85,10 +82,9 @@ RSpec.describe '投稿機能', type: :system do
         click_on 'commit'
         visit new_post_path
         fill_in 'post_content', with: '山でゴミ拾いしました！！'
-        check 'post[category_ids][]'
-        attach_file 'post[pictures_attributes][0][image]', "#{Rails.root}/spec/fixtures/test_image1.jpg"
+        find(:css, ".fa-square-o").set(false)
         click_on '登録する'
-        fill_in 'Search', with: 'ゴミ拾い'
+        fill_in 'キーワード検索', with: 'ゴミ拾い'
         click_on '検索'
         expect(page).to have_content '山でゴミ拾いしました！！'
       end
@@ -101,8 +97,7 @@ RSpec.describe '投稿機能', type: :system do
         click_on 'commit'
         visit new_post_path
         fill_in 'post_content', with: '山でゴミ拾いしました！！'
-        check 'post[category_ids][]'
-        attach_file 'post[pictures_attributes][0][image]', "#{Rails.root}/spec/fixtures/test_image1.jpg"
+        find(:css, ".fa-square-o").set(false)
         click_on '登録する'
         select '陸の豊かさを守ろう', from: 'q[category_post_category_name_cont]'
         click_on '検索'
@@ -117,10 +112,9 @@ RSpec.describe '投稿機能', type: :system do
         click_on 'commit'
         visit new_post_path
         fill_in 'post_content', with: '山でゴミ拾いしました！！'
-        check 'post[category_ids][]'
-        attach_file 'post[pictures_attributes][0][image]', "#{Rails.root}/spec/fixtures/test_image1.jpg"
+        find(:css, ".fa-square-o").set(false)
         click_on '登録する'
-        fill_in 'Search', with: 'ゴミ拾い'
+        fill_in 'キーワード検索', with: 'ゴミ拾い'
         select '陸の豊かさを守ろう', from: 'q[category_post_category_name_cont]'
         click_on '検索'
         expect(page).to have_content '山でゴミ拾いしました！！'

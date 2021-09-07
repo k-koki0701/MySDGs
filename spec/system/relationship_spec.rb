@@ -8,7 +8,7 @@ RSpec.describe 'フォロー機能', type: :system do
         fill_in 'Email', with: 'test1@example.com'
         fill_in 'Password', with: 'password1'
         click_on 'commit'
-        click_on 'マイページ'
+        find('.fa-diamond').click
         expect(page).not_to have_button 'フォローする'
       end
     end
@@ -21,7 +21,7 @@ RSpec.describe 'フォロー機能', type: :system do
         fill_in 'Email', with: 'test2@example.com'
         fill_in 'Password', with: 'password2'
         click_on 'commit'
-        click_on 'テスト太郎1'
+        visit user_path(@user.id)
         click_on 'フォロー'
         expect(page).to have_button 'フォローを解除'
       end
