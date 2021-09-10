@@ -1,0 +1,2 @@
+module EventChatsHelper
+end
