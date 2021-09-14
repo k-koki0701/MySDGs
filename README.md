@@ -1,8 +1,6 @@
-# README
+# My SDGs
 
-## コンセプト
-
-#### SDGsに特化したSNSアプリケーション「MySDGs」
+## SDGsに特化したSNSアプリケーション「MySDGs」
 
 活動の輪を広げ、地球をより豊かにすることが目的。  
 「MySDGs」は、個人やコミュニティ単位で行っているSDGs活動の発信、  
@@ -12,11 +10,22 @@ SDGsの普及や活動促進を目的としたアプリケーション。
 ## ポートフォリオURL
 http://ec2-3-115-100-113.ap-northeast-1.compute.amazonaws.com/
 
-## 開発言語
-
-- Ruby 2.6.5
-- Ruby on Rails 5.2.5
-- PostgreSQL 13.4
+## 開発環境
+- フロントエンド  
+  - HTML 
+  - CSS
+  - JavaScript  
+  - jQuery 
+- バックエンド  
+  - Ruby 2.6.5
+- フレームワーク
+  - Ruby on Rails 5.2.5
+  - Bootstrap
+- データベース
+  - PostgreSQL 13.4
+- AWS
+  - EC2
+  - S3
 
 
 ##　機能一覧
