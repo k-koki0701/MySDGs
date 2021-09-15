@@ -35,7 +35,6 @@ http://ec2-3-115-100-113.ap-northeast-1.compute.amazonaws.com/
 - フォロー機能
 
 ## 実行手順
-
 ```
 $ git clone git@github.com:k-koki0701/mysdgs.git
 $ cd mysdgs
@@ -45,15 +44,15 @@ $ rails s
 ```
 
 ## カタログ設計
-https://docs.google.com/spreadsheets/d/1oySW2Nz2i70vo-r9e2txt60AsfpP_8540Yi0X9nl7EU/edit#gid=0
+[カタログ設計](https://docs.google.com/spreadsheets/d/1oySW2Nz2i70vo-r9e2txt60AsfpP_8540Yi0X9nl7EU/edit#gid=0)
 
 
 ## テーブル定義書
-https://docs.google.com/spreadsheets/d/1BFjRJ47gy3dDUI-fFFkGn-aHVryIuJbY8auF9DyFogo/edit#gid=0
+[テーブル設計](https://docs.google.com/spreadsheets/d/1BFjRJ47gy3dDUI-fFFkGn-aHVryIuJbY8auF9DyFogo/edit#gid=0)
 
 
 ## ワイヤーフレーム
-https://cacoo.com/diagrams/x5PAQCQ8hnQ6L8zj/1D8B5
+[ワイヤーフレーム](https://cacoo.com/diagrams/x5PAQCQ8hnQ6L8zj/1D8B5)
 
 
 ## ER図
