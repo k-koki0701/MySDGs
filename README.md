@@ -7,8 +7,11 @@
 イベントやチャット機能による交流を通して  
 SDGsの普及や活動促進を目的としたアプリケーション。
 
-## ポートフォリオURL
-http://ec2-3-115-100-113.ap-northeast-1.compute.amazonaws.com/
+ポートフォリオURL: http://ec2-3-115-100-113.ap-northeast-1.compute.amazonaws.com
+
+## 機能一覧
+![機能一覧](./public/images/event_planation1.png)
+![機能一覧](./public/images/event_planation2.png)
 
 ## 開発環境
 - フロントエンド  
@@ -27,10 +30,6 @@ http://ec2-3-115-100-113.ap-northeast-1.compute.amazonaws.com/
   - EC2
   - S3
 
-
-##　機能一覧
-![機能一覧](./public/images/event_planation1.png)
-![機能一覧](./public/images/event_planation2.png)
 
 ## 実行手順
 ```
