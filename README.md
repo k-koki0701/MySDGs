@@ -29,10 +29,8 @@ http://ec2-3-115-100-113.ap-northeast-1.compute.amazonaws.com/
 
 
 ##　機能一覧
-- 投稿機能
-- イベント機能
-- メッセージ機能
-- フォロー機能
+![機能一覧](./public/images/event_planation1.png)
+![機能一覧](./public/images/event_planation2.png)
 
 ## 実行手順
 ```
