@@ -36,29 +36,6 @@ $(document).on('turbolinks:load', function(){
       return html;
     }
 
-    // 投稿編集時
-    //posts/:i/editページへリンクした際のアクション=======================================
-    if (window.location.href.match(/\/posts\/\d+\/edit/)){
-      //登録済み画像のプレビュー表示欄の要素を取得する
-      var prevContent = $('.label-content').prev();
-      labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
-      $('.label-content').css('width', labelWidth);
-      //プレビューにidを追加
-      $('.preview-box').each(function(index, box){
-        $(box).attr('id', `preview-box__${index}`);
-      })
-      //削除ボタンにidを追加
-      $('.delete-box').each(function(index, box){
-        $(box).attr('id', `delete_btn_${index}`);
-      })
-      var count = $('.preview-box').length;
-      //プレビューが5あるときは、投稿ボックスを消しておく
-      if (count == 5) {
-        $('.label-content').hide();
-      }
-    }
-    //=============================================================================
-
     // ラベルのwidth操作
     function setLabel() {
       //プレビューボックスのwidthを取得し、maxから引くことでラベルのwidthを決定
@@ -119,8 +96,6 @@ $(document).on('turbolinks:load', function(){
       setLabel(count);
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       $(`#preview-box__${id}`).remove();
-
-      //新規登録時と編集時の場合分け==========================================================
 
       //新規投稿時
       //削除用チェックボックスの有無で判定
