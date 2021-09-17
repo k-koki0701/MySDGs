@@ -6,6 +6,7 @@ class PostsController < ApplicationController
     @posts = Post.all.includes(:user, :pictures, :goods).order('id DESC')
     @q = @posts.ransack(params[:q])
     @posts = @q.result(distinct: true)
+    @categories = Post.joins(:categories).group("categories.name").where(created_at: Time.current.all_month).order('count_all DESC').limit(3).count
   end
 
   def new
