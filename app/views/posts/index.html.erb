@@ -2,17 +2,31 @@
   <%= stylesheet_link_tag 'posts' %>
 <% end %>
 
-<div class="lanking">
-<h1>月間ランキング</h1>
-  <% x = 0 %>
-  <% y = 1 %>
-  <% z = 1 %>
-  <% @categories.each do |category| %>
-    第<%= y %>位
-    <span><%= category[x] %></span>
-    <span><%= category[z] %></span><br>
-    <% y += 1 %>
-  <% end %>
+<div class="ranking">
+  <div class="ranking-month">
+    <h1>Ranking</h1>
+    <% x = 0 %>
+    <% y = 1 %>
+    <% z = 1 %>
+    <% @categories_month.each do |category| %>
+      <span>第<%= y %>位</span>
+      <span><%= category[x] %></span>
+      <span><%= category[z] %></span><br>
+      <% y += 1 %>
+    <% end %>
+  </div>
+  <div class="ranking-year">
+    <h1>Ranking</h1>
+    <% x = 0 %>
+    <% y = 1 %>
+    <% z = 1 %>
+    <% @categories_year.each do |categorys| %>
+      <span>第<%= y %>位</span>
+      <span><%= categorys[x] %></span>
+      <span><%= categorys[z] %></span><br>
+      <% y += 1 %>
+    <% end %>
+  </div>
 </div>
 
 <div class="sidebar">
