@@ -3,31 +3,37 @@
 <% end %>
 
 <div class="ranking">
-  <div class="ranking-month">
-    <h1>Ranking</h1>
-    <% x = 0 %>
-    <% y = 1 %>
-    <% z = 1 %>
-    <% @categories_month.each do |category| %>
-      <span>第<%= y %>位</span>
-      <span><%= category[x] %></span>
-      <span><%= category[z] %></span><br>
-      <% y += 1 %>
-    <% end %>
-  </div>
-  <div class="ranking-year">
-    <h1>Ranking</h1>
-    <% x = 0 %>
-    <% y = 1 %>
-    <% z = 1 %>
-    <% @categories_year.each do |categorys| %>
-      <span>第<%= y %>位</span>
-      <span><%= categorys[x] %></span>
-      <span><%= categorys[z] %></span><br>
-      <% y += 1 %>
-    <% end %>
+  <h1>カテゴリー使用数ランキング</h1>
+  <ul class="nav nav-tabs nav-pills" >
+    <li><a class="nav-link active" href="#touhoku" data-toggle="tab">月間</a></li>
+    <li><a class="nav-link" href="#kantou" data-toggle="tab">年間</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="touhoku">
+      <% x = 0 %>
+      <% y = 1 %>
+      <% z = 1 %>
+      <% @categories_month.each do |category| %>
+        <span>第<%= y %>位</span>
+        <span><%= category[x] %></span>
+        <span>投稿数:<%= category[z] %></span><br>
+        <% y += 1 %>
+      <% end %>
+    </div>
+    <div class="tab-pane" id="kantou">
+      <% x = 0 %>
+      <% y = 1 %>
+      <% z = 1 %>
+      <% @categories_year.each do |categorys| %>
+        <span>第<%= y %>位</span>
+        <span><%= categorys[x] %></span>
+        <span>投稿数:<%= categorys[z] %></span><br>
+        <% y += 1 %>
+      <% end %>
+    </div>
   </div>
 </div>
+
 
 <div class="sidebar">
   <%=link_to user_path(current_user.id) do %>
@@ -103,9 +109,6 @@
   </div>
 <% end %>
 
-<div class="main-posts-index">
-  <h1 class="posts-index">投稿一覧</h1>
-</div>
 <section class="post-index-container">
   <% @posts.each do |post| %>
     <div class="cards">
