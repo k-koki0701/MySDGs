@@ -6,8 +6,8 @@ class PostsController < ApplicationController
     @posts = Post.all.includes(:user, :pictures, :goods).order('id DESC')
     @q = @posts.ransack(params[:q])
     @posts = @q.result(distinct: true)
-    @categories_month = Post.joins(:categories).group("categories.name").where(created_at: Time.current.all_month).order('count_all DESC').limit(3).count
-    @categories_year = Post.joins(:categories).group("categories.name").where(created_at: Time.current.all_year).order('count_all DESC').limit(3).count
+    @categories_month = Post.categories_ranking_month
+    @categories_year = Post.categories_ranking_year
   end
 
   def new
