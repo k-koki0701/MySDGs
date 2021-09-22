@@ -6,6 +6,8 @@ class PostsController < ApplicationController
     @posts = Post.all.includes(:user, :pictures, :goods).order('id DESC')
     @q = @posts.ransack(params[:q])
     @posts = @q.result(distinct: true)
+    @categories_month = Post.categories_ranking_month
+    @categories_year = Post.categories_ranking_year
   end
 
   def new

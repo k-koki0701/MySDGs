@@ -2,6 +2,57 @@
   <%= stylesheet_link_tag 'posts' %>
 <% end %>
 
+<div class="post-new-create">
+  <%= link_to "投稿する" ,new_post_path %>
+</div>
+
+<div class="ranking">
+  <h1>カテゴリー使用数ランキング</h1>
+  <ul class="nav nav-tabs nav-pills" >
+    <li><a class="nav-link active" href="#month" data-toggle="tab">月間</a></li>
+    <li><a class="nav-link" href="#year" data-toggle="tab">年間</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="month">
+      <% x = 0 %>
+      <% y = 1 %>
+      <% z = 1 %>
+      <% @categories_month.each do |category| %>
+        <div class="ranking_category">
+          <span><img class="medal_logo" src="<%= asset_path "medal_#{y}.png" %>"></span>
+          <span><%= category[x] %></span>
+          <span>投稿数:<%= category[z] %></span><br>
+        </div>
+        <% y += 1 %>
+      <% end %>
+    </div>
+    <div class="tab-pane" id="year">
+      <% x = 0 %>
+      <% y = 1 %>
+      <% z = 1 %>
+      <% @categories_year.each do |categorys| %>
+        <div class="ranking_category">
+          <span><img class="medal_logo" src="<%= asset_path "medal_#{y}.png" %>"></span>
+          <span><%= categorys[x] %></span>
+          <span>投稿数:<%= categorys[z] %></span><br>
+        </div>
+        <% y += 1 %>
+      <% end %>
+    </div>
+  </div>
+  <%= link_to new_post_path do%>
+    <div class="header-one">
+      <svg id="logo" viewBox="25 25 150 150">
+        <polyline points="90,92 65,90 125,65 110,105 90,92"></polyline>
+        <polyline points="125,65 90,92 90,105 98,98"></polyline>
+        <polyline class="shadow" points="70,130 118,110 97,142"></polyline>
+        <text x="45" y="173">投稿する</text>
+      </svg>
+    </div>
+  <% end %>
+</div>
+
+
 <div class="sidebar">
   <%=link_to user_path(current_user.id) do %>
     <div class="login-user-link-sidebar">
@@ -65,20 +116,7 @@
   </div>
 </div>
 
-<%= link_to new_post_path do%>
-  <div class="header-one">
-    <svg id="logo" viewBox="25 25 150 150">
-      <polyline points="90,92 65,90 125,65 110,105 90,92"></polyline>
-      <polyline points="125,65 90,92 90,105 98,98"></polyline>
-      <polyline class="shadow" points="70,130 118,110 97,142"></polyline>
-      <text x="45" y="173">投稿する</text>
-    </svg>
-  </div>
-<% end %>
 
-<div class="main-posts-index">
-  <h1 class="posts-index">投稿一覧</h1>
-</div>
 <section class="post-index-container">
   <% @posts.each do |post| %>
     <div class="cards">

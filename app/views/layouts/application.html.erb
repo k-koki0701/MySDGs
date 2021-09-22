@@ -26,27 +26,31 @@
             <img class="header_logo" src="<%= asset_path "header_logo.png" %>">
           <% end %>
         </div>
-        <nav>
-          <ul class="main-menu">
-          <li class="notice"><%= notice %></li>
-          <li class="alert"><%= alert %></li>
-          <% if user_signed_in? %>
-            <li><%= link_to "投稿", posts_path %></li>
-            <li><%= link_to "イベント", events_path %></li>
-            <li><%= link_to "メッセージ一覧",  conversations_path %></li>
-            <li><%= link_to "マイページ", user_path(current_user) %></li>
-            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-            <% if current_user.try(:admin?) %>
-              <li><%= link_to '管理メニュー', rails_admin_path %></li>
-            <% end %>
-          <% else %>
-            <li><%= link_to "新規登録", new_user_registration_path %></li>
-            <li><%= link_to "ログイン", new_user_session_path %></li>
-            <li><%= link_to 'ゲストログイン（一般）', users_guest_sign_in_path, method: :post %><li>
-            <li><%= link_to 'ゲストログイン(管理者)', users_admin_guest_sign_in_path, method: :post %></li>
-          <% end %>
-
-          </ul>
+        <nav class="navbar navbar-expand-md navbar-light bg-white">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav .mr-auto mt-2 mt-lg-0">
+              <% if user_signed_in? %>
+                <li class="nav-item active"><%= link_to "投稿", posts_path %></li>
+                <li class="nav-item active"><%= link_to "イベント", events_path %></li>
+                <li class="nav-item active"><%= link_to "メッセージ一覧",  conversations_path %></li>
+                <li class="nav-item active"><%= link_to "マイページ", user_path(current_user) %></li>
+                <li class="nav-item active"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+                <% if current_user.try(:admin?) %>
+                  <li class="nav-item active"><%= link_to '管理メニュー', rails_admin_path %></li>
+                <% end %>
+              <% else %>
+                <li class="nav-item active"><%= link_to "新規登録", new_user_registration_path %></li>
+                <li class="nav-item active"><%= link_to "ログイン", new_user_session_path %></li>
+                <li class="nav-item active"><%= link_to 'ゲストログイン（一般）', users_guest_sign_in_path, method: :post %><li>
+                <li class="nav-item active"><%= link_to 'ゲストログイン(管理者)', users_admin_guest_sign_in_path, method: :post %></li>
+              <% end %>
+              <li class="notice"><%= notice %></li>
+              <li class="alert"><%= alert %></li>
+            </ul>
+          </div>
         </nav>
       </div>
     </header>
