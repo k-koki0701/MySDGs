@@ -649,11 +649,11 @@ box-shadow: none;
 }
 
 .header-one {
-  width: 160px;
-  height: 200px;
+  width: 350px;
+  height: 150px;
   background-color: #fff;
   position: fixed;
-  right: 0;
+  right: -10px;
   bottom: 0;
   margin: 10rem 5rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -798,11 +798,27 @@ box-shadow: none;
 }
 
 .ranking{
-  right: 0;
-  top: 100px;
+  right: 40px;
+  top: 250px;
   position: fixed;
   width: 350px;
-  height: 400px;
+  height: 302px;
+  border: 1px solid #ccc;
+}
+
+.ranking h1 {
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+  font-family: Hiragino Kaku Gothic Std;
+  color: #77c9d4;
+}
+
+.ranking span {
+  font-size: 15px;
+  text-align: center;
+  font-family: Hiragino Kaku Gothic Std;
+  color: #696969;
 }
 
 .nav-pills .nav-link.active{
@@ -814,4 +830,29 @@ box-shadow: none;
   width: 150px;
   text-align: center;
   font-size: 20px;
+}
+
+.medal_logo {
+  width: 40px;
+  height: 40px;
+}
+
+.tab-pane span {
+  height: 40px;
+}
+
+.ranking_category {
+  margin: 15px 0;
+  height: 4.6rem;
+  border-bottom: 1px solid #ccc;
+}
+
+@media screen and (max-width: 1350px){
+  .sidebar, .ranking {display:none}
+}
+
+@media screen and (max-width: 600px){
+  .post-index-container {
+    width: 450px;
+  }
 }
