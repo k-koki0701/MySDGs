@@ -1,5 +1,4 @@
 class ConversationsController < ApplicationController
-  before_action :authenticate_user!
 
   def index
     @conversations = Conversation.target_conversation(current_user)

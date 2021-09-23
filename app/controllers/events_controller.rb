@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new edit update destroy]
+  before_action :set_event, only: %i[show edit update destroy]
 
   def index
     @events = Event.after_tomorrow_schedule
@@ -14,44 +14,33 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.owner = current_user
-    if @event.save
-      redirect_to events_path, notice: '作成しました！'
-    else
-      render :new
-    end
+
+    return redirect_to events_path, notice: '作成しました！' if @event.save
+
+    render :new
   end
 
   def show
-    @event = Event.find(params[:id])
     @participation = current_user.participations.find_by(event_id: @event.id)
   end
 
   def edit
-    @event = Event.find(params[:id])
-    if @event.owner == current_user
-      render 'edit'
-    else
-      redirect_to events_path, notice: '作成者のみイベントの編集できます'
-    end
+    return render 'edit' if @event.owner == current_user
+
+    redirect_to events_path, notice: '作成者のみイベントの編集できます'
   end
 
   def update
-    @event = Event.find(params[:id])
-    if @event.update(event_params)
-      redirect_to events_path, notice: '編集しました！'
-    else
-      render :edit
-    end
+    return redirect_to events_path, notice: '編集しました！' if @event.update(event_params)
+
+    render :edit
   end
 
   def destroy
-    @event = Event.find(params[:id])
-    if @event.owner == current_user
-      @event.destroy
-      redirect_to events_path, notice: '削除しました！'
-    else
-      redirect_to events_path, notice: '作成者のみイベントを削除できます'
-    end
+    return redirect_to events_path, notice: '作成者のみイベントを削除できます' unless @event.owner == current_user
+
+    @event.destroy
+    redirect_to events_path, notice: '削除しました！'
   end
 
   private
@@ -59,4 +48,9 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:title, :content, :schedule, :owner_id, :image, :image_cache, :category_id)
   end
+
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
 end

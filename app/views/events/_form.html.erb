@@ -2,45 +2,34 @@
   <%= stylesheet_link_tag 'events' %>
 <% end %>
 
-
 <%= form_with(model: @event, local: true) do |form| %>
   <div class="form-group">
     <%= form.label :イベント名 %>
     <%= form.text_field :title, class:"form-control", placeholder:"イベント名" %>
-    <% if @event.errors.include?(:title) %>
-      <p style="color: red;"><%= @event.errors.full_messages_for(:title).first %>
-    <% end %>
+    <p style="color: red;"><%= event_error_message(:title) if @event.errors.include?(:title) %></p>
   </div>
   <div class="form-group">
     <%= form.label :写真 %>
     <%= form.hidden_field :image_cache %>
     <%= form.file_field :image, id:"image"%>
-    <% if @event.errors.include?(:image) %>
-      <p style="color: red;"><%= @event.errors.full_messages_for(:image).first %>
-    <% end %>
+    <p style="color: red;"><%= event_error_message(:image) if @event.errors.include?(:image) %></p>
   </div>
   <div class="form-group">
     <%= form.label :カテゴリー %>
     <%= form.collection_select :category_id, Category.all, :id, :name, {prompt: 'カテゴリーを選択してください'}, class: 'category__select'  %>
-    <% if @event.errors.include?(:category_id) %>
-      <p style="color: red;"><%= @event.errors.full_messages_for(:category_id).first %>
-    <% end %>
+    <p style="color: red;"><%= event_error_message(:category_id) if @event.errors.include?(:category_id) %></p>
   </div>
 <div class='input-group date form-group' id='datetimepicker' data-target-input='nearest'>
   <div class='input-group-append' data-target='#datetimepicker' data-toggle='datetimepicker'>
     <%= form.label :イベント日 %>
     <%= form.text_field :schedule,  class:'form-control datetimepicker-input', placeholder:"イベント日時"%>
-    <% if @event.errors.include?(:schedule) %>
-      <p style="color: red;"><%= @event.errors.full_messages_for(:schedule).first %>
-    <% end %>
+    <p style="color: red;"><%= event_error_message(:schedule) if @event.errors.include?(:schedule) %></p>
   </div>
 </div>
   <div class="form-group">
     <%= form.label :詳細 %>
     <%= form.text_area :content, class:"form-control", placeholder:"イベントの詳細", size: "20x5" %>
-    <% if @event.errors.include?(:content) %>
-      <p style="color: red;"><%= @event.errors.full_messages_for(:content).first %>
-    <% end %>
+    <p style="color: red;"><%= event_error_message(:content) if @event.errors.include?(:content) %></p>
   </div>
   <div class="form-group submit submit-event">
     <%= form.submit class:"btn-light"%>

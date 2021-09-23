@@ -31,16 +31,12 @@
       <% end %>
       </div>
     <% end %>
-    <% if @post.errors.include?(:category_ids) %>
-      <p style="color: red;"><%= @post.errors.full_messages_for(:category_ids).first %>
-    <% end %>
+    <p style="color: red;"><%= post_error_message(:category_ids) if @post.errors.include?(:category_ids) %></p>
   </div>
   <div class="form-group">
     <%= form.label :content %>
     <%= form.text_area :content, class:"form-control", placeholder:"投稿内容", size: "20x5" %>
-    <% if @post.errors.include?(:content) %>
-      <p style="color: red;"><%= @post.errors.full_messages_for(:content).first %>
-    <% end %>
+    <p style="color: red;"><%= post_error_message(:content) if @post.errors.include?(:content) %></p>
   </div>
   <div class="form-group submit submit-post">
     <%= form.submit class:"btn-light"%>
