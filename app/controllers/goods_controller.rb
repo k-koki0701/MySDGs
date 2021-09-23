@@ -1,5 +1,4 @@
 class GoodsController < ApplicationController
-  before_action :authenticate_user!, only: %i[create destroy]
 
   def index
     @goods = current_user.goods.all
