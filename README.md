@@ -29,6 +29,9 @@ SDGsの普及や活動促進を目的としたアプリケーション。
 - AWS
   - EC2
   - S3
+  - Route53
+  - ALB
+  - Certificate Manager
 
 
 ## 実行手順
