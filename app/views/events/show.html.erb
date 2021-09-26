@@ -34,7 +34,8 @@
     </div>
   </main>
   <div class="event-show-footer">
-    <p>現在の参加予定人数:<%= @event.participations.count %>人</p>
+    <% event_user_count = @event.participations.count %>
+    <p>現在の参加予定人数:<%= event_user_count += 1 %>人</p>
   </div>
   <div class="participation-users">
     <p class="participation-users-list">参加者一覧</p>
