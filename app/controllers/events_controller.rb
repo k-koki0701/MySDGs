@@ -22,6 +22,7 @@ class EventsController < ApplicationController
 
   def show
     @participation = current_user.participations.find_by(event_id: @event.id)
+    @participation_users = @event.participations.includes(:user).order(:created_at)
   end
 
   def edit

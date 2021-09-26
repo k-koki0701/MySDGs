@@ -353,6 +353,7 @@ margin: 0 auto;
   transition: color 0.4s linear;
   position: relative;
   color: #5ad67d;
+  bottom: 30px;
 }
 
 // イベント詳細ページ
@@ -520,7 +521,10 @@ margin: 0 auto;
 .divider--up {
   text-align: center;
 }
-
+.divider--up a {
+  text-decoration: none;
+  color: #fff;
+}
 
 .event-page {
   background-image: image-url("sea_garbage.jpeg");
@@ -587,4 +591,50 @@ margin: 0 auto;
 
 .posts-event-index:after {
     right: 0;
+}
+
+.participation-users {
+  position: relative;
+  top: 10rem;
+}
+
+.participation-users-list {
+  text-align: center;
+}
+
+.participation-users-icon {
+  display: block;
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+}
+
+.participation-users p {
+  font-size: 18px;
+  text-align: center;
+}
+
+.participation-users p a {
+  color: #2f2f2f;
+  text-decoration: none;
+}
+
+.participation-users p a:hover {
+  color: #77c9d4;
+}
+
+.participation-users-index {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.participation-users-block {
+  display: block;
+	padding: 12px;
+}
+
+.participation-users-block h5 {
+  text-align: center;
+  margin-bottom: 10px;
 }
