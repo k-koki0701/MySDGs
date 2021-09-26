@@ -36,6 +36,29 @@
   <div class="event-show-footer">
     <p>現在の参加予定人数:<%= @event.participations.count %>人</p>
   </div>
+  <div class="participation-users">
+    <p class="participation-users-list">参加者一覧</p>
+    <div class="participation-users-index">
+      <div class="participation-users-block">
+        <% if @event.owner.icon? %>
+          <img src= "<%= @event.owner.icon %>" class="participation-users-icon" >
+        <% else %>
+          <img src="<%= asset_path "default.jpg" %>" class="participation-users-icon">
+        <% end %>
+        <p><%=link_to @event.owner.name.truncate(10), user_path(@event.owner.id), class: "participation-user-name" %></p>
+      </div>
+      <% @participation_users.each do |participation_users| %>
+        <div class="participation-users-block">
+          <% if participation_users.user.icon? %>
+            <img src= "<%= participation_users.user.icon %>" class="participation-users-icon" >
+          <% else %>
+            <img src="<%= asset_path "default.jpg" %>" class="participation-users-icon">
+          <% end %>
+          <p><%=link_to participation_users.user.name.truncate(10), user_path(participation_users.user.id), class: "participation-user-name" %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
   <div class="events-link">
