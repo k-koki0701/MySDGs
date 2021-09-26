@@ -31,7 +31,7 @@
               <%= f.password_field :password_confirmation, autocomplete: "new-password", id:"confirm_password", class:"form__input", placeholder:"確認用パスワード"%>
             </div>
             <div class="row">
-              <%= f.submit t('.sign_up') ,class:"botton submit"%>
+              <%= f.submit t('.sign_up') ,data: { disable_with: '新規登録中'} ,class:"botton submit"%>
             </div>
           <% end %>
           </div>

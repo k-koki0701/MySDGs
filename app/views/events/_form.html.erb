@@ -32,7 +32,7 @@
     <p style="color: red;"><%= event_error_message(:content) if @event.errors.include?(:content) %></p>
   </div>
   <div class="form-group submit submit-event">
-    <%= form.submit class:"btn-light"%>
+    <%= form.submit data: { disable_with: '登録中'} ,class:"btn-light"%>
   </div>
 <% end %>
 

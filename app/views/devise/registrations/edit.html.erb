@@ -42,7 +42,7 @@
         <%= f.text_area :self_introduction, autocomplete: "self_introduction", size:"50×5", placeholder:"自己紹介" %>
       </div>
       <div class="form-group submit submit-post">
-        <%= f.submit t('.update'), class:"btn-light"%>
+        <%= f.submit t('.update'), data: { disable_with: '更新中'} ,class:"btn-light"%>
       </div>
     <% end %>
     <h3><%= t('.cancel_my_account') %></h3>

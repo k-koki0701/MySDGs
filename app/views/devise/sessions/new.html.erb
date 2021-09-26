@@ -31,7 +31,7 @@
               <% end %>
             </div>
             <div class="row">
-              <%= f.submit t('.sign_in') ,class:"botton-login submit"%>
+              <%= f.submit t('.sign_in'), data: { disable_with: 'ログイン中'} ,class:"botton-login submit"%>
             </div>
           <% end %>
           <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post ,class:"botton-login submit"%>
