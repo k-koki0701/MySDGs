@@ -353,6 +353,7 @@ margin: 0 auto;
   transition: color 0.4s linear;
   position: relative;
   color: #5ad67d;
+  bottom: 30px;
 }
 
 // イベント詳細ページ
@@ -520,7 +521,10 @@ margin: 0 auto;
 .divider--up {
   text-align: center;
 }
-
+.divider--up a {
+  text-decoration: none;
+  color: #fff;
+}
 
 .event-page {
   background-image: image-url("sea_garbage.jpeg");
