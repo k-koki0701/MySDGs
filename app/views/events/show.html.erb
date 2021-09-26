@@ -47,6 +47,7 @@
           <img src="<%= asset_path "default.jpg" %>" class="participation-users-icon">
         <% end %>
         <p><%=link_to @event.owner.name.truncate(10), user_path(@event.owner.id), class: "participation-user-name" %></p>
+        <h5><主催者></h5>
       </div>
       <% @participation_users.each do |participation_users| %>
         <div class="participation-users-block">
