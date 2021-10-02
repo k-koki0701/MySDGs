@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    @posts = Post.all.includes(:user, :pictures, :goods).order('id DESC')
+    @posts = Post.post_list
     @q = @posts.ransack(params[:q])
     @posts = @q.result(distinct: true)
     @categories_month = Post.categories_ranking_month
