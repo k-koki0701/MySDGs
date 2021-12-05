@@ -2,12 +2,12 @@ class RelationshipsController < ApplicationController
 
   def follower
     @user = User.find(params[:id])
-    @users = @user.followers.all
+    @users = @user.followers.select(:id, :name)
   end
 
   def followed
     @user = User.find(params[:id])
-    @users = @user.following.all
+    @users = @user.following.select(:id, :name)
   end
 
   respond_to? :js

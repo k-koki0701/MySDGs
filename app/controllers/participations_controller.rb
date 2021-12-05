@@ -1,7 +1,7 @@
 class ParticipationsController < ApplicationController
 
   def index
-    @participations = current_user.participations.all
+    @participations = current_user.participations.where("id IS NOT NULL")
   end
 
   def create
