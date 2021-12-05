@@ -1,8 +1,7 @@
 class ParticipationsController < ApplicationController
-  before_action :authenticate_user!, only: %i[create destroy]
 
   def index
-    @participations = current_user.participations.all
+    @participations = current_user.participations.where("id IS NOT NULL")
   end
 
   def create

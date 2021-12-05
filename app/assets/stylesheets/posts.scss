@@ -33,7 +33,7 @@
   width: 600px;
   margin: 0 auto;
   position: relative;
-  top: 5rem;
+  top: 10rem;
   padding-bottom: 200px;
   margin-bottom: 130px;
 }
@@ -649,11 +649,11 @@ box-shadow: none;
 }
 
 .header-one {
-  width: 160px;
-  height: 200px;
+  width: 350px;
+  height: 150px;
   background-color: #fff;
   position: fixed;
-  right: 0;
+  right: -10px;
   bottom: 0;
   margin: 10rem 5rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -795,4 +795,73 @@ box-shadow: none;
   position: relative;
   right: -130px;
   top: 60px;
+}
+
+.ranking{
+  right: 40px;
+  top: 250px;
+  position: fixed;
+  width: 350px;
+  height: 302px;
+  border: 1px solid #ccc;
+}
+
+.ranking h1 {
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+  font-family: Hiragino Kaku Gothic Std;
+  color: #77c9d4;
+}
+
+.ranking span {
+  font-size: 13px;
+  text-align: center;
+  font-family: Hiragino Kaku Gothic Std;
+  color: #696969;
+}
+
+.nav-pills .nav-link.active{
+  background-color: #77c9d4;
+}
+
+.nav-pills .nav-link{
+  color: #77c9d4;
+  width: 150px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.medal_logo {
+  width: 40px;
+  height: 40px;
+}
+
+.ranking_category {
+  margin: 15px 0;
+  height: 4.6rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.post-new-create {
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+  font-family: Hiragino Kaku Gothic Std;
+  color: #77c9d4;
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 1350px){
+  .sidebar, .ranking {display:none}
+}
+
+@media screen and (max-width: 600px){
+  .post-index-container {
+    width: 450px;
+  }
+}
+
+@media screen and (min-width: 1350px){
+  .post-new-create {display:none}
 }

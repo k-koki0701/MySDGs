@@ -2,7 +2,7 @@
   <%= stylesheet_link_tag 'users' %>
 <% end %>
 
-<div class="container">
+<div class="user-show-container">
   <div class="profile">
     <div class="profile-image">
       <% if @user.icon? %>
@@ -31,14 +31,14 @@
         </li>
         <li>
           <%= link_to follower_relationship_path(@user),class:"follow-count" do %>
-            <span class="profile-stat-count">
+            <span class="profile-stat-count" id="followers_count">
               <%= @user.followers.count %>
             </span> followers
           <% end %>
         </li>
         <li>
           <%= link_to followed_relationship_path(@user),class:"follow-count" do %>
-            <span class="profile-stat-count">
+            <span class="profile-stat-count" id="following_count">
               <%= @user.following.count %>
             </span> following
           <% end %>
@@ -82,3 +82,5 @@
     <% end %>
   <% end %>
 </div>
+
+<%= javascript_include_tag 'users.js' %>

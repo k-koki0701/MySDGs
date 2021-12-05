@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    @posts = Post.all.includes(:user, :pictures, :goods).order('id DESC')
+    @posts = Post.post_list
     @q = @posts.ransack(params[:q])
     @posts = @q.result(distinct: true)
+    @categories_month = Post.categories_ranking_month
+    @categories_year = Post.categories_ranking_year
   end
 
   def new
@@ -16,11 +17,11 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    if @post.save
-      redirect_to posts_path, notice: '投稿しました！'
-    else
-      render :new
-    end
+
+    return redirect_to posts_path, notice: '投稿しました！' if @post.save
+
+    render :new
+
   end
 
   def show
@@ -30,28 +31,22 @@ class PostsController < ApplicationController
   end
 
   def edit
-    if @post.user == current_user
-      render 'edit'
-    else
-      redirect_to posts_path, notice: '作成者のみ投稿の編集できます'
-    end
+    return render 'edit' if @post.user == current_user
+
+    redirect_to posts_path, notice: '作成者のみ投稿の編集できます'
   end
 
   def update
-    if @post.update(post_update_params)
-      redirect_to posts_path, notice: '編集しました！'
-    else
-      render :edit
-    end
+    return redirect_to posts_path, notice: '編集しました！' if @post.update(post_update_params)
+
+    render :edit
   end
 
   def destroy
-    if @post.user == current_user
-      @post.destroy
-      redirect_to posts_path, notice: '削除しました！'
-    else
-      redirect_to posts_path, notice: '作成者のみ投稿を削除できます'
-    end
+    return redirect_to posts_path, notice: '作成者のみ投稿を削除できます' unless @post.user == current_user
+
+    @post.destroy
+    redirect_to posts_path, notice: '削除しました！'
   end
 
   private
@@ -68,4 +63,5 @@ class PostsController < ApplicationController
   def set_post
     @post = Post.find(params[:id])
   end
+
 end
