@@ -1,13 +1,12 @@
 
 .chat {
 	position: relative;
-  left: 21rem;
-  top: 10rem;
+	margin: 100px auto;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	width: 75%;
-	height: 60rem;
+	width: 65%;
+	min-height: 700px;
 	z-index: 2;
 	box-sizing: border-box;
 	border-radius: 1rem;
