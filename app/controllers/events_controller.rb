@@ -15,14 +15,20 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.owner = current_user
 
-    return redirect_to events_path, notice: '作成しました！' if @event.save
+    if @event.save
+      @event_room = EventRoom.create(event_id: @event.id)
+      return redirect_to events_path, notice: '作成しました！' 
+    else
+      render :new
+    end
 
-    render :new
   end
 
   def show
     @participation = current_user.participations.find_by(event_id: @event.id)
     @participation_users = @event.participations.includes(:user).order(:created_at)
+    @users = Participation.where(event_id: params[:id]).pluck(:user_id)
+    @event_room = EventRoom.where(event_id: params[:id]).pluck(:id)
   end
 
   def edit

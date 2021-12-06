@@ -1,0 +1,31 @@
+<% content_for :css do %>
+    <%= stylesheet_link_tag 'messages' %>
+  <% end %>
+  
+  <div class="chat">
+    <div class="messages" id="chat">
+      <% @event_messages.each do |message| %>
+        <% if message.body.present? %>
+          <% if message.user == current_user %>
+            <div class="message parker">
+          <% else %>
+            <div class="message stark">
+          <% end %>
+              <%= safe_join(message.body.split("\n"),tag(:br)) %>
+              <h5>ユーザー名：<%= message.user.name %></h5>
+            </div>
+          <% if message.user == current_user %>
+            <div class="read" >
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="bottom-bar">
+      <%= form_with(model: [@event_room, @event_message]) do |f| %>
+        <%= f.text_area :body, class: "form-control", placeholder:"Aa", size: "20x1" %>
+        <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+        <button class="fa fa-paper-plane-o fa-3x"><%= f.submit "", class:"submit" %></button>
+      <% end %>
+      </div>
+  </div>

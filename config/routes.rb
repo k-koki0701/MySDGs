@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     resources :messages
   end
 
+  resources :event_rooms do
+    resources :event_messages
+  end
+
   resources :events do
     resources :participations, only: %i[index create destroy]
   end
