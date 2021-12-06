@@ -28,7 +28,7 @@ class EventsController < ApplicationController
     @participation = current_user.participations.find_by(event_id: @event.id)
     @participation_users = @event.participations.includes(:user).order(:created_at)
     @users = Participation.where(event_id: params[:id]).pluck(:user_id)
-    @event_room = EventRoom.where(event_id: params[:id]).pluck(:id)
+    @event_room = EventRoom.where(event_id: params[:id])
   end
 
   def edit

@@ -3,6 +3,7 @@ class Event < ApplicationRecord
   belongs_to :category
 
   has_many :participations, dependent: :destroy
+  has_many :event_rooms, dependent: :destroy
 
   mount_uploader :image, ImageUploader
 

@@ -31,8 +31,10 @@
           <%= link_to '参加する', event_participations_path(@event.id), method: :post, data: { confirm: 'このイベントに参加しますか?'},class:"btn-gradient-3d-orange" %>
         <% end %>
       <% end %>
-      <% if @users.include?(current_user.id) || @event.owner_id == current_user.id %>
-        <%= link_to 'トークルームへ', event_room_event_messages_path(@event_room[0]), class:"btn-gradient-3d-orange" %>
+      <% unless @event_room[0] == nil %>
+        <% if (@users.include?(current_user.id) || @event.owner_id == current_user.id) && @event_room[0].event.id == @event.id %>
+          <%= link_to 'トークルームへ', event_room_event_messages_path(@event_room[0]), class:"btn-gradient-3d-orange" %>
+        <% end %>
       <% end %>
   </main>
   <div class="event-show-footer">
