@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   root 'tops#index'
 
+  resources :introductions, only: %i[index]
+
   resources :posts do
     resources :comments, only: [:create]
     resources :goods, only: %i[index create destroy]

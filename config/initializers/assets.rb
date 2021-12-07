@@ -24,5 +24,6 @@ Rails.application.config.assets.precompile += %w[
   message.css
   applications.css
   ralationships.css
+  introductions.css
   *.js
 ]

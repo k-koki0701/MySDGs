@@ -1,0 +1,64 @@
+.introductions {
+    width: 80%;
+    margin: 50px auto;
+
+  .intro-icon {
+    width: 100%;
+  }
+  #intro-icon {
+    text-align: center;
+    margin: 100px 0 50px 0;
+  }
+
+  h3 {
+    padding: 1rem 2rem;
+    border-left: 5px solid #000;
+    background: #f4f4f4;
+    margin-top: 50px 0;
+  }
+
+  p {
+    font-size: large;
+    width: 80%;
+    margin: 0 auto 50px auto;
+    line-height: 35px; 
+  }
+
+  #list-icon {
+    text-align: center;
+  }
+  .list-icon {
+    width: 70%;
+    height: 400px;
+    margin: 50px;
+  }
+
+  ul{
+    position: relative;
+    padding: 15px 15px 15px 30px;
+    font: 14px/1.6 'arial narrow', sans-serif;
+    border: solid 2px #adcce8;
+    border-radius:8px;
+    color: #448ccb;
+    min-width:30%;
+    min-height: 300px;
+    background: #fff;
+    margin: 50px auto 150px auto;
+
+    li{
+      font-weight: bold;
+      margin: 20px;
+    }
+  }
+  ul:before{
+    content: "できること";  /* 好きな文字を記述 */
+    position: absolute;
+    display: block;
+    top: -15px;
+    left: 20px;
+    background: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0 10px;
+  }
+}
