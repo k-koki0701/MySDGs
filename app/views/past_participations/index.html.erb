@@ -1,0 +1,35 @@
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'events' %>
+<% end %>
+
+<div class="participation-list">
+  <div class="main-events-index">
+    <h1 class="posts-event-index">過去に参加したイベント一覧</h1>
+  </div>
+  <% if @past_participations.size != 0 %>
+    <% @past_participations.each do |participation| %>
+      <div class="event-card">
+    <div class="meta">
+      <%= image_tag participation.event.image.url ,class:"photo"%>
+      <ul class="details">
+        <li class="author">主催者:<%=link_to participation.event.owner.name, user_path(participation.event.owner.id) %></td></li>
+        <li class="date">作成日:<%= l participation.event.created_at , format: :short %></li>
+      </ul>
+    </div>
+    <div class="description">
+      <h1 class="event-title"><%= participation.event.title %></h1>
+      開催日:<%= l participation.event.schedule , format: :long %>
+      <h2>カテゴリー:<%= participation.event.category.name %></h2>
+      <p><%= participation.event.content %></p>
+      <p class="read-more">
+        <%= link_to '詳細', event_path(participation.event.id) %>
+      </p>
+    </div>
+  </div>
+    <% end %>
+  <% else %>
+    <div class="not-participations">
+      <p>過去に参加したイベントはありません。</p>
+    </div>
+  <% end %>
+</div>
