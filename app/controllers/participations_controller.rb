@@ -1,7 +1,7 @@
 class ParticipationsController < ApplicationController
 
   def index
-    @participations = current_user.participations.where("id IS NOT NULL")
+    @participations = Participation.where(user_id: current_user).joins(:event).merge(Event.where("schedule >= ?", Time.now))
   end
 
   def create
