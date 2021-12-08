@@ -4,7 +4,8 @@
 
 <div class="participation-list">
   <div class="main-events-index">
-    <h1 class="posts-event-index">参加予定のイベント一覧</h1>
+    <h1 class="posts-event-index">参加予定のイベント一覧</h1><br>
+    <%= link_to "過去の参加イベントはこちらから", past_participations_path,class:"past-participations" %>
   </div>
   <% if @participations.size != 0 %>
     <% @participations.each do |participation| %>
@@ -28,6 +29,8 @@
   </div>
     <% end %>
   <% else %>
-    <p>参加予定のイベントはありません。</p>
+    <div class="not-participations">
+      <p>参加予定のイベントはありません。</p>
+    </div>
   <% end %>
 </div>
