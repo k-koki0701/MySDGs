@@ -4,11 +4,10 @@
 
 <div class="participation-list">
   <div class="main-events-index">
-    <h1 class="posts-event-index">参加予定のイベント一覧</h1><br>
-    <%= link_to "過去の参加イベントはこちらから", past_participations_path,class:"past-participations" %>
+    <h1 class="posts-event-index">過去に参加したイベント一覧</h1>
   </div>
-  <% if @participations.size != 0 %>
-    <% @participations.each do |participation| %>
+  <% if @past_participations.size != 0 %>
+    <% @past_participations.each do |participation| %>
       <div class="event-card">
     <div class="meta">
       <%= image_tag participation.event.image.url ,class:"photo"%>
@@ -30,7 +29,7 @@
     <% end %>
   <% else %>
     <div class="not-participations">
-      <p>参加予定のイベントはありません。</p>
+      <p>過去に参加したイベントはありません。</p>
     </div>
   <% end %>
 </div>

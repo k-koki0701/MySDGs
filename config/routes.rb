@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :introductions, only: %i[index]
 
+  resources :past_participations, only: %i[index]
+
   resources :posts do
     resources :comments, only: [:create]
     resources :goods, only: %i[index create destroy]

@@ -545,14 +545,19 @@ margin: 0 auto;
 
 .main-events-index {
   text-align: center;
+  margin-top: 10rem;
+
+  .past-participations {
+    font-size: medium;
+  }
 }
 
 .posts-event-index {
-  margin-top: 10rem;
   position: relative;
   display: inline-block;
   padding: 0 55px;
   font-size: 30px;
+  margin-bottom: 20px;
 }
 
 .posts-event-index:before,
@@ -618,4 +623,13 @@ margin: 0 auto;
 .participation-users-block h5 {
   text-align: center;
   margin-bottom: 10px;
+}
+
+.not-participations {
+  text-align: center;
+  margin-top: 30px;
+
+  p {
+    font-size: large;
+  }
 }
